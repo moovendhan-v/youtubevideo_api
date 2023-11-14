@@ -1,0 +1,3 @@
+INSERT INTO `hkragritechs` (`id`, `videoId`, `videoTitle`, `description`, `thumbnail`) VALUES (NULL, 'v=e5PLy52bUWw', 'how to shoot youtube videos with your phone |Hkr agri techs', 'subscribe to my channel it\'s free\r\nhttps://www.youtube.com/hkragritechsy...\r\n', 'https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg');
+
+
