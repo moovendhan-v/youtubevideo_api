@@ -17,10 +17,7 @@ class db{
             // $usernames = $GLOBALS['mysql_usernames'];
             // $passwords = $GLOBALS['mysql_passwords'];
             // $dbname = $GLOBALS['mysql_db'];
-            $servername = "localhost";
-            $usernames = "root";
-            $passwords = "";
-            $dbname = "mooagr_agri";
+          
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);
              // Check connection

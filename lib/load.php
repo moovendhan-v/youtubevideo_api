@@ -1,7 +1,13 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Allow from any origin
+header('Access-Control-Allow-Origin: *');
+
+// Allow methods (GET, POST, etc.)
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
+// Allow headers
+header('Access-Control-Allow-Headers: Content-Type');
 
 
 include __DIR__."/class/youtube.class.php";
