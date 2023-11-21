@@ -38,6 +38,12 @@ body {
 .tab-content.active {
     display: block;
 }
+.activeBar{
+    background-color: white;
+  color: vkye;
+  color: #1e90ff;
+  border-radius: 50px 0 0 50px;
+}
 .main_container{
     display: flex;
     width: 100%;
@@ -59,4 +65,12 @@ body {
 .thumnail{
     width: 200px;
     height: auto;
+}
+.updateVideo{
+    margin-bottom: 10px;
+}
+.wrapButton{
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }

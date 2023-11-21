@@ -11,7 +11,9 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 
 include __DIR__."/class/youtube.class.php";
+include __DIR__."/class/operations.class.php";
 include_once __DIR__."/class/db.class.php";
+
 
 
 function loadTemplate($page){

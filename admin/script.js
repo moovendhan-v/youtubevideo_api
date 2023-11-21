@@ -7,22 +7,41 @@ document.addEventListener("DOMContentLoaded", function () {
         tab.addEventListener('click', () => {
             // Hide all tab contents
             tabContents.forEach(content => content.classList.remove('active'));
-
+            tabs.forEach(content => content.classList.remove('activeBar'));
             // Show the selected tab content
             tabContents[index].classList.add('active');
+            tabs[index].classList.add('activeBar');
         });
     });
 });
 
 
-var categoriesArray = [];
-var channelIdArray = [];
-var videoTypeId = [];
+//bootstrap script for alert
+function createALertButton(message, color){
+  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  const appendAlert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>'
+    ].join('')
+    alertPlaceholder.append(wrapper)
+  }
+  appendAlert(message, color);
+}
+
+// createALertButton("Button created", "success");
+
+var categoriesArray = ["Best Apps", "Whats App", "Online Earnings"]; //channel
+var channelIdArray = ["hkr agri techs", "Best apps in tamil"];  //catogries
+var videoTypeId = ['normal', 'shorts'];  //Type
 
 
 async function fetchData() {
   try {
-    const response = await fetch('https://apis.agricreations.com');
+    const response = await fetch('https://apis.agricreationss.com');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -108,19 +127,11 @@ function mapApiResponseToDataObject(apiResponse) {
       tbody.appendChild(tableRow);
     }
 
-    // for (var i = 0; i < dataObjects.length; i++) {
-    //     createTableRow(dataObjects[i]);
-    // }
+    console.log(categoriesArray);
+    console.log(channelIdArray);
+    console.log(videoTypeId);
 
-      // Log the result
-      console.log(categoriesArray);
-      console.log(channelIdArray);
-      console.log(videoTypeId);
-
-// Select all elements with the class name "getModel"
 var getModelButtons = document.querySelectorAll('.getModel');
-
-// Add a click event listener to each element
 getModelButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
         // Your existing code here
@@ -144,3 +155,42 @@ getModelButtons.forEach(function (button) {
         console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     });
 });
+
+
+function createSelect(classes, array){
+  var selectElement = document.querySelector(`.${classes}`);
+
+  array.forEach(function (value) {
+    var option = document.createElement("option");
+    option.value = value;
+    option.text = value;
+    selectElement.appendChild(option);
+  });
+  // Set the second option as selected (change index as needed)
+  selectElement.options[1].selected = true;
+}
+createSelect("videoSelects", channelIdArray);
+createSelect("videoCatogries", categoriesArray);
+createSelect("videoType", videoTypeId);
+
+
+
+
+
+
+
+//removing toast button 
+if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+  console.log("true");
+  const intervalId = setInterval(() => {
+    if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+      document.getElementById('liveAlertPlaceholder').childNodes[0].remove();
+    } else {
+      console.log("Terminating process, no more child nodes.");
+      clearInterval(intervalId);
+    }
+  }, 2000);
+} else {
+  console.log("No child nodes initially, terminating process.");
+}
+
