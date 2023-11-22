@@ -13,10 +13,6 @@ class db{
     public static $conn = null;
     public static function makeConnection(){
         if(db::$conn==null){
-            // $servername = $GLOBALS['mysql_servername'];
-            // $usernames = $GLOBALS['mysql_usernames'];
-            // $passwords = $GLOBALS['mysql_passwords'];
-            // $dbname = $GLOBALS['mysql_db'];
 
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);

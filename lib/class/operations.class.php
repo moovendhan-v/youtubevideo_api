@@ -3,8 +3,6 @@
 class operations {
     public static function insertData(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // $raw_data = file_get_contents("php://input");
-            // $decoded_data = json_decode($raw_data, true);
             $videoId = $_POST["videoId"];
             $videoImage = $_POST["videoImage"];
             $videoTitle = $_POST["videoTitle"];
@@ -23,26 +21,75 @@ class operations {
                 echo json_encode(["status" => "error", "message" => "Data not inserted"]);
             }
             $conn->close();
-            // INSERT INTO `youtube_videos_api` (`id`, `videoid`, `image`, `title`, `description`, `channelid`, `catogries`, `type`, `islive`) VALUES (NULL, 't', 't', 't', 't', '1', '1', '1', '1');
-
         } else {
             echo json_encode(["status" => "error", "message" => "Invalid request method"]);
         }
+    }
+        
+        public static function getChannelInfo(){
+            $finalData = array();
+            $conn = db::makeConnection();
+            $query = "SELECT * FROM `youtube_channel_info`"; // Changed table name
+            $result = $conn->query($query);
+            if($result){
+                if($result->num_rows > 0){
+                    while ($row = $result->fetch_assoc()) {
+                        $finalData[] = $row['channel_title'];
+                    }
+                }
+                $result->close(); 
+            }
+            $conn->close();
+            $data = [
+                        "channel" => $finalData,
+                    ];
+            $jsonData = json_encode($data);
+            header('Content-Type: application/json');
+            return $jsonData;
+        }
 
-        // public static function fetchYoutubeVideos($database){
-        //     $conn = db::makeConnection();
-        //     $query = "SELECT `id`, `videoId`, `videoTitle`, `description`, `thumbnail` FROM `$database` WHERE 1";
-        //     $result = $conn->query($query);
-        //         $videos = array();
-        //         if($result->num_rows > 0){
-        //             while ($row = $result->fetch_assoc()) {
-        //                 $videos[] = $row;
-        //             }
-        //         }
-        //     $conn->close();
-        //     $jsonResult = json_encode($videos);
-        //     header('Content-Type: application/json');
-        //     return $jsonResult;
+        public static function getCatogriesInfo(){
+            $finalData = array();
+            $conn = db::makeConnection();
+            $query = "SELECT * FROM `youtube_videos_catogries`"; // Changed table name
+            $result = $conn->query($query);
+            if($result){
+                if($result->num_rows > 0){
+                    while ($row = $result->fetch_assoc()) {
+                        $finalData[] = $row['catogries'];
+                    }
+                }
+                $result->close(); 
+            }
+            $conn->close();
+            $data = [
+                        "catogries" => $finalData,
+                    ];
+            $jsonData = json_encode($data);
+            header('Content-Type: application/json');
+            return $jsonData;
+        }
+
+        public static function getVideoTypeInfo(){
+            $finalData = array();
+            $conn = db::makeConnection();
+            $query = "SELECT * FROM `youtube_video_type`"; // Changed table name
+            $result = $conn->query($query);
+            if($result){
+                if($result->num_rows > 0){
+                    while ($row = $result->fetch_assoc()) {
+                        $finalData[] = $row['type'];
+                    }
+                }
+                $result->close(); 
+            }
+            $conn->close();
+            $data = [
+                        "catogries" => $finalData,
+                    ];
+            $jsonData = json_encode($data);
+            header('Content-Type: application/json');
+            return $jsonData;
         }
 
     }

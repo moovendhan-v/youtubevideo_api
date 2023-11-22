@@ -192,8 +192,8 @@
           <p>Islive</p>
           <div class="updateVideo">
             <div class="form-check form-switch">
-              <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked">Is live</label>
+              <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedAddNew" checked>
+              <label class="form-check-label" for="flexSwitchCheckCheckedAddNew">Is live</label>
             </div>
           </div>
           <div class="btn btn-primary updateAjaxCall">Update Video</div>

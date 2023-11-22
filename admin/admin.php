@@ -1,0 +1,257 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['login']) == "admin"){
+  header("Location: index.php");
+  die;
+}
+
+if (isset($_GET['logout'])) {
+  // Destroy the entire session
+  session_destroy();
+  // Redirect to the login page after logout
+  header("Location: index.php");
+  exit; // Ensure that no code is executed after the redirection
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Youtube Admin Dashbord</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+<div class="wrapButton">
+  <div id="liveAlertPlaceholder"></div>
+</div>
+        <!-- Modal -->
+        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 modalId" id="exampleModalLabel">Edit</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-2">
+                <input class="modalTitle p-2 form-control form-control-lg" type="text" placeholder="Title" aria-label=".form-control-lg example">
+                <input class="modalDes p-2 form-control form-control-lg" type="text" placeholder="Description" aria-label=".form-control-lg example">
+                <div class="py-2 group d-flex
+                ">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Channel Name</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Catogries</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Type</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Is live</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <div class=" main_container">
+    
+    <div class="left_div">
+      <div class="logo">
+        <h3>Agri creations</h3>
+      </div>
+      <div class="tabs-container">
+        <div class="tab activeBar"><i class="fa-solid fa-house "></i>Dashbord</div>
+        <div class="tab"><i class="fa-solid fa-plus"></i>Add Videos</div>
+        <div class="tab"><i class="fa-solid fa-pen-to-square"></i>Update Info</div>
+        <!-- Add more tabs as needed -->
+      </div>
+    </div>
+    <div class="right_div">
+
+      <div class="tab-content active">
+       <div class="d-flex justify-content-between">
+       <h3>Welcome admin</h3>
+        <a href="/admin/admin.php?logout"><button class="btn btn-danger">Logout</button></a>
+       </div>
+        <div class="content">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Edit</th>
+                <th scope="col">Id</th>
+                <th scope="col">Images</th>
+                <th scope="col">title</th>
+                <th scope="col">Description</th>
+                <th scope="col">channel id</th>
+                <th scope="col">catogries</th>
+                <th scope="col">type</th>
+                <th scope="col">is live</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              
+              <!-- <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-danger getModel" id="Ba58DtoCUes" data-bs-toggle="modal" data-bs-target="#editModel">Edit</button>
+                    </div>
+                    <div class="col">
+                        <strong>Ba58DtoCUes</strong>
+                    </div>
+                    <div class="col">
+                        <img class="img-fluid thumbnail" src="https://i.ytimg.com/vi/Ba58DtoCUes/mqdefault.jpg" alt="">
+                    </div>
+                    <div class="col">
+                        <strong>Title:</strong> How to hack whats app |tamil|#hkragritechs
+                    </div>
+                    <div class="col">
+                        <strong>Description:</strong> whatsapp #hack #whatsappweb disclaimer this channel does not promote any illegal activities so this video is made for only ...
+                    </div>
+                    <div class="col">
+                        <strong>Channel ID:</strong> UCSjSmjY9cEI_ib-NrBElVXw
+                    </div>
+                    <div class="col">
+                        <strong>Category:</strong> whatsapp
+                    </div>
+                    <div class="col">
+                        <strong>Type:</strong> normal
+                    </div>
+                    <div class="col">
+                        <strong>Is Live:</strong> 0
+                    </div>
+                </div>
+            </div> -->
+            </tbody>
+            
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <h3>Add More Videos</h3>
+        <div class="addVideos">
+          <p>Video id</p>
+          <div class="updateVideo">
+            <input required class="form-control form-control-lg getVideoId" type="text" placeholder="video id" aria-label="Enter a value example">
+          </div>
+          <p>Video image</p>
+          <div class="updateVideo">
+            <input required class="form-control form-control-lg getVideoImage" type="text " placeholder="Image url" aria-label="Enter a value example">
+          </div>
+          <p>Video Title</p>
+          <div class="updateVideo">
+            <input required class="form-control form-control-lg getVideoTitle" type="text " placeholder="Video titile" aria-label="Enter a value example">
+          </div>
+          <p>Video Description</p>
+          <div class="updateVideo">
+            <!-- <input class="form-control form-control-lg getVideoDescription" type="textarea" placeholder="Video Description" aria-label="Enter a value example"> -->
+            <textarea required class="form-control getVideoDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="d-flex row">
+            <div class="col-4">
+              <p>Channel</p>
+              <div class="updateVideo">
+                <select class="form-select videoSelects" aria-label="Default select example">
+                  <option disabled selected>Select a Channel</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4">
+            <p>catogries</p>
+            <div class="updateVideo">
+              <select class="form-select  videoCatogries" aria-label="Default select example">
+                <option disabled selected>Select a catogries</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4">
+          <p>Type</p>
+          <div class="updateVideo">
+            <select class="form-select videoType" aria-label="Default select example">
+              <option disabled selected>Video type</option>
+            </select>
+          </div>
+        </div>
+         </div>
+          <p>Islive</p>
+          <div class="updateVideo">
+            <div class="form-check form-switch">
+              <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedAddNew" checked>
+              <label class="form-check-label" for="flexSwitchCheckCheckedAddNew">Is live</label>
+            </div>
+          </div>
+          <div class="btn btn-primary updateAjaxCall">Update Video</div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <h3>Update Info</h3>
+        <div class="updateInfo">
+          <div class="row ">
+            <div class="col-4">
+              <h5>Catogries </h5>
+              <div class="catogriesContent">
+                <p>testing</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <h5>Type</h5>
+              <div class="typeContent">
+                <p>testing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script src="./script.js"></script>
+  <script src="./ajax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<?php

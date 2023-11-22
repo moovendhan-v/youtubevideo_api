@@ -33,15 +33,63 @@ function createALertButton(message, color){
 }
 
 // createALertButton("Button created", "success");
+// let categoriesArray = [];
+// document.addEventListener('DOMContentLoaded', async function () {
+//     async function fetchcategoriesArray(slogan) {
+//         try {
+//             const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+//             const data = await response.json();
+//             categoriesArray = data.catogries.map(function (category) {
+//                 return category.toLowerCase();
+//             });
+//             console.log(categoriesArray);
+//         } catch (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     }
+//     await fetchcategoriesArray("getcatogriesinfo");
+//     await createSelect("videoCatogries", categoriesArray);
+// });
 
-var categoriesArray = ["Best Apps", "Whats App", "Online Earnings"]; //channel
-var channelIdArray = ["hkr agri techs", "Best apps in tamil"];  //catogries
-var videoTypeId = ['normal', 'shorts'];  //Type
+let channelIdArray = [];  
+document.addEventListener('DOMContentLoaded', async function () {
+  async function fetchchannelIdArray(slogan) {
+      try {
+          const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+          const data = await response.json();
+          channelIdArray = data.catogries.map(function (category) {
+              return category.toLowerCase();
+          });
+          console.log(channelIdArray);
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  }
+  await fetchchannelIdArray("getchannelinfo");
+  await createSelect("videoSelects", channelIdArray);
+});
 
+// let videoTypeId = []; 
+// document.addEventListener('DOMContentLoaded', async function () {
+//   async function fetchgetvideoinfo(slogan) {
+//       try {
+//           const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+//           const data = await response.json();
+//           channelIdArray = data.catogries.map(function (category) {
+//               return category.toLowerCase();
+//           });
+//           console.log(channelIdArray);
+//       } catch (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   }
+//   await fetchgetvideoinfo("getvideoinfo");
+//   await createSelect("videoType", videoTypeId  );
+// });
 
 async function fetchData() {
   try {
-    const response = await fetch('https://apis.agricreationss.com');
+    const response = await fetch('https://youtubeapi.agricreations.com/');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -125,53 +173,46 @@ function mapApiResponseToDataObject(apiResponse) {
       // Append the new table row to the existing table body within the table with id "tableData"
       var tbody = document.querySelector("tbody");
       tbody.appendChild(tableRow);
-    }
+  }
 
-    console.log(categoriesArray);
-    console.log(channelIdArray);
-    console.log(videoTypeId);
+  var getModelButtons = document.querySelectorAll('.getModel');
+  getModelButtons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+          // Your existing code here
+          console.log(e.target.parentNode.parentNode);
 
-var getModelButtons = document.querySelectorAll('.getModel');
-getModelButtons.forEach(function (button) {
-    button.addEventListener('click', function (e) {
-        // Your existing code here
-        console.log(e.target.parentNode.parentNode);
+          var id = button.parentElement.parentElement.cells[1].innerText;
+          var image = button.parentElement.parentElement.cells[2].lastChild.src;
+          var title = button.parentElement.parentElement.cells[3].innerText;
+          var description = button.parentElement.parentElement.cells[4].innerText;
+          var cannelid = button.parentElement.parentElement.cells[5].innerText;
+          var catogries = button.parentElement.parentElement.cells[6].innerText;
+          var type = button.parentElement.parentElement.cells[7].innerText;
+          var islive = button.parentElement.parentElement.cells[8].innerText;
 
-        var id = button.parentElement.parentElement.cells[1].innerText;
-        var image = button.parentElement.parentElement.cells[2].lastChild.src;
-        var title = button.parentElement.parentElement.cells[3].innerText;
-        var description = button.parentElement.parentElement.cells[4].innerText;
-        var cannelid = button.parentElement.parentElement.cells[5].innerText;
-        var catogries = button.parentElement.parentElement.cells[6].innerText;
-        var type = button.parentElement.parentElement.cells[7].innerText;
-        var islive = button.parentElement.parentElement.cells[8].innerText;
+          var modalid = document.querySelector('.modalId').innerText = id;
+          var modalTitle = document.querySelector('.modalTitle').value = title;
+          var modalDes = document.querySelector('.modalDes').value = description;
+          var modalChecked = document.querySelector('.modalChecked').checked = islive == 1 ? true : false ;
 
-        var modalid = document.querySelector('.modalId').innerText = id;
-        var modalTitle = document.querySelector('.modalTitle').value = title;
-        var modalDes = document.querySelector('.modalDes').value = description;
-        var modalChecked = document.querySelector('.modalChecked').checked = islive == 1 ? true : false ;
-
-        // var modalChannelId = document.querySelector('.modalDes').value = description;
-        console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
-    });
-});
-
+          // var modalChannelId = document.querySelector('.modalDes').value = description;
+          console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
+      });
+  });
 
 function createSelect(classes, array){
   var selectElement = document.querySelector(`.${classes}`);
-
   array.forEach(function (value) {
     var option = document.createElement("option");
     option.value = value;
     option.text = value;
     selectElement.appendChild(option);
   });
-  // Set the second option as selected (change index as needed)
   selectElement.options[1].selected = true;
 }
-createSelect("videoSelects", channelIdArray);
-createSelect("videoCatogries", categoriesArray);
-createSelect("videoType", videoTypeId);
+// createSelect("videoSelects", channelIdArray);
+// // createSelect("videoCatogries", categoriesArray);
+// createSelect("videoType", videoTypeId);
 
 
 
@@ -180,17 +221,17 @@ createSelect("videoType", videoTypeId);
 
 
 //removing toast button 
-if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-  console.log("true");
-  const intervalId = setInterval(() => {
-    if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-      document.getElementById('liveAlertPlaceholder').childNodes[0].remove();
-    } else {
-      console.log("Terminating process, no more child nodes.");
-      clearInterval(intervalId);
-    }
-  }, 2000);
-} else {
-  console.log("No child nodes initially, terminating process.");
-}
+// if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+//   console.log("true");
+//   const intervalId = setInterval(() => {
+//     if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+//       document.getElementById('liveAlertPlaceholder').childNodes[0].remove();
+//     } else {
+//       console.log("Terminating process, no more child nodes.");
+//       clearInterval(intervalId);
+//     }
+//   }, 2000);
+// } else {
+//   console.log("No child nodes initially, terminating process.");
+// }
 

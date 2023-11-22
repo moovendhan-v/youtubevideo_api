@@ -10,9 +10,15 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var channel = document.querySelector(".videoSelects").selectedIndex;
   var catogries = document.querySelector('.videoCatogries').selectedIndex;
   var type = document.querySelector('.videoType').selectedIndex;
-  var isLive = document.querySelector('#flexSwitchCheckChecked').value;
+  var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
 
+  let status = 1;
+
+  if(!isLive){
+    status = 0;
+  }
   // Create a FormData object
+ 
   var formData = new FormData();
   formData.append("videoId", videoId);
   formData.append("videoImage", videoImage);
@@ -21,11 +27,11 @@ updateAjaxCall.addEventListener('click',(event)=>{
   formData.append("channel", channel);
   formData.append("catogries", catogries);
   formData.append("type", type);
-  formData.append("isLive", isLive);
+  formData.append("isLive", status);
 
   // Perform the AJAX request
   var xhr = new XMLHttpRequest();
-  var url = "http://localhost/youtubevideo_api/?update=insert"; // Replace with your actual PHP endpoint
+  var url = "https://youtubeapi.agricreations.com?update"; // Replace with your actual PHP endpoint
   xhr.open("POST", url, true);
 
   xhr.onload = function () {
@@ -62,6 +68,9 @@ updateAjaxCall.addEventListener('click',(event)=>{
   // Send the FormData object with the POST request
   xhr.send(formData);
 })
+
+//using ajax adding catogries, changel, type
+
 
 
 
