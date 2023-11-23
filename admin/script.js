@@ -179,7 +179,6 @@ function mapApiResponseToDataObject(apiResponse) {
     });
     return mappedData;
   }
-  
   function createTableRow(dataObject) {
     // Create a table row
       var tableRow = document.createElement("tr");
@@ -214,6 +213,10 @@ function mapApiResponseToDataObject(apiResponse) {
       }
       // Append the new table row to the existing table body within the table with id "tableData"
       var tbody = document.querySelector("tbody");
+      if(tbody.childElementCount >= 1){
+        var spinner = document.querySelector('.spinner');
+        spinner.classList.add('visually-hidden');
+      }
       tbody.appendChild(tableRow);
   }
 
