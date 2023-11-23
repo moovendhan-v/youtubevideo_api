@@ -50,6 +50,26 @@ if (isset($_GET['logout'])) {
     width: 20%;
     height: auto;
 }
+.menuHideBar{
+  position: absolute;
+  position: ;
+  right: -12px;
+  background-color: #1e90ff;
+  padding: 10px;
+  border-radius: 20%;
+  top: 17px;
+  border: 2px solid white;
+
+}
+.adminDashbord{
+  position: relative;
+  top: 20px;
+  width: 100%;
+  min-height: 200px;
+  background-color:#1e90ff;
+  display: flex;
+  align-items:center;
+}
 </style>
 </head>
 
@@ -103,32 +123,48 @@ if (isset($_GET['logout'])) {
         </div>
 
   <div class=" main_container">
-    
+
     <div class="left_div">
+    <!-- <div class="menuHideBar">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      </div> -->
       <div class="logo d-flex align-items-center">
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFz1aoq0RnlkDHO6OqApeAWXICc9xFcyqUZndGSfTyzPPDPksfhsYK7s4vEoYZ_Xc2Imeh9yEXbg09WAwEpH41KXANe8wbLqaQFyhMqkVH9_KDvhZ-VkUxzB5ppvwyOh_vEUDkLbPBwrYOgyMC7x9-aN5kF-Q1HB3cOugW5PBtrjXfHQIN15w5cz09LPt6/s16000/T-G%20logos%20only.png" alt="">
         <h3 class="m-0">Techey Guys</h3>
-       
       </div>
       <div class="tabs-container">
-        <div class="tab activeBar"><i class="fa-solid fa-house "></i>Dashbord</div>
+        <div class="tab activeBar"><i class="fa-solid fa-house "></i>Dashbord
+      </div>
         <div class="tab"><i class="fa-solid fa-plus"></i>Add Videos</div>
         <div class="tab"><i class="fa-solid fa-pen-to-square"></i>Update Info</div>
         <!-- Add more tabs as needed -->
       </div>
     </div>
+
     <div class="right_div">
         <div class="tab-content active">
-<div class="wrap">
-      <div class="menuHideBar">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i>
-      </div>
+      <div class="wrap">
       <div class="d-flex justify-content-between">
           <h3>Welcome admin</h3>
           <a href="/admin/admin.php?logout"><button class="btn btn-danger">Logout</button></a>
       </div>
 </div>
-
+        <div class="adminDashbord text-light">
+    <div class="row d-flex w-100">
+      <div class="col-4 d-flex justify-content-center align-items-center"><div>
+        <h3 class="fs-5">Total Videos</h3>
+        <h4 class="fs-2">100</h4>
+      </div></div>
+      <div class="col-4 d-flex  justify-content-center align-items-center"><div>
+      <h3 class="fs-5">Total Live</h3>
+        <h4 class="fs-2">100</h4>
+      </div></div>
+      <div class="col-4 d-flex  justify-content-center align-items-center"><div>
+      <h3 class="fs-5">Catogries</h3>
+        <h4 class="fs-2">100</h4>
+      </div></div>
+    </div>
+        </div>
         <div class="content">
           <table class="table">
             <thead>
@@ -142,11 +178,9 @@ if (isset($_GET['logout'])) {
                 <th scope="col">catogries</th>
                 <th scope="col">type</th>
                 <th scope="col">is live</th>
-
               </tr>
             </thead>
             <tbody>
-              
               <!-- <div class="container">
                 <div class="row">
                     <div class="col">
@@ -187,23 +221,38 @@ if (isset($_GET['logout'])) {
       <div class="tab-content">
         <h3>Add More Videos</h3>
         <div class="addVideos">
+
+        <div class="d-flex w-100">
+          <div class="w-50 p-2">
           <p>Video id</p>
           <div class="updateVideo">
             <input required class="form-control form-control-lg getVideoId" type="text" placeholder="video id" aria-label="Enter a value example">
           </div>
-          <p>Video image</p>
+          </div>
+          <div class="w-50 p-2">
+        <p>Video image</p>
           <div class="updateVideo">
             <input required class="form-control form-control-lg getVideoImage" type="text " placeholder="Image url" aria-label="Enter a value example">
           </div>
+        </div>
+        </div>
+
+        <div class="d-flex w-100">
+        <div class="w-50 p-2">
           <p>Video Title</p>
           <div class="updateVideo">
             <input required class="form-control form-control-lg getVideoTitle" type="text " placeholder="Video titile" aria-label="Enter a value example">
           </div>
-          <p>Video Description</p>
+        </div>
+        <div class="w-50 p-2">
+         <p>Video Description</p>
           <div class="updateVideo">
             <!-- <input class="form-control form-control-lg getVideoDescription" type="textarea" placeholder="Video Description" aria-label="Enter a value example"> -->
             <textarea required class="form-control getVideoDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
+         </div>
+        </div>
+         
           <div class="d-flex row">
             <div class="col-4">
               <p>Channel</p>

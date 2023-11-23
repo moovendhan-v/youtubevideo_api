@@ -49,6 +49,7 @@ body {
     width: 100%;
 }
 .left_div{
+    position: relative;
     width: 20%;
     min-height: 100vh;
   background-color: dodgerblue;
