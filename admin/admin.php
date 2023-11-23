@@ -284,10 +284,10 @@ if (isset($_GET['logout'])) {
               <h5 class="updateInfoHeading">Catogries </h5>
               <div class="channelContent updateInfoHeading">
               </div>
-              <div class="d-flex bg-info">
+              <!-- <div class="d-flex bg-info">
               <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
                 <button class="btn btn-primayy">Add</button>
-              </div>
+              </div> -->
             </div>
 
             <div class="col-4">
