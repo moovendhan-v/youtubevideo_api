@@ -12,6 +12,11 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var type = document.querySelector('.videoType').selectedIndex;
   var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
 
+  if(videoId == "" && videoImage == "" && videoTitle == "" && videoInfo == ""){
+    createALertButton("Please fill required fields", "danger");
+    return;
+  }
+  
   let status = 1;
 
   if(!isLive){

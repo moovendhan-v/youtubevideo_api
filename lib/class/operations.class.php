@@ -12,6 +12,21 @@ class operations {
             $type = $_POST["type"];
             $isLive = $_POST["isLive"];
 
+            if (
+                $videoId === null || $videoId === "" ||
+                $videoImage === null || $videoImage === "" ||
+                $videoTitle === null || $videoTitle === "" ||
+                $videoInfo === null || $videoInfo === "" ||
+                $channel === null || $channel === "" ||
+                $catogries === null || $catogries === "" ||
+                $type === null || $type === "" ||
+                $isLive === null || $isLive === ""
+            ) {
+                echo json_encode(["status" => "error", "message" => "Server rejected Data Not Inserted"]);
+                return;
+            } 
+
+
             $conn = db::makeConnection();
             $query = "INSERT INTO `youtube_videos_api` (`videoid`, `image`, `title`, `description`, `channelid`, `catogries`, `type`, `islive`) VALUES ('$videoId', '$videoImage', '$videoTitle', ' $videoInfo', ' $channel', '$catogries', '$type', '$isLive')";
             $result = $conn->query($query);
