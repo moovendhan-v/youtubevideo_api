@@ -13,7 +13,7 @@ class db{
     public static $conn = null;
     public static function makeConnection(){
         if(db::$conn==null){
-
+    
 
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);

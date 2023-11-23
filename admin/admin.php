@@ -181,37 +181,7 @@ if (isset($_GET['logout'])) {
               </tr>
             </thead>
             <tbody>
-              <!-- <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <button class="btn btn-danger getModel" id="Ba58DtoCUes" data-bs-toggle="modal" data-bs-target="#editModel">Edit</button>
-                    </div>
-                    <div class="col">
-                        <strong>Ba58DtoCUes</strong>
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid thumbnail" src="https://i.ytimg.com/vi/Ba58DtoCUes/mqdefault.jpg" alt="">
-                    </div>
-                    <div class="col">
-                        <strong>Title:</strong> How to hack whats app |tamil|#hkragritechs
-                    </div>
-                    <div class="col">
-                        <strong>Description:</strong> whatsapp #hack #whatsappweb disclaimer this channel does not promote any illegal activities so this video is made for only ...
-                    </div>
-                    <div class="col">
-                        <strong>Channel ID:</strong> UCSjSmjY9cEI_ib-NrBElVXw
-                    </div>
-                    <div class="col">
-                        <strong>Category:</strong> whatsapp
-                    </div>
-                    <div class="col">
-                        <strong>Type:</strong> normal
-                    </div>
-                    <div class="col">
-                        <strong>Is Live:</strong> 0
-                    </div>
-                </div>
-            </div> -->
+             
             </tbody>
             
           </table>
@@ -298,6 +268,10 @@ if (isset($_GET['logout'])) {
           <div class="col-4">
               <h5 class="updateInfoHeading">Catogries </h5>
               <div class="channelContent updateInfoHeading">
+              </div>
+              <div class="d-flex bg-info">
+              <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
+                <button class="btn btn-primayy">Add</button>
               </div>
             </div>
 

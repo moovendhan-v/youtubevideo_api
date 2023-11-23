@@ -213,7 +213,7 @@ function mapApiResponseToDataObject(apiResponse) {
       tableRow.appendChild(imageCell);
       // Create table cells for title, info, channel id, categories, type, and live
       var data = [dataObject.title, dataObject.info, dataObject.channelId, dataObject.catogries, dataObject.type,dataObject.islive];
-      for (var i = 0; i < 2; i++) {
+      for (var i = 0; i < data.length; i++) {
           var cell = document.createElement("td");
           cell.textContent = data[i];
           tableRow.appendChild(cell);
