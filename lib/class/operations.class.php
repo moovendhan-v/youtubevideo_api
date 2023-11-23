@@ -85,7 +85,7 @@ class operations {
             }
             $conn->close();
             $data = [
-                        "catogries" => $finalData,
+                        "videoinfo" => $finalData,
                     ];
             $jsonData = json_encode($data);
             header('Content-Type: application/json');

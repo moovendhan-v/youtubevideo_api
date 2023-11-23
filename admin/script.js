@@ -32,33 +32,48 @@ function createALertButton(message, color){
   appendAlert(message, color);
 }
 
-// createALertButton("Button created", "success");
-// let categoriesArray = [];
-// document.addEventListener('DOMContentLoaded', async function () {
-//     async function fetchcategoriesArray(slogan) {
-//         try {
-//             const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
-//             const data = await response.json();
-//             categoriesArray = data.catogries.map(function (category) {
-//                 return category.toLowerCase();
-//             });
-//             console.log(categoriesArray);
-//         } catch (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     }
-//     await fetchcategoriesArray("getcatogriesinfo");
-//     await createSelect("videoCatogries", categoriesArray);
-// });
-
+let categoriesArray = [];
 let channelIdArray = [];  
+let videoTypeId = []; 
+
+function createSelect(classes, array){
+  var selectElement = document.querySelector(`.${classes}`);
+  array.forEach(function (value) {
+    var option = document.createElement("option");
+    option.value = value;
+    option.text = value;
+    selectElement.appendChild(option);
+  });
+  selectElement.options[1].selected = true;
+}
+
+// createALertButton("Button created", "success");
+
+document.addEventListener('DOMContentLoaded', async function () {
+    async function fetchcategoriesArray(slogan) {
+        try {
+            const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+            const data = await response.json();
+            categoriesArray = data.catogries.map(function (data) {
+                return data.toLowerCase();
+            });
+            console.log(categoriesArray);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+    await fetchcategoriesArray("getcatogriesinfo");   // path, array, json key 
+    await createSelect("videoCatogries", categoriesArray);
+});
+
+
 document.addEventListener('DOMContentLoaded', async function () {
   async function fetchchannelIdArray(slogan) {
       try {
           const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
           const data = await response.json();
-          channelIdArray = data.catogries.map(function (category) {
-              return category.toLowerCase();
+          channelIdArray = data.channel.map(function (data) {
+              return data.toLowerCase();
           });
           console.log(channelIdArray);
       } catch (error) {
@@ -69,23 +84,22 @@ document.addEventListener('DOMContentLoaded', async function () {
   await createSelect("videoSelects", channelIdArray);
 });
 
-// let videoTypeId = []; 
-// document.addEventListener('DOMContentLoaded', async function () {
-//   async function fetchgetvideoinfo(slogan) {
-//       try {
-//           const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
-//           const data = await response.json();
-//           channelIdArray = data.catogries.map(function (category) {
-//               return category.toLowerCase();
-//           });
-//           console.log(channelIdArray);
-//       } catch (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   }
-//   await fetchgetvideoinfo("getvideoinfo");
-//   await createSelect("videoType", videoTypeId  );
-// });
+document.addEventListener('DOMContentLoaded', async function () {
+  async function fetchgetvideoinfo(slogan) {
+      try {
+          const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+          const data = await response.json();
+          videoTypeId = data.videoinfo.map(function (data) {
+              return data.toLowerCase();
+          });
+          console.log(videoTypeId);
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  }
+  await fetchgetvideoinfo("getvideoinfo");
+  await createSelect("videoType", videoTypeId  );
+});
 
 async function fetchData() {
   try {
@@ -200,16 +214,7 @@ function mapApiResponseToDataObject(apiResponse) {
       });
   });
 
-function createSelect(classes, array){
-  var selectElement = document.querySelector(`.${classes}`);
-  array.forEach(function (value) {
-    var option = document.createElement("option");
-    option.value = value;
-    option.text = value;
-    selectElement.appendChild(option);
-  });
-  selectElement.options[1].selected = true;
-}
+
 // createSelect("videoSelects", channelIdArray);
 // // createSelect("videoCatogries", categoriesArray);
 // createSelect("videoType", videoTypeId);

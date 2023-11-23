@@ -223,18 +223,28 @@ if (isset($_GET['logout'])) {
         <h3>Update Info</h3>
         <div class="updateInfo">
           <div class="row ">
+
+          <div class="col-4">
+              <h5>Channel </h5>
+              <div class="channelContent">
+                <p>testing</p>
+              </div>
+            </div>
+
             <div class="col-4">
               <h5>Catogries </h5>
               <div class="catogriesContent">
                 <p>testing</p>
               </div>
             </div>
+
             <div class="col-4">
               <h5>Type</h5>
               <div class="typeContent">
                 <p>testing</p>
               </div>
             </div>
+
           </div>
         </div>
       </div>
