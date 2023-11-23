@@ -36,6 +36,36 @@ let categoriesArray = [];
 let channelIdArray = [];  
 let videoTypeId = []; 
 
+//channel name
+function appendCategoriesToDOM(categoriesArray) {
+  let channelContent = document.querySelector('.channelContent');
+  categoriesArray.forEach(category => {
+      let paragraph = document.createElement('p');
+      paragraph.textContent = category;
+      channelContent.appendChild(paragraph);
+  });
+}
+//catogries
+function appendChannelToDOM(categoriesArray) {
+  let channelContent = document.querySelector('.catogriesContent');
+  categoriesArray.forEach(category => {
+      let paragraph = document.createElement('p');
+      paragraph.textContent = category;
+      channelContent.appendChild(paragraph);
+  });
+}
+//Type
+function appendTpeToDOM(categoriesArray) {
+  let channelContent = document.querySelector('.typeContent');
+  categoriesArray.forEach(category => {
+      let paragraph = document.createElement('p');
+      paragraph.textContent = category;
+      channelContent.appendChild(paragraph);
+  });
+}
+
+
+
 function createSelect(classes, array){
   var selectElement = document.querySelector(`.${classes}`);
   array.forEach(function (value) {
@@ -64,6 +94,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     await fetchcategoriesArray("getcatogriesinfo");   // path, array, json key 
     await createSelect("videoCatogries", categoriesArray);
+    await appendCategoriesToDOM(categoriesArray);
+
 });
 
 
@@ -82,6 +114,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
   await fetchchannelIdArray("getchannelinfo");
   await createSelect("videoSelects", channelIdArray);
+  await appendChannelToDOM(channelIdArray);
 });
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -99,6 +132,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
   await fetchgetvideoinfo("getvideoinfo");
   await createSelect("videoType", videoTypeId  );
+  await appendTpeToDOM(videoTypeId);
 });
 
 async function fetchData() {

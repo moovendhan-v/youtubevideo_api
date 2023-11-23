@@ -74,3 +74,20 @@ body {
     top: 10px;
     right: 10px;
 }
+.updateInfoHeading{
+    background-color: #1e90ff;
+  padding: 10px;
+  color: white;
+}
+
+
+/* left menu bar closing  */
+
+/* .left_div{
+    width: -20%;
+  min-height: 100vh;
+  background-color: dodgerblue;
+  color: white;
+  position: absolute;
+  left: -226px;
+} */
