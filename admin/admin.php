@@ -70,6 +70,9 @@ if (isset($_GET['logout'])) {
   display: flex;
   align-items:center;
 }
+.modal {
+  --bs-modal-width: 90% !important;
+}
 </style>
 </head>
 
@@ -80,34 +83,32 @@ if (isset($_GET['logout'])) {
         <!-- Modal -->
         <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content modelWidth">
               <div class="modal-header">
                 <h1 class="modal-title fs-5 modalId" id="exampleModalLabel">Edit</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body p-2">
                 <input class="modalTitle p-2 form-control form-control-lg" type="text" placeholder="Title" aria-label=".form-control-lg example">
-                <input class="modalDes p-2 form-control form-control-lg" type="text" placeholder="Description" aria-label=".form-control-lg example">
+                <textarea required="" class="modalDes form-control getVideoDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <div class="py-2 group d-flex
                 ">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Channel Name</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Catogries</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Type</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
+                <div class="updateVideo">
+                <select class="form-select videoSelects" aria-label="Default select example">
+                  <option disabled selected>Select a Channel</option>
+                </select>
+              </div>
+                  <div class="updateVideo">
+              <select class="form-select  videoCatogries" aria-label="Default select example">
+                <option disabled selected>Select a catogries</option>
+              </select>
+            </div>
+            <div class="updateVideo">
+            <select class="form-select videoType" aria-label="Default select example">
+              <option disabled selected>Video type</option>
+            </select>
+          </div>
+
                 </div>
                 <div class="form-check form-switch">
                   <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>

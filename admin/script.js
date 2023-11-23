@@ -65,16 +65,17 @@ function appendTpeToDOM(categoriesArray) {
 }
 
 
-
-function createSelect(classes, array){
-  var selectElement = document.querySelector(`.${classes}`);
-  array.forEach(function (value) {
-    var option = document.createElement("option");
-    option.value = value;
-    option.text = value;
-    selectElement.appendChild(option);
+function createSelect(className, array) {
+  var selectElements = document.querySelectorAll(`.${className}`);
+  selectElements.forEach(function(selectElement) {
+    array.forEach(function(value) {
+      var option = document.createElement("option");
+      option.value = value;
+      option.text = value;
+      selectElement.appendChild(option);
+    });
+    selectElement.options[1].selected = true;
   });
-  selectElement.options[1].selected = true;
 }
 
 // createALertButton("Button created", "success");
@@ -142,23 +143,16 @@ async function fetchData() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    // Process the API response data here
-
-    // getting responce andd convert and save in object 
     var dataObjects = mapApiResponseToDataObject(data);
-
-    //looping objects
     for (var i = 0; i < dataObjects.length; i++) {
       createTableRow(dataObjects[i]);
   }
     console.log(data);
     return data;
   } catch (error) {
-    // Handle errors here
     console.error('Error fetching data:', error);
   }
 }
-// Call the async function
 fetchData();
 
 function mapApiResponseToDataObject(apiResponse) {
@@ -223,31 +217,27 @@ function mapApiResponseToDataObject(apiResponse) {
       tbody.appendChild(tableRow);
   }
 
-  var getModelButtons = document.querySelectorAll('.getModel');
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('getModel')) {
+        var id = e.target.parentElement.parentElement.cells[1].innerText;
+        var image = e.target.parentElement.parentElement.cells[2].lastChild.src;
+        var title = e.target.parentElement.parentElement.cells[3].innerText;
+        var description = e.target.parentElement.parentElement.cells[4].innerText;
+        var cannelid = e.target.parentElement.parentElement.cells[5].innerText;
+        var catogries = e.target.parentElement.parentElement.cells[6].innerText;
+        var type = e.target.parentElement.parentElement.cells[7].innerText;
+        var islive = e.target.parentElement.parentElement.cells[8].innerText;
 
-  getModelButtons.forEach(function (button) {
-      button.addEventListener('click', function (e) {
-          // Your existing code here
-          console.log(e.target.parentNode.parentNode);
+        document.querySelector('.modalId').innerText = id;
+        document.querySelector('.modalTitle').value = title;
+        document.querySelector('.modalDes').value = description;
+        document.querySelector('.modalChecked').checked = islive == 1 ? true : false;
 
-          var id = button.parentElement.parentElement.cells[1].innerText;
-          var image = button.parentElement.parentElement.cells[2].lastChild.src;
-          var title = button.parentElement.parentElement.cells[3].innerText;
-          var description = button.parentElement.parentElement.cells[4].innerText;
-          var cannelid = button.parentElement.parentElement.cells[5].innerText;
-          var catogries = button.parentElement.parentElement.cells[6].innerText;
-          var type = button.parentElement.parentElement.cells[7].innerText;
-          var islive = button.parentElement.parentElement.cells[8].innerText;
+        console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
+    }
+});
 
-          var modalid = document.querySelector('.modalId').innerText = id;
-          var modalTitle = document.querySelector('.modalTitle').value = title;
-          var modalDes = document.querySelector('.modalDes').value = description;
-          var modalChecked = document.querySelector('.modalChecked').checked = islive == 1 ? true : false ;
 
-          // var modalChannelId = document.querySelector('.modalDes').value = description;
-          console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
-      });
-  });
 
 
 // createSelect("videoSelects", channelIdArray);
