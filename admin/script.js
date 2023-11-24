@@ -30,6 +30,7 @@ function createALertButton(message, color){
     alertPlaceholder.append(wrapper)
   }
   appendAlert(message, color);
+  RemoveToast();
 }
 
 let categoriesArray = [];
@@ -301,18 +302,19 @@ function mapApiResponseToDataObject(apiResponse) {
 
 
 
-//removing toast button 
-// if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-//   console.log("true");
-//   const intervalId = setInterval(() => {
-//     if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-//       document.getElementById('liveAlertPlaceholder').childNodes[0].remove();
-//     } else {
-//       console.log("Terminating process, no more child nodes.");
-//       clearInterval(intervalId);
-//     }
-//   }, 2000);
-// } else {
-//   console.log("No child nodes initially, terminating process.");
-// }
-
+// removing toast button 
+function RemoveToast(){
+  if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+    console.log("true");
+    setInterval(() => {
+      if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
+        document.getElementById('liveAlertPlaceholder').childNodes[document.getElementById('liveAlertPlaceholder').childNodes.length-1].remove();
+      } else {
+        console.log("Terminating process, no more child nodes.");
+        clearInterval(intervalId);
+      }
+    }, 3000);
+  } else {
+    console.log("No child nodes initially, terminating process.");
+  }
+}
