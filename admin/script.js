@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.error('Error fetching data:', error);
         }
     }
-    await fetchcategoriesArray("getcatogriesinfo");   // path, array, json key 
+    await fetchcategoriesArray("getcatogriesinfo");  
     await createSelect("videoCatogries", categoriesArray);
     await appendCategoriesToDOM(categoriesArray);
 
@@ -171,7 +171,7 @@ function mapApiResponseToDataObject(apiResponse) {
         image: response.snippet.thumbnails.high.url || "",
         title: response.snippet.title || "",
         info: response.snippet.description || "",
-        channelId: response.snippet.channelId || "",
+        channelId: response.snippet.channelTitle || "",
         catogries: response.snippet.category || "",
         type: response.snippet.type || "",
         islive: response.snippet.islive || "",

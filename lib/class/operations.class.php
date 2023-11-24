@@ -26,7 +26,6 @@ class operations {
                 return;
             } 
 
-
             $conn = db::makeConnection();
             $query = "INSERT INTO `youtube_videos_api` (`videoid`, `image`, `title`, `description`, `channelid`, `catogries`, `type`, `islive`) VALUES ('$videoId', '$videoImage', '$videoTitle', ' $videoInfo', ' $channel', '$catogries', '$type', '$isLive')";
             $result = $conn->query($query);
@@ -40,7 +39,6 @@ class operations {
             echo json_encode(["status" => "error", "message" => "Invalid request method"]);
         }
     }
-        
         public static function getChannelInfo(){
             $finalData = array();
             $conn = db::makeConnection();

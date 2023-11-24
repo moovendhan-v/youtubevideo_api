@@ -117,6 +117,7 @@ if (isset($_GET['logout'])) {
                 <option disabled selected>Select a catogries</option>
               </select>
             </div>
+
             <div class="updateVideo">
             <select class="form-select videoType" aria-label="Default select example">
               <option disabled selected>Video type</option>
@@ -163,7 +164,7 @@ if (isset($_GET['logout'])) {
           <h3>Welcome admin</h3>
           <a href="/admin/admin.php?logout"><button class="btn btn-danger">Logout</button></a>
       </div>
-</div>
+    </div>
         <div class="adminDashbord text-light">
     <div class="row d-flex w-100">
       <div class="col-4 d-flex justify-content-center align-items-center"><div>
@@ -189,7 +190,7 @@ if (isset($_GET['logout'])) {
                 <th scope="col">Images</th>
                 <th scope="col">title</th>
                 <th scope="col">Description</th>
-                <th scope="col">channel id</th>
+                <th scope="col">channel Name</th>
                 <th scope="col">catogries</th>
                 <th scope="col">type</th>
                 <th scope="col">is live</th>
@@ -233,7 +234,7 @@ if (isset($_GET['logout'])) {
          <p>Video Description</p>
           <div class="updateVideo">
             <!-- <input class="form-control form-control-lg getVideoDescription" type="textarea" placeholder="Video Description" aria-label="Enter a value example"> -->
-            <textarea required class="form-control getVideoDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea required class="form-control getVideoDescriptionInfo" id="exampleFormControlTextarea2" rows="3"></textarea>
           </div>
          </div>
         </div>

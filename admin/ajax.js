@@ -6,11 +6,20 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var videoId = document.querySelector('.getVideoId').value;
   var videoImage = document.querySelector('.getVideoImage').value;
   var videoTitle = document.querySelector('.getVideoTitle').value;
-  var videoInfo = document.querySelector('.getVideoDescription').value;
+  var videoInfo = document.querySelector('.getVideoDescriptionInfo').value;
   var channel = document.querySelector(".videoSelects").selectedIndex;
   var catogries = document.querySelector('.videoCatogries').selectedIndex;
   var type = document.querySelector('.videoType').selectedIndex;
   var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
+
+  console.log('Video ID:', videoId);
+console.log('Video Image:', videoImage);
+console.log('Video Title:', videoTitle);
+console.log('Video Info:', videoInfo);
+console.log('Channel Index:', channel);
+console.log('Categories Index:', catogries);
+console.log('Type Index:', type);
+console.log('Is Live:', isLive);
 
   if(videoId == "" && videoImage == "" && videoTitle == "" && videoInfo == ""){
     createALertButton("Please fill required fields", "danger");
