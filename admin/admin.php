@@ -104,23 +104,21 @@ if (isset($_GET['logout'])) {
               </div>
               <div class="modal-body p-2">
                 <input class="modalTitle p-2 form-control form-control-lg" type="text" placeholder="Title" aria-label=".form-control-lg example">
+                <input class="modalImage p-2 form-control form-control-lg" type="text" placeholder="Image" aria-label=".form-control-lg example">
                 <textarea required="" class="modalDes form-control getVideoDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <div class="py-2 group d-flex
                 ">
                 <div class="updateVideo">
-                <select class="form-select videoSelects" aria-label="Default select example">
-                  <option disabled selected>Select a Channel</option>
+                <select class="form-select videoSelects modelVideoSelects" aria-label="Default select example">
                 </select>
               </div>
                   <div class="updateVideo">
-              <select class="form-select  videoCatogries" aria-label="Default select example">
-                <option disabled selected>Select a catogries</option>
+              <select class="form-select  videoCatogries modelVideoCatogries" aria-label="Default select example">
               </select>
             </div>
 
             <div class="updateVideo">
-            <select class="form-select videoType" aria-label="Default select example">
-              <option disabled selected>Video type</option>
+            <select class="form-select videoType modelVideoType" aria-label="Default select example">
             </select>
           </div>
 

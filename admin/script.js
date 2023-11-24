@@ -231,10 +231,29 @@ function mapApiResponseToDataObject(apiResponse) {
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
 
+
+//         let categoriesArray = [];
+// let channelIdArray = [];  
+// let videoTypeId = []; 
+        var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
+        var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
+        var indexOfType = videoTypeId.indexOf(type);
+
+
+        console.log(indexOfType, type);
+        console.log(indexOfcategoriesArray, catogries);
+        console.log(indexOfchannelIdArray, cannelid);
+
         document.querySelector('.modalId').innerText = id;
         document.querySelector('.modalTitle').value = title;
+        document.querySelector('.modalImage').value = image;
         document.querySelector('.modalDes').value = description;
         document.querySelector('.modalChecked').checked = islive == 1 ? true : false;
+        document.querySelector('.modelVideoSelects').selectedIndex = indexOfchannelIdArray;
+        document.querySelector('.modelVideoCatogries').selectedIndex = indexOfcategoriesArray;
+        document.querySelector('.modelVideoType').selectedIndex = indexOfType;
+
+
 
         console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     }

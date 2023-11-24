@@ -12,7 +12,7 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var type = document.querySelector('.videoType').selectedIndex;
   var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
 
-  console.log('Video ID:', videoId);
+console.log('Video ID:', videoId);
 console.log('Video Image:', videoImage);
 console.log('Video Title:', videoTitle);
 console.log('Video Info:', videoInfo);
