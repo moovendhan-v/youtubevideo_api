@@ -39,6 +39,57 @@ class operations {
             echo json_encode(["status" => "error", "message" => "Invalid request method"]);
         }
     }
+
+    public static function updateData(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $videoId = $_POST["videoId"];
+            $videoImage = $_POST["videoImage"];
+            $videoTitle = $_POST["videoTitle"];
+            $videoInfo = $_POST["videoInfo"];
+            $channel = $_POST["channel"];
+            $catogries = $_POST["catogries"];
+            $type = $_POST["type"];
+            $isLive = $_POST["isLive"];
+            $toUpdate = $_POST["udateid"];
+
+            if (
+                $videoId === null || $videoId === "" ||
+                $videoImage === null || $videoImage === "" ||
+                $videoImage === null || $videoTitle === "" ||
+                $videoInfo === null || $videoInfo === "" ||
+                $videoInfo === null || $channel === "" ||
+                $catogries === null || $catogries === "" ||
+                $type === null || $type === "" ||
+                $isLive === null || $isLive === ""
+            ) {
+                echo json_encode(["status" => "error", "message" => "Server rejected Data Not Updated"]);
+                return;
+            } 
+
+            $conn = db::makeConnection();
+            $query = "UPDATE `youtube_videos_api` SET
+            `id` = '293',
+            `videoid` = '$videoId',
+            `image` = '$videoImage',
+            `title` = '$videoImage',
+            `description` = '$videoInfo',
+            `channelid` = '$videoInfo',
+            `catogries` = '$catogries',
+            `type` = '$type',
+            `islive` = '$isLive'
+            WHERE `videoid` = '$toUpdate'";
+            $result = $conn->query($query);
+            if($result){
+                echo json_encode(["status" => "success", "message" => "Data Updated successfully"]);
+            }else{
+                echo json_encode(["status" => "error", "message" => "Data not inserted"]);
+            }
+            $conn->close();
+        } else {
+            echo json_encode(["status" => "error", "message" => "Invalid request method"]);
+        }
+    }
+
         public static function getChannelInfo(){
             $finalData = array();
             $conn = db::makeConnection();
