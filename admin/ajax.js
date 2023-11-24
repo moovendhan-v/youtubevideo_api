@@ -1,8 +1,61 @@
 var updateAjaxCall = document.querySelector('.updateAjaxCall');
+var updateVideoDetailsAjaxCall = document.querySelector('.updateVideoDetails');
+
+updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
+  event.preventDefault();
+
+  var videoId = document.querySelector('.modalId').innerText;
+  var videoImage = document.querySelector('.modalImage').value
+  var videoTitle = document.querySelector('.modalTitle').value
+  var videoInfo = document.querySelector('.modalDes').value
+  var channel = document.querySelector('.modelVideoSelects').selectedIndex
+  var catogries = document.querySelector('.modelVideoCatogries').selectedIndex
+  var type = document.querySelector('.modelVideoType').selectedIndex
+  var isLive = document.querySelector('.modalChecked').checked 
+  if(videoId == "" && videoImage == "" && videoTitle == "" && videoInfo == ""){
+    createALertButton("Please fill required fields", "danger");
+    return;
+  }
+  let status = 1;
+  if(!isLive){
+    status = 0;
+  }
+  var formData = new FormData();
+  formData.append("videoId", videoId);
+  formData.append("videoImage", videoImage);
+  formData.append("videoTitle", videoTitle);
+  formData.append("videoInfo", videoInfo);
+  formData.append("channel", channel+1); //this +1 for incrementing id in database (the index is getting from array)
+  formData.append("catogries", catogries+1); //this +1 for incrementing id in database
+  formData.append("type", type+1); //this +1 for incrementing id in database
+  formData.append("isLive", status);
+  // Perform the AJAX request
+  var xhr = new XMLHttpRequest();
+  var url = "https://youtubeapi.agricreations.com?updatedata"; // Replace with your actual PHP endpoint
+  xhr.open("POST", url, true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Successful response
+      var responseData = JSON.parse(xhr.responseText);
+      if(responseData.status == "success"){
+            createALertButton(responseData.message, "success");
+      }else{
+            createALertButton(responseData.message, "danger");
+      }
+      console.log(responseData);
+    } else {
+      console.error("Error: " + xhr.status);
+    }
+  };
+  xhr.onerror = function () {
+    createALertButton("Check Your Network", "danger");
+  };
+  xhr.send(formData);
+})
+
 
 updateAjaxCall.addEventListener('click',(event)=>{
   event.preventDefault();
-
   var videoId = document.querySelector('.getVideoId').value;
   var videoImage = document.querySelector('.getVideoImage').value;
   var videoTitle = document.querySelector('.getVideoTitle').value;
@@ -11,28 +64,14 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var catogries = document.querySelector('.videoCatogries').selectedIndex;
   var type = document.querySelector('.videoType').selectedIndex;
   var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
-
-console.log('Video ID:', videoId);
-console.log('Video Image:', videoImage);
-console.log('Video Title:', videoTitle);
-console.log('Video Info:', videoInfo);
-console.log('Channel Index:', channel);
-console.log('Categories Index:', catogries);
-console.log('Type Index:', type);
-console.log('Is Live:', isLive);
-
   if(videoId == "" && videoImage == "" && videoTitle == "" && videoInfo == ""){
     createALertButton("Please fill required fields", "danger");
     return;
   }
-  
   let status = 1;
-
   if(!isLive){
     status = 0;
   }
-  // Create a FormData object
- 
   var formData = new FormData();
   formData.append("videoId", videoId);
   formData.append("videoImage", videoImage);
@@ -42,12 +81,10 @@ console.log('Is Live:', isLive);
   formData.append("catogries", catogries);
   formData.append("type", type);
   formData.append("isLive", status);
-
   // Perform the AJAX request
   var xhr = new XMLHttpRequest();
   var url = "https://youtubeapi.agricreations.com?update"; // Replace with your actual PHP endpoint
   xhr.open("POST", url, true);
-
   xhr.onload = function () {
     if (xhr.status === 200) {
       // Successful response
@@ -73,39 +110,8 @@ console.log('Is Live:', isLive);
       console.error("Error: " + xhr.status);
     }
   };
-
   xhr.onerror = function () {
-    // Network error handling
     createALertButton("Check Your Network", "danger");
   };
-
-  // Send the FormData object with the POST request
   xhr.send(formData);
 })
-
-//using ajax adding catogries, changel, type
-
-
-
-
-// createAjaxCall();
-
-
-
-
-// var url = "your-api-endpoint-url";
-// fetch(url)
-//   .then(function (response) {
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     }
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     // Process the data
-//     console.log(data);
-//   })
-//   .catch(function (error) {
-//     // Handle errors
-//     console.error("Error fetching data:", error);
-//   });

@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL);
 
 class operations {
     public static function insertData(){
@@ -50,8 +52,6 @@ class operations {
             $catogries = $_POST["catogries"];
             $type = $_POST["type"];
             $isLive = $_POST["isLive"];
-            $toUpdate = $_POST["udateid"];
-
             if (
                 $videoId === null || $videoId === "" ||
                 $videoImage === null || $videoImage === "" ||
@@ -68,16 +68,15 @@ class operations {
 
             $conn = db::makeConnection();
             $query = "UPDATE `youtube_videos_api` SET
-            `id` = '293',
             `videoid` = '$videoId',
             `image` = '$videoImage',
-            `title` = '$videoImage',
+            `title` = '$videoTitle',
             `description` = '$videoInfo',
-            `channelid` = '$videoInfo',
+            `channelid` = '$channel',
             `catogries` = '$catogries',
             `type` = '$type',
             `islive` = '$isLive'
-            WHERE `videoid` = '$toUpdate'";
+            WHERE `videoid` = '$videoId'";
             $result = $conn->query($query);
             if($result){
                 echo json_encode(["status" => "success", "message" => "Data Updated successfully"]);

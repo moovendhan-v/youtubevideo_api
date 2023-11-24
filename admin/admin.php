@@ -81,6 +81,9 @@ if (isset($_GET['logout'])) {
    animation: spinner-b87k6z 1s infinite linear;
    margin: 0 auto;
 }
+.wrapButton{
+  z-index: 9999;
+}
 
 @keyframes spinner-b87k6z {
    to {
@@ -130,7 +133,7 @@ if (isset($_GET['logout'])) {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary updateVideoDetails">Save changes</button>
               </div>
             </div>
           </div>

@@ -231,10 +231,6 @@ function mapApiResponseToDataObject(apiResponse) {
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
 
-
-//         let categoriesArray = [];
-// let channelIdArray = [];  
-// let videoTypeId = []; 
         var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
         var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
         var indexOfType = videoTypeId.indexOf(type);

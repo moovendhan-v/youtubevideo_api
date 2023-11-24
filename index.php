@@ -3,6 +3,8 @@ session_start();
 
 include __DIR__.'/lib/load.php';
 
+
+
 //this condition will works if its admin is logged in
 
 if(isset($_SESSION['login']) == "admin"){
