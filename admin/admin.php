@@ -124,7 +124,6 @@ if (isset($_GET['logout'])) {
             <select class="form-select videoType modelVideoType" aria-label="Default select example">
             </select>
           </div>
-
                 </div>
                 <div class="form-check form-switch">
                   <input class="modalChecked form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
@@ -133,7 +132,7 @@ if (isset($_GET['logout'])) {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary updateVideoDetails">Save changes</button>
+                <button type="button" class="btn btn-primary updateVideoDetails"  data-bs-dismiss="modal">Save changes</button>
               </div>
             </div>
           </div>

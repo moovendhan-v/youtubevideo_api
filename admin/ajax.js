@@ -3,7 +3,6 @@ var updateVideoDetailsAjaxCall = document.querySelector('.updateVideoDetails');
 
 updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
   event.preventDefault();
-
   var videoId = document.querySelector('.modalId').innerText;
   var videoImage = document.querySelector('.modalImage').value
   var videoTitle = document.querySelector('.modalTitle').value
@@ -39,6 +38,7 @@ updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
       var responseData = JSON.parse(xhr.responseText);
       if(responseData.status == "success"){
             createALertButton(responseData.message, "success");
+            updateUpdatedDatataInUI(videoId,videoImage,videoTitle,videoInfo,channelIdArray[channel],categoriesArray[catogries],videoTypeId[type],status); // id, image, text, des, channel, catogries, type, islive
       }else{
             createALertButton(responseData.message, "danger");
       }

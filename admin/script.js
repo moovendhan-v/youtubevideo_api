@@ -219,7 +219,16 @@ function mapApiResponseToDataObject(apiResponse) {
       }
       tbody.appendChild(tableRow);
   }
-
+  function updateUpdatedDatataInUI(id, image, text, des, channel, catogries, type, islive){
+    var toUdateTable = document.querySelector(`#${id}`).parentElement.parentElement;
+    toUdateTable.childNodes[2].childNodes[0].src = image; //image
+    toUdateTable.childNodes[3].innerText = text ; //title
+    toUdateTable.childNodes[4].innerText = des ; //description
+    toUdateTable.childNodes[5].innerText = channel; //channel Name
+    toUdateTable.childNodes[6].innerText = catogries; //catogries
+    toUdateTable.childNodes[7].innerText = type; //type
+    toUdateTable.childNodes[8].innerText = islive; //is live  
+  }
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('getModel')) {
         var id = e.target.parentElement.parentElement.cells[1].innerText;
@@ -249,11 +258,35 @@ function mapApiResponseToDataObject(apiResponse) {
         document.querySelector('.modelVideoCatogries').selectedIndex = indexOfcategoriesArray;
         document.querySelector('.modelVideoType').selectedIndex = indexOfType;
 
-
-
+        // function updateUpdatedDatataInUI(id, image, text, des, channel, catogries, type, islive){
+        //   var toUdateTable = document.querySelector(`#${id}`).parentElement.parentElement;
+        //   toUdateTable.childNodes[2].innerText = image; //image
+        //   toUdateTable.childNodes[3].innerText = text ; //title
+        //   toUdateTable.childNodes[4].innerText = des ; //description
+        //   toUdateTable.childNodes[5].innerText = channel; //channel Name
+        //   toUdateTable.childNodes[6].innerText = catogries; //catogries
+        //   toUdateTable.childNodes[7].innerText = type; //type
+        //   toUdateTable.childNodes[8].innerText = islive; //is live  
+        // }
         console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     }
 });
+
+// var parentElementsForUpdate = document.querySelector('#Ba58DtoCUes').parentElement.parentElement.childNodes;
+// parentElementsForUpdate[3].innerText = "testupdate";
+
+// function updateUpdatedDatataInUI(){
+//   var toUdateTable = document.querySelector('#Ba58DtoCUes').parentElement.parentElement;
+//   toUdateTable.childNodes[2].innerText = "test" ; //image
+//   toUdateTable.childNodes[3].innerText = "test" ; //title
+//   toUdateTable.childNodes[4].innerText = "test" ; //description
+//   toUdateTable.childNodes[5].innerText = "test"; //channel Name
+//   toUdateTable.childNodes[6].innerText = "test"; //catogries
+//   toUdateTable.childNodes[7].innerText = "test"; //type
+//   toUdateTable.childNodes[8].innerText = "test"; //is live  
+// }
+
+
 
 
 
