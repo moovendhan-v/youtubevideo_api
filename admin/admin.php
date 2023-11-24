@@ -36,6 +36,9 @@ if (isset($_GET['logout'])) {
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+  .mobileNav{
+    display:none;
+  }
   .updateInfoHeading{
     background-color: #1e90ff;
   padding: 10px;
@@ -62,13 +65,17 @@ if (isset($_GET['logout'])) {
 
 }
 .adminDashbord{
-  position: relative;
-  top: 20px;
+  /* position: relative;
+  top: 20px; */
   width: 100%;
   min-height: 200px;
   background-color:#1e90ff;
   display: flex;
   align-items:center;
+}
+.adminDashbord .row{
+  --bs-gutter-x: 0rem;
+  --bs-gutter-y: 0;
 }
 .modal {
   --bs-modal-width: 90% !important;
@@ -84,12 +91,63 @@ if (isset($_GET['logout'])) {
 .wrapButton{
   z-index: 9999;
 }
+.wrap{
+  margin-bottom: 20px;
+}
+.mobileNav{
+  padding:10px;
+}
 
 @keyframes spinner-b87k6z {
    to {
       transform: rotate(360deg);
    }
 }
+/* Media query for mobile devices */
+@media only screen and (max-width: 599px) {
+  .logo h3{
+    font-size: 16px;
+  }
+      .left_div{
+        /* display:none; */
+        position: absolute;
+        width: 80% !important;
+        min-height: 100vh;
+        background-color: dodgerblue;
+        color: white;
+        left : -80%;
+        transition: 1s ease;
+      }
+      .left_div_open{
+        /* display:none; */
+        position: absolute;
+        width: 80% !important;
+        min-height: 100vh;
+        background-color: dodgerblue;
+        color: white;
+        left: 0;
+        transition: 1s ease;
+      }
+      .right_div{
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+      }
+      .updateInfo .row .col-sm-4{
+        margin-top: 10px;
+        background-color: #8080801c;
+        padding: 10px;
+      }
+      .addVideos .d-flex {
+        display: block !important;
+      }
+      .addVideos .d-flex .w-50{
+          width: 100% !important;
+      }
+      .mobileNav{
+        display: block;
+      }
+  }
 </style>
 </head>
 
@@ -137,10 +195,12 @@ if (isset($_GET['logout'])) {
             </div>
           </div>
         </div>
-
+        <div class="mobileNav">
+    <div><i class="burgerMenu fa-solid fa-bars"></i></div>
+  </div>
   <div class=" main_container">
 
-    <div class="left_div">
+    <div class="left_div closeBugermenu">
     <!-- <div class="menuHideBar">
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </div> -->
@@ -156,8 +216,7 @@ if (isset($_GET['logout'])) {
         <!-- Add more tabs as needed -->
       </div>
     </div>
-
-    <div class="right_div">
+    <div class="right_div closeBugermenu">
         <div class="tab-content active">
       <div class="wrap">
       <div class="d-flex justify-content-between">
@@ -169,19 +228,19 @@ if (isset($_GET['logout'])) {
     <div class="row d-flex w-100">
       <div class="col-4 d-flex justify-content-center align-items-center"><div>
         <h3 class="fs-5">Total Videos</h3>
-        <h4 class="fs-2">100</h4>
+        <h4 class="fs-2 dashbordTotalVideos">Loading...</h4>
       </div></div>
       <div class="col-4 d-flex  justify-content-center align-items-center"><div>
       <h3 class="fs-5">Total Live</h3>
-        <h4 class="fs-2">100</h4>
+        <h4 class="fs-2 dashbordTotalLive">Loading...</h4>
       </div></div>
       <div class="col-4 d-flex  justify-content-center align-items-center"><div>
       <h3 class="fs-5">Catogries</h3>
-        <h4 class="fs-2">100</h4>
+        <h4 class="fs-2 dashbordTotalCatogries">Loading...</h4>
       </div></div>
     </div>
         </div>
-        <div class="content">
+        <div class="content table-responsive">
           <table class="table">
             <thead>
               <tr>
@@ -240,7 +299,7 @@ if (isset($_GET['logout'])) {
         </div>
          
           <div class="d-flex row">
-            <div class="col-4">
+            <div class="col-sm-4">
               <p>Channel</p>
               <div class="updateVideo">
                 <select class="form-select videoSelects" aria-label="Default select example">
@@ -248,7 +307,7 @@ if (isset($_GET['logout'])) {
                 </select>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
             <p>catogries</p>
             <div class="updateVideo">
               <select class="form-select  videoCatogries" aria-label="Default select example">
@@ -256,7 +315,7 @@ if (isset($_GET['logout'])) {
               </select>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-sm-4">
           <p>Type</p>
           <div class="updateVideo">
             <select class="form-select videoType" aria-label="Default select example">
@@ -281,7 +340,7 @@ if (isset($_GET['logout'])) {
         <div class="updateInfo">
           <div class="row ">
 
-          <div class="col-4">
+          <div class="col-sm-4">
               <h5 class="updateInfoHeading">Catogries </h5>
               <div class="channelContent updateInfoHeading">
               </div>
@@ -291,13 +350,13 @@ if (isset($_GET['logout'])) {
               </div> -->
             </div>
 
-            <div class="col-4">
+            <div class="col-sm-4">
               <h5 class="updateInfoHeading">Channel </h5>
               <div class="catogriesContent updateInfoHeading">
               </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-sm-4">
               <h5 class="updateInfoHeading">Type</h5>
               <div class="typeContent updateInfoHeading">
               </div>

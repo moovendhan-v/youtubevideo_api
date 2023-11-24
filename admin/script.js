@@ -1,3 +1,25 @@
+//burget menu toggle
+var burgerMenu = document.querySelectorAll('.burgerMenu');
+var closeBurgerMenu = document.querySelectorAll('.closeBugermenu');
+
+closeBurgerMenu.forEach(item => {
+  var left_div = document.querySelector('.left_div');
+  item.addEventListener('click', () => {
+      left_div.classList.remove('left_div_open');
+  });
+});
+
+burgerMenu.forEach(item => {
+  item.addEventListener('click', () => {
+    var left_div = document.querySelector('.left_div');
+    if (left_div.classList.contains('left_div_open')) {
+      left_div.classList.remove('left_div_open');
+    } else {
+      left_div.classList.add('left_div_open');
+    }
+  });
+});
+
 // tab creations 
 document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll('.tab');
@@ -36,6 +58,7 @@ function createALertButton(message, color){
 let categoriesArray = [];
 let channelIdArray = [];  
 let videoTypeId = []; 
+let apiResponce ;
 
 //channel name
 function appendCategoriesToDOM(categoriesArray) {
@@ -81,6 +104,7 @@ function createSelect(className, array) {
 
 // createALertButton("Button created", "success");
 
+
 document.addEventListener('DOMContentLoaded', async function () {
     async function fetchcategoriesArray(slogan) {
         try {
@@ -89,7 +113,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             categoriesArray = data.catogries.map(function (data) {
                 return data.toLowerCase();
             });
-            console.log(categoriesArray);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -105,6 +128,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   async function fetchchannelIdArray(slogan) {
       try {
           const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+          apiResponce = response;
           const data = await response.json();
           channelIdArray = data.channel.map(function (data) {
               return data.toLowerCase();
@@ -137,6 +161,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   await appendTpeToDOM(videoTypeId);
 });
 
+function updateDashbord(length){
+  console.log("length", length);
+  document.querySelector('.dashbordTotalVideos').innerText = length;
+  document.querySelector('.dashbordTotalLive').innerText = length;
+  document.querySelector('.dashbordTotalCatogries').innerText = categoriesArray.length;
+
+}
+
 async function fetchData() {
   try {
     const response = await fetch('https://youtubeapi.agricreations.com/');
@@ -148,6 +180,7 @@ async function fetchData() {
     for (var i = 0; i < dataObjects.length; i++) {
       createTableRow(dataObjects[i]);
   }
+  updateDashbord(data.length);
     console.log(data);
     return data;
   } catch (error) {

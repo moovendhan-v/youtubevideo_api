@@ -58,7 +58,7 @@ body {
 .right_div{
     width: 80%;
     height: 100vh;
-    overflow: scroll;
+    overflow-x: hidden;
 }
 .logo{
     padding: 10px 10px;
