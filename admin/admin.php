@@ -35,7 +35,11 @@ if (isset($_GET['logout'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
+<style> 
+
+  .display-none{
+    display: none !important;
+  }
   .mobileNav{
     display:none;
   }
@@ -53,9 +57,12 @@ if (isset($_GET['logout'])) {
     width: 20%;
     height: auto;
 }
+.table{
+        table-layout: fixed !important;
+    }   
 .menuHideBar{
   position: absolute;
-  position: ;
+  /* position: ; */
   right: -12px;
   background-color: #1e90ff;
   padding: 10px;
@@ -240,12 +247,12 @@ if (isset($_GET['logout'])) {
       </div></div>
     </div>
         </div>
-        <div class="content table-responsive">
+        <div class="content">
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">Edit</th>
-                <th scope="col">Id</th>
+                <th scope="col" class=" display-none">Id</th>
                 <th scope="col">Images</th>
                 <th scope="col">title</th>
                 <th scope="col">Description</th>

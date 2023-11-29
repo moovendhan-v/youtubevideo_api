@@ -222,12 +222,13 @@ function mapApiResponseToDataObject(apiResponse) {
       editRow.setAttribute('id', dataObject.id);
       editRow.setAttribute("data-bs-toggle", "modal");
       editRow.setAttribute("data-bs-target", "#editModel");
-      editRow.innerText = "Edit";
+      editRow.innerText = "Edit Video";
       indexCell.append(editRow)
       tableRow.appendChild(indexCell);
     // Create a table cell for the index
       var indexCell = document.createElement("th");
       indexCell.setAttribute("scope", "row");
+      indexCell.classList.add('display-none');
       indexCell.textContent = dataObject.id; // You can change the index as needed
       tableRow.appendChild(indexCell);
       // Create a table cell for the image
@@ -242,6 +243,7 @@ function mapApiResponseToDataObject(apiResponse) {
       var data = [dataObject.title, dataObject.info, dataObject.channelId, dataObject.catogries, dataObject.type,dataObject.islive];
       for (var i = 0; i < data.length; i++) {
           var cell = document.createElement("td");
+         cell.classList.add('text-truncate');
           cell.textContent = data[i];
           tableRow.appendChild(cell);
       }
@@ -346,7 +348,7 @@ function RemoveToast(){
         console.log("Terminating process, no more child nodes.");
         clearInterval(intervalId);
       }
-    }, 3000);
+    }, 4000);
   } else {
     console.log("No child nodes initially, terminating process.");
   }

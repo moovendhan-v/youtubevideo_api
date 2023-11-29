@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .container {
         width: 50%;
     }
+
 </style>
 <pre><?php print_r($_SESSION['login']) ?></pre>
 
@@ -30,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input name='id' class="form-control">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
