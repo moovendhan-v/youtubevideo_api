@@ -222,7 +222,7 @@ function mapApiResponseToDataObject(apiResponse) {
       editRow.setAttribute('id', dataObject.id);
       editRow.setAttribute("data-bs-toggle", "modal");
       editRow.setAttribute("data-bs-target", "#editModel");
-      editRow.innerText = "Edit Video";
+      editRow.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit ';
       indexCell.append(editRow)
       tableRow.appendChild(indexCell);
     // Create a table cell for the index
