@@ -249,7 +249,7 @@ function mapApiResponseToDataObject(apiResponse) {
       }
       // Append the new table row to the existing table body within the table with id "tableData"
       var tbody = document.querySelector("tbody");
-      if(tbody.childElementCount >= 1){
+      if(tbody.childElementCount >= 0){
         var spinner = document.querySelector('.spinner');
         spinner.classList.add('visually-hidden');
       }

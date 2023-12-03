@@ -22,139 +22,17 @@ if (isset($_GET['logout'])) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Youtube Admin Dashbord</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style> 
 
-  .display-none{
-    display: none !important;
-  }
-  .mobileNav{
-    display:none;
-  }
-  .updateInfoHeading{
-    background-color: #1e90ff;
-  padding: 10px;
-  color: white;
-}
-.updateInfoHeading p {
-  background-color: #1e90ff;
-  padding: 10px;
-  color: white;
-}
-.logo img{
-    width: 20%;
-    height: auto;
-}
-.table{
-        table-layout: fixed !important;
-    }   
-.menuHideBar{
-  position: absolute;
-  /* position: ; */
-  right: -12px;
-  background-color: #1e90ff;
-  padding: 10px;
-  border-radius: 20%;
-  top: 17px;
-  border: 2px solid white;
-
-}
-.adminDashbord{
-  /* position: relative;
-  top: 20px; */
-  width: 100%;
-  min-height: 200px;
-  background-color:#1e90ff;
-  display: flex;
-  align-items:center;
-}
-.adminDashbord .row{
-  --bs-gutter-x: 0rem;
-  --bs-gutter-y: 0;
-}
-.modal {
-  --bs-modal-width: 90% !important;
-}
-.spinner {
-   width: 11.2px;
-   height: 11.2px;
-   border-radius: 11.2px;
-   box-shadow: 28px 0px 0 0 rgba(71,75,255,0.2), 22.7px 16.5px 0 0 rgba(71,75,255,0.4), 8.68px 26.6px 0 0 rgba(71,75,255,0.6), -8.68px 26.6px 0 0 rgba(71,75,255,0.8), -22.7px 16.5px 0 0 #474bff;
-   animation: spinner-b87k6z 1s infinite linear;
-   margin: 0 auto;
-}
-.wrapButton{
-  z-index: 9999;
-}
-.wrap{
-  margin-bottom: 20px;
-}
-.mobileNav{
-  padding:10px;
-}
-
-@keyframes spinner-b87k6z {
-   to {
-      transform: rotate(360deg);
-   }
-}
-/* Media query for mobile devices */
-@media only screen and (max-width: 599px) {
-  .logo h3{
-    font-size: 16px;
-  }
-      .left_div{
-        /* display:none; */
-        position: absolute;
-        width: 80% !important;
-        min-height: 100vh;
-        background-color: dodgerblue;
-        color: white;
-        left : -80%;
-        transition: 1s ease;
-      }
-      .left_div_open{
-        /* display:none; */
-        position: absolute;
-        width: 80% !important;
-        min-height: 100vh;
-        background-color: dodgerblue;
-        color: white;
-        left: 0;
-        transition: 1s ease;
-      }
-      .right_div{
-        width: 100%;
-        height: 100vh;
-        overflow-x: hidden;
-      }
-      .updateInfo .row .col-sm-4{
-        margin-top: 10px;
-        background-color: #8080801c;
-        padding: 10px;
-      }
-      .addVideos .d-flex {
-        display: block !important;
-      }
-      .addVideos .d-flex .w-50{
-          width: 100% !important;
-      }
-      .mobileNav{
-        display: block;
-      }
-  }
 </style>
 </head>
 
@@ -373,15 +251,19 @@ if (isset($_GET['logout'])) {
               <h5 class="updateInfoHeading">Catogries </h5>
               <div class="channelContent updateInfoHeading">
               </div>
-              <!-- <div class="d-flex bg-info">
-              <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
-                <button class="btn btn-primayy">Add</button>
-              </div> -->
+              <div class="d-flex bg-info">
+              <input class="form-control" type="text" placeholder="Catogries" aria-label="default input example">
+                <button class="btn btn-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-plus"></i>   Add</button>
+              </div>
             </div>
 
             <div class="col-sm-4">
               <h5 class="updateInfoHeading">Channel </h5>
               <div class="catogriesContent updateInfoHeading">
+              </div>
+              <div class="d-flex bg-info">
+              <input class="form-control" type="text" placeholder="Channel" aria-label="default input example">
+                <button class="btn btn-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-plus"></i>   Add</button>
               </div>
             </div>
 
@@ -401,20 +283,23 @@ if (isset($_GET['logout'])) {
 
 <!-- jQuery CDN (latest version) -->
 <script src="https://code.jquery.com/jquery.min.js"></script>
+
   <script src="./js/script.js"></script>
   <script src="./js/ajax.js"></script>
   <script src="./js/app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
     <script>
-      
       $(document).ready(function() {
-        $('.updateVideoDetailsByurl').on('click', function() {
-          getVideoDetailsByUrl();
-    });
-});
+          $('.updateVideoDetailsByurl').on('click', function() {
+            getVideoDetailsByUrl();
+      });
+      });
     </script>
+
+
 </body>
 
 </html>
