@@ -202,6 +202,26 @@ if (isset($_GET['logout'])) {
             </div>
           </div>
         </div>
+
+        <!-- add video by url  -->
+        <div class="modal fade" id="editVideoByUrl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content ">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 modalId" id="exampleModalLabel">Add video by url</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-2">
+              <input id="getVideoDetaialByUrl" class="getVideoDetaialByUrl modalTitle p-2 form-control form-control-lg" type="text" placeholder="Enter A Youtbe Video Url" aria-label=".form-control-lg example">
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary updateVideoDetailsByurl"  data-bs-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="mobileNav">
     <div><i class="burgerMenu fa-solid fa-bars"></i></div>
   </div>
@@ -272,8 +292,9 @@ if (isset($_GET['logout'])) {
 
       <div class="tab-content">
         <h3>Add More Videos</h3>
+        
         <div class="addVideos">
-
+          
         <div class="d-flex w-100">
           <div class="w-50 p-2">
           <p>Video id</p>
@@ -338,6 +359,7 @@ if (isset($_GET['logout'])) {
               <label class="form-check-label" for="flexSwitchCheckCheckedAddNew">Is live</label>
             </div>
           </div>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editVideoByUrl">Add by url</button>
           <div class="btn btn-primary updateAjaxCall">Update Video</div>
         </div>
       </div>
@@ -377,14 +399,22 @@ if (isset($_GET['logout'])) {
   </div>
 
 
-
-
-  <script src="./script.js"></script>
-  <script src="./ajax.js"></script>
+<!-- jQuery CDN (latest version) -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/ajax.js"></script>
+  <script src="./js/app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      
+      $(document).ready(function() {
+        $('.updateVideoDetailsByurl').on('click', function() {
+          getVideoDetailsByUrl();
+    });
+});
+    </script>
 </body>
 
 </html>
