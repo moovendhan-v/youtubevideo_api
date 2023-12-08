@@ -3,7 +3,12 @@ session_start();
 
 include __DIR__.'/lib/load.php';
 
-
+if(isset($_REQUEST['email'])){
+    return agri::insertVisitorEmail();
+}
+if(isset($_REQUEST['getvisitorip'])){
+    return agri::getVisitorIp();
+}
 
 //this condition will works if its admin is logged in
 
