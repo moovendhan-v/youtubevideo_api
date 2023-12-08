@@ -64,13 +64,13 @@ class agri {
                 $ipAddress = trim($forwardedIps[0]);
             }
             $conn = db::makeConnection();
-            $query = "INSERT INTO `agricreations_visitors` (`ip`, `user_agent`, `country`)
-            VALUES ('$ipAddress', '$useragent', 'testing')";
+            $query = "INSERT INTO `agricreations_visitors` (`ip`, `user_agent`, `country`, `time`)
+            VALUES ('$ipAddress', '$useragent', 'testing', now())";
 
              $result = $conn->query($query);
              if($result){
                  echo json_encode(["status" => "success", "message" => $ipAddress, "useragent" => $useragent]);
-                 sendDiscordWebhook($ipAddress);
+                 self::sendDiscordWebhook($ipAddress);
              }else{
                  echo json_encode(["status" => "error", "message" => "Data not inserted"]);
              }
