@@ -35,6 +35,7 @@ if(isset($_SESSION['login']) == "admin"){
         }
 }
 
-$result = youtube::buildJson('agricreations_app');
-echo $result;
+// $result = youtube::buildJson('agricreations_app');
+// echo $result;
+agri::sendDiscordWebhook("testing");
 return;

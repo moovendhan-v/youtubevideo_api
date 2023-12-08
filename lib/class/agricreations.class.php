@@ -32,20 +32,28 @@ class agri {
         }
     }
 
-    private static function sendDiscordWebhook($webhookURL, $message) {
-        $data = ["New vistor for agricreations" => $message];
+    public static function sendDiscordWebhook($message) {
+        if (empty($message)) {
+            echo json_encode(["status" => "error", "message" => "Empty message"]);
+            return;
+        }
+        $data = ["content" => "You have new visitor from : $message"];
         $options = [
-            CURLOPT_URL => $webhookURL,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => json_encode($data),
-            CURLOPT_HTTPHEADER => ["Content-Type: application/json"],
+            "http" => [
+                "header" => "Content-type: application/json",
+                "method" => "POST",
+                "content" => json_encode($data),
+            ],
         ];
-    
-        $curl = curl_init();
-        curl_setopt_array($curl, $options);
-        curl_exec($curl);
-        curl_close($curl);
+        $context = stream_context_create($options);
+        $result = file_get_contents("https://discord.com/api/webhooks/1182669005778059355/du5gjQZR5ismWboyDrjFoo2I4tvpb8qiCmiGfbETVQQ0UUWFRCbeOP9eP0_8jvSc51Qx", false, $context);
+        if ($result === false) {
+            echo json_encode(["status" => "error", "message" => "Failed to send webhook"]);
+        } else {
+            echo json_encode(["status" => "success", "message" => "Webhook sent successfully"]);
+        }
     }
+    
 
     public static function getVisitorIp(){
         $visitor = $_POST['action'];
@@ -62,7 +70,7 @@ class agri {
              $result = $conn->query($query);
              if($result){
                  echo json_encode(["status" => "success", "message" => $ipAddress, "useragent" => $useragent]);
-                 sendDiscordWebhook("https://discord.com/api/webhooks/1182669005778059355/du5gjQZR5ismWboyDrjFoo2I4tvpb8qiCmiGfbETVQQ0UUWFRCbeOP9eP0_8jvSc51Qx", $ipAddress);
+                 sendDiscordWebhook($ipAddress);
              }else{
                  echo json_encode(["status" => "error", "message" => "Data not inserted"]);
              }
