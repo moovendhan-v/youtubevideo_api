@@ -16,6 +16,13 @@ include_once __DIR__."/class/agricreations.class.php";
 include_once __DIR__."/class/db.class.php";
 include_once __DIR__."/class/cron.class.php";
 
+function getJsonApis(){
+    $_apis = __DIR__.'/config.json';
+    // echo ">>>>>".$_apis;
+    $_api = file_get_contents($_apis);
+    $apiData = json_decode($_api, true);
+    return $apiData;
+}
 
 
 

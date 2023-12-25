@@ -9,11 +9,14 @@ if(isset($_REQUEST['email'])){
 if(isset($_REQUEST['getvisitorip'])){
     return agri::getVisitorIp();
 }
-
+if(isset($_REQUEST['webhook'])){
+        $message = isset($_GET['message']);
+        $channel = isset($_GET['channel']);
+    return agri::sendDiscordWebhook($message, $channel);
+}
 //this condition will works if its admin is logged in
 
 if(isset($_SESSION['login']) == "admin"){
-    
         if(isset($_REQUEST['update'])){
             return operations::insertData();
         }

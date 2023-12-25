@@ -32,7 +32,9 @@ class agri {
         }
     }
 
-    public static function sendDiscordWebhook($message) {
+    public static function sendDiscordWebhook($message, $channel) {
+      $apiData = getJsonApis();
+
         if (empty($message)) {
             echo json_encode(["status" => "error", "message" => "Empty message"]);
             return;
@@ -46,7 +48,7 @@ class agri {
             ],
         ];
         $context = stream_context_create($options);
-        $result = file_get_contents("https://discord.com/api/webhooks/1182669005778059355/du5gjQZR5ismWboyDrjFoo2I4tvpb8qiCmiGfbETVQQ0UUWFRCbeOP9eP0_8jvSc51Qx", false, $context);
+        $result = file_get_contents($apiData[$channel], false, $context);
         if ($result === false) {
             echo json_encode(["status" => "error", "message" => "Failed to send webhook"]);
         } else {
@@ -70,7 +72,7 @@ class agri {
              $result = $conn->query($query);
              if($result){
                  echo json_encode(["status" => "success", "message" => $ipAddress, "useragent" => $useragent]);
-                 self::sendDiscordWebhook($ipAddress);
+                 self::sendDiscordWebhook($ipAddress . $useragent, "default");
              }else{
                  echo json_encode(["status" => "error", "message" => "Data not inserted"]);
              }
