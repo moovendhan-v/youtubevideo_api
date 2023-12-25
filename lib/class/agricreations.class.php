@@ -55,7 +55,6 @@ class agri {
             echo json_encode(["status" => "success", "message" => "Webhook sent successfully"]);
         }
     }
-    
 
     public static function getVisitorIp(){
         $visitor = $_POST['action'];
@@ -72,7 +71,7 @@ class agri {
              $result = $conn->query($query);
              if($result){
                  echo json_encode(["status" => "success", "message" => $ipAddress, "useragent" => $useragent]);
-                 self::sendDiscordWebhook($ipAddress . $useragent, "default");
+                 self::sendDiscordWebhook($ipAddress . $useragent, "agricreations");
              }else{
                  echo json_encode(["status" => "error", "message" => "Data not inserted"]);
              }
