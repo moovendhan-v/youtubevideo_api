@@ -24,13 +24,14 @@ if (isset($_GET['logout'])) {
   <title>Youtube Admin Dashbord</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+
 <style> 
 
 </style>
@@ -40,10 +41,11 @@ if (isset($_GET['logout'])) {
 <div class="wrapButton">
   <div id="liveAlertPlaceholder"></div>
 </div>
+
         <!-- Modal -->
-        <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content modelWidth">
+        <div class="modal fade bg-image " id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog card-blur rounded">
+            <div class="modal-content modelWidth ">
               <div class="modal-header">
                 <h1 class="modal-title fs-5 modalId" id="exampleModalLabel">Edit</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -82,8 +84,8 @@ if (isset($_GET['logout'])) {
         </div>
 
         <!-- add video by url  -->
-        <div class="modal fade" id="editVideoByUrl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+        <div class="modal fade bg-image " id="editVideoByUrl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog card-blur rounded">
             <div class="modal-content ">
               <div class="modal-header">
                 <h1 class="modal-title fs-5 modalId" id="exampleModalLabel">Add video by url</h1>
@@ -105,7 +107,7 @@ if (isset($_GET['logout'])) {
   </div>
   <div class=" main_container">
 
-    <div class="left_div closeBugermenu">
+    <div class="left_div closeBugermenu card-blur">
     <!-- <div class="menuHideBar">
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </div> -->
@@ -123,13 +125,16 @@ if (isset($_GET['logout'])) {
     </div>
     <div class="right_div closeBugermenu">
         <div class="tab-content active">
-      <div class="wrap">
-      <div class="d-flex justify-content-between">
-          <h3>Welcome admin</h3>
+      <div class="wrap card-blur rounded p-2">
+      <div class="d-flex justify-content-between align-item-center">
+        <div class="d-flex justify-content-between align-items-center">
+        <h6 class="text-uppercase mb-0 d-flex justify-content-between">Welcome admin</h6>
+          <hr>
+        </div>
           <a href="/admin/admin.php?logout"><button class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button></a>
       </div>
     </div>
-        <div class="adminDashbord text-light">
+        <div class="adminDashbord text-light card-blur rounded">
     <div class="row d-flex w-100">
       <div class="col-4 d-flex justify-content-center align-items-center"><div>
         <h3 class="fs-5">Total Videos</h3>
@@ -145,45 +150,68 @@ if (isset($_GET['logout'])) {
       </div></div>
     </div>
         </div>
-        <div class="content">
-          <table class="table">
-            <thead>
-              <tr>
+        <div class="content  card-body">
+<div class="text">
+  <h6>Latest</h6>
+  <hr>
+</div>
+          <table class="table card-blur ">
+            <thead >
+              <tr class="table-light ">
                 <th scope="col">Edit</th>
                 <th scope="col" class=" display-none">Id</th>
                 <th scope="col">Images</th>
                 <th scope="col">title</th>
                 <th scope="col">Description</th>
-                <th scope="col">channel Name</th>
+                <th scope="col">Channel</th>
                 <th scope="col">catogries</th>
                 <th scope="col">type</th>
                 <th scope="col">is live</th>
               </tr>
             </thead>
             <tbody>
+            <tr class="card-hover">
+  <th>
+    <button class="btn btn-danger getModel" id="bKFMS5C4CG0" data-bs-toggle="modal" data-bs-target="#editModel" style="background-image: url('your_image_url');">
+      <i class="fa-solid fa-pen-to-square"></i> Edit
+    </button>
+  </th>
+  <th scope="row" class="display-none">bKFMS5C4CG0</th>
+  <td class=""><img class=" p-2 rounded img-fluid thumnail mb-0" src="https://i.ytimg.com/vi/bKFMS5C4CG0/mqdefault.jpg" alt=""></td>
+  <td class="text-truncate">Docker networking is CRAZY!! (you NEED to learn it)</td>
+  </div>
+  <td class="text-truncate">Docker networking</td>
+  <td class="text-truncate">Network chunk</td>
+  <td class="text-truncate">networking</td>
+  <td class="text-truncate">normal</td>
+  <td class="text-truncate">1</td>
+</tr>
+
             </tbody>
+
             
           </table>
+
         <div class="spinner"></div>
         </div>
       </div>
 
       <div class="tab-content">
-        <h3>Add More Videos</h3>
-        
-        <div class="addVideos">
+        <h6 class="text-uppercase">Add More Videos</h6>
+        <hr>
+        <div class="addVideos card-blur p-2 rounded">
           
         <div class="d-flex w-100">
           <div class="w-50 p-2">
           <p>Video id</p>
           <div class="updateVideo">
-            <input required class="form-control form-control-lg getVideoId" type="text" placeholder="video id" aria-label="Enter a value example">
+            <input required class="custom-placeholder form-control form-control-lg getVideoId " type="text" placeholder="video id" aria-label="Enter a value example">
           </div>
           </div>
           <div class="w-50 p-2">
         <p>Video image</p>
           <div class="updateVideo">
-            <input required class="form-control form-control-lg getVideoImage" type="text " placeholder="Image url" aria-label="Enter a value example">
+            <input required class="custom-placeholder form-control form-control-lg getVideoImage " type="text " placeholder="Image url" aria-label="Enter a value example">
           </div>
         </div>
         </div>
@@ -192,20 +220,20 @@ if (isset($_GET['logout'])) {
         <div class="w-50 p-2">
           <p>Video Title</p>
           <div class="updateVideo">
-            <input required class="form-control form-control-lg getVideoTitle" type="text " placeholder="Video titile" aria-label="Enter a value example">
+            <input required class="custom-placeholder form-control form-control-lg getVideoTitle " type="text " placeholder="Video titile" aria-label="Enter a value example">
           </div>
         </div>
         <div class="w-50 p-2">
          <p>Video Description</p>
           <div class="updateVideo">
             <!-- <input class="form-control form-control-lg getVideoDescription" type="textarea" placeholder="Video Description" aria-label="Enter a value example"> -->
-            <textarea required class="form-control getVideoDescriptionInfo" id="exampleFormControlTextarea2" rows="3"></textarea>
+            <textarea required class=" custom-placeholder form-control getVideoDescriptionInfo " id="exampleFormControlTextarea2" rows="3"></textarea>
           </div>
          </div>
         </div>
          
           <div class="d-flex row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
               <p>Channel</p>
               <div class="updateVideo">
                 <select class="form-select videoSelects" aria-label="Default select example">
@@ -213,7 +241,7 @@ if (isset($_GET['logout'])) {
                 </select>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
             <p>catogries</p>
             <div class="updateVideo">
               <select class="form-select  videoCatogries" aria-label="Default select example">
@@ -221,7 +249,7 @@ if (isset($_GET['logout'])) {
               </select>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 ">
           <p>Type</p>
           <div class="updateVideo">
             <select class="form-select videoType" aria-label="Default select example">
@@ -243,11 +271,12 @@ if (isset($_GET['logout'])) {
       </div>
 
       <div class="tab-content">
-        <h3>Update Info</h3>
+        <h6 class="text-uppercase">Update Info</h6>
+        <hr>
         <div class="updateInfo">
-          <div class="row ">
+          <div class="row card-blur">
 
-          <div class="col-sm-4">
+          <div class="col-sm-4 ">
               <h5 class="updateInfoHeading">Catogries </h5>
               <div class="channelContent updateInfoHeading">
               </div>
@@ -257,7 +286,7 @@ if (isset($_GET['logout'])) {
               </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4  ">
               <h5 class="updateInfoHeading">Channel </h5>
               <div class="catogriesContent updateInfoHeading">
               </div>
@@ -267,7 +296,7 @@ if (isset($_GET['logout'])) {
               </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4  ">
               <h5 class="updateInfoHeading">Type</h5>
               <div class="typeContent updateInfoHeading">
               </div>

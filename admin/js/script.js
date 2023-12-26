@@ -44,7 +44,7 @@ function createALertButton(message, color){
   const appendAlert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
-      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `<div class="card-blur alert alert-${type} alert-dismissible" role="alert">`,
       `   <div>${message}</div>`,
       '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
       '</div>'
@@ -223,7 +223,8 @@ function mapApiResponseToDataObject(apiResponse) {
       editRow.setAttribute("data-bs-toggle", "modal");
       editRow.setAttribute("data-bs-target", "#editModel");
       editRow.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit ';
-      indexCell.append(editRow)
+      indexCell.append(editRow);
+      tableRow.classList.add('card-hover');
       tableRow.appendChild(indexCell);
     // Create a table cell for the index
       var indexCell = document.createElement("th");
@@ -234,7 +235,7 @@ function mapApiResponseToDataObject(apiResponse) {
       // Create a table cell for the image
       var imageCell = document.createElement("td");
       var imageElement = document.createElement("img");
-      imageElement.classList.add("img-fluid", "thumnail");
+      imageElement.classList.add("img-fluid", "thumnail","p-2","rounded","mb-0");
       imageElement.setAttribute("src", dataObject.image); // Replace with the actual image URL
       imageElement.setAttribute("alt", "");
       imageCell.appendChild(imageElement);

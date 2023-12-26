@@ -2,19 +2,59 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: white !important;
+}
+:root{
+  --bs-body-bg: rgb(0 0 0 / 20%) !important;;
 }
 body {
     margin: 0;
     padding: 0;
     /* background-color: #f4f4f4; */
+    background-image: url('../admin/assets/images/2.png');
+}
+.bg-image{
+  background-image: url('../admin/assets/images/2.png');
+}
+h3{
+  color: white;
+}
+.transparent{
+  background-color: transparent !important;
+}
+.card-blur{
+  background-color: rgb(0 0 0 / 20%) !important;
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12) !important;
+  margin-bottom: 1.5rem !important;
+  border:  0.1px solid #ededf04f;
+  color: white !important;
+}
+.thumnail{
+  background-color: rgb(0 0 0 / 20%) !important;
+  box-shadow: 0 .3rem .8rem rgba(0, 0, 0, .12) !important;
+  border: 0.1px solid #ededf04f;
+  color: white !important;
+}
+.card-hover{
+  cursor: pointer;
+}
+.card-hover:hover{
+  background-color: rgb(255 255 255 / 15%);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .2);
+    transition:  all cubic-bezier(0.19, 1, 0.22, 1) cubic-bezier(.07,.95,0,1);
 }
 .tabs-container {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-
+.table > :not(caption) > * > * {
+  color: white !important;
+  border:  0.1px solid #ededf04f;
+}
 .tab {
     padding: 10px;
     cursor: pointer;
@@ -39,21 +79,36 @@ body {
     display: block;
 }
 .activeBar{
-    background-color: white;
-  color: vkye;
-  color: #1e90ff;
-  border-radius: 50px 0 0 50px;
+  background: rgb(255 255 255 / 15%);
+  /* color: #1e90ff; */
+  /* border-radius: 50px 0 0 50px; */
 }
 .main_container{
     display: flex;
     width: 100%;
 }
+.search{
+  background-color: rgb(0 0 0 / 15%);
+  border: 1px solid rgb(255 255 255 / 15%);
+  padding-right: 2.5rem;
+}
+.search_controle{
+  background-color: rgb(0 0 0 / 15%);
+  border: 1px solid rgb(255 255 255 / 15%);
+  /* padding-right: 2.5rem; */
+}
+.table-light{
+  --bs-table-bg: rgb(255 255 255 / 15%);
+  color: #fff;
+  border-color: rgb(255 255 255 / 15%);
+}
 .left_div{
     position: relative;
     width: 20%;
     min-height: 100vh;
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
   color: white;
+  /* border: 1px solid rgb(151, 151, 151); */
 }
 .right_div{
     width: 80%;
@@ -64,8 +119,20 @@ body {
     padding: 10px 10px;
 }
 .thumnail{
-    width: 200px;
+    width: 50px;
     height: auto;
+  transition: 0.5s;
+
+}
+.card-hover:hover .thumnail{
+  position: relative;
+  width: 150px;
+  transition: 0.5s;
+}
+.card-hover:hover .text-truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
 }
 .updateVideo{
     margin-bottom: 10px;
@@ -76,7 +143,7 @@ body {
     right: 10px;
 }
 .updateInfoHeading{
-    background-color: #1e90ff;
+    /* background-color: #1e90ff; */
   padding: 10px;
   color: white;
 }
@@ -111,12 +178,12 @@ body {
     display:none;
   }
   .updateInfoHeading{
-    background-color: #1e90ff;
+    /* background-color: #1e90ff; */
   padding: 10px;
   color: white;
 }
 .updateInfoHeading p {
-  background-color: #1e90ff;
+  /* background-color: #1e90ff; */
   padding: 10px;
   color: white;
 }
@@ -143,7 +210,7 @@ body {
   top: 20px; */
   width: 100%;
   min-height: 200px;
-  background-color:#1e90ff;
+  /* background-color:#1e90ff; */
   display: flex;
   align-items:center;
 }
@@ -172,7 +239,21 @@ body {
   padding:10px;
 }
 .form-control, .form-select{
-    border-radius: 0px !important;
+  border-radius: .375rem !important;
+    border: 1px solid rgb(255 255 255 / 15%);
+}
+.custom-placeholder::placeholder {
+  color: rgb(255 255 255 / 15%); /* Change this to the desired color */
+}
+hr{
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+    border-top-width: 0px;
+    border-top-style: none;
+    border-top-color: currentcolor;
+  border-top: 1px solid;
+  opacity: .25;
 }
 .btn {
     --bs-btn-border-radius : 2px !important;
