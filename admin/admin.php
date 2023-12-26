@@ -30,6 +30,7 @@ if (isset($_GET['logout'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
   <link rel="stylesheet" href="style.css" />
 
 <style> 
@@ -37,7 +38,7 @@ if (isset($_GET['logout'])) {
 </style>
 </head>
 
-<body>
+<body class="bg-image bg-theme">
 <div class="wrapButton">
   <div id="liveAlertPlaceholder"></div>
 </div>
@@ -111,18 +112,31 @@ if (isset($_GET['logout'])) {
     <!-- <div class="menuHideBar">
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </div> -->
-      <div class="logo d-flex align-items-center">
+    
+      <div class="logo d-flex align-items-center card-blur mb-0">
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFz1aoq0RnlkDHO6OqApeAWXICc9xFcyqUZndGSfTyzPPDPksfhsYK7s4vEoYZ_Xc2Imeh9yEXbg09WAwEpH41KXANe8wbLqaQFyhMqkVH9_KDvhZ-VkUxzB5ppvwyOh_vEUDkLbPBwrYOgyMC7x9-aN5kF-Q1HB3cOugW5PBtrjXfHQIN15w5cz09LPt6/s16000/T-G%20logos%20only.png" alt="">
         <h3 class="m-0">Techey Guys</h3>
       </div>
-      <div class="tabs-container">
-        <div class="tab activeBar"><i class="fa-solid fa-house "></i>Dashbord
+
+          <div class="top-menu">
+
+          <div class="tabs-container">
+                <div class="tab activeBar"><i class="fa-solid fa-house "></i>Dashbord
+              </div>
+                <div class="tab"><i class="fa-solid fa-plus"></i>Add Videos</div>
+                <div class="tab"><i class="fa-solid fa-pen-to-square"></i>Update Info</div>
+                <!-- Add more tabs as needed -->
+          </div>
+
       </div>
-        <div class="tab"><i class="fa-solid fa-plus"></i>Add Videos</div>
-        <div class="tab"><i class="fa-solid fa-pen-to-square"></i>Update Info</div>
-        <!-- Add more tabs as needed -->
-      </div>
+          
+      <div class="bottom-menu bg-danger">
+      <i class="fa-solid fa-right-from-bracket"></i>
+          <a href="/admin/admin.php?logout" ><p>Logout </p></a>
+        </div>
+
     </div>
+
     <div class="right_div closeBugermenu">
         <div class="tab-content active">
       <div class="wrap card-blur rounded p-2">
@@ -134,22 +148,70 @@ if (isset($_GET['logout'])) {
           <a href="/admin/admin.php?logout"><button class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button></a>
       </div>
     </div>
-        <div class="adminDashbord text-light card-blur rounded">
-    <div class="row d-flex w-100">
-      <div class="col-4 d-flex justify-content-center align-items-center"><div>
-        <h3 class="fs-5">Total Videos</h3>
-        <h4 class="fs-2 dashbordTotalVideos">Loading...</h4>
-      </div></div>
-      <div class="col-4 d-flex  justify-content-center align-items-center"><div>
-      <h3 class="fs-5">Total Live</h3>
-        <h4 class="fs-2 dashbordTotalLive">Loading...</h4>
-      </div></div>
-      <div class="col-4 d-flex  justify-content-center align-items-center"><div>
-      <h3 class="fs-5">Catogries</h3>
-        <h4 class="fs-2 dashbordTotalCatogries">Loading...</h4>
-      </div></div>
-    </div>
-        </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
+					<div class="col">
+						<div class="card radius-10 card-blur">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total Videos</p>
+										<h4 class="my-1 dashbordTotalVideos">⏳</h4>
+									</div>
+									<div class="ms-auto font-35 text-white"><i class="bx bxl-chrome"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card radius-10 card-blur">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total live</p>
+										<h4 class="my-1 dashbordTotalLive">⏳</h4>
+									</div>
+									<div class="ms-auto font-35 text-white"><i class="bx bxl-github"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card radius-10 card-blur">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Total catogries</p>
+										<h4 class="my-1 dashbordTotalCatogries">⏳</h4>
+									</div>
+									<div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card radius-10 card-blur">
+							<div class="card-body">
+								<div class="d-flex align-items-center">
+									<div>
+										<p class="mb-0">Subscribers</p>
+										<h4 class="my-1 ">⏳</h4>
+									</div>
+									<div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
         <div class="content  card-body">
 <div class="text">
   <h6>Latest</h6>
@@ -170,7 +232,7 @@ if (isset($_GET['logout'])) {
               </tr>
             </thead>
             <tbody>
-            <tr class="card-hover">
+            <!-- <tr class="card-hover">
   <th>
     <button class="btn btn-danger getModel" id="bKFMS5C4CG0" data-bs-toggle="modal" data-bs-target="#editModel" style="background-image: url('your_image_url');">
       <i class="fa-solid fa-pen-to-square"></i> Edit
@@ -185,8 +247,16 @@ if (isset($_GET['logout'])) {
   <td class="text-truncate">networking</td>
   <td class="text-truncate">normal</td>
   <td class="text-truncate">1</td>
-</tr>
-
+</tr> -->
+<button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="All Added videos">
+  All Videos
+</button>
+<button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="All Added videos">
+  Live 
+</button>
+<button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="All Added videos">
+  Not Live
+</button>
             </tbody>
 
             
@@ -271,43 +341,80 @@ if (isset($_GET['logout'])) {
       </div>
 
       <div class="tab-content">
-        <h6 class="text-uppercase">Update Info</h6>
-        <hr>
-        <div class="updateInfo">
-          <div class="row card-blur">
-
-          <div class="col-sm-4 ">
-              <h5 class="updateInfoHeading">Catogries </h5>
-              <div class="channelContent updateInfoHeading">
+      <div class="row">
+    <!-- catogries  -->
+      <div class="col-4 col-xl-4 d-flex">
+                <div class="card radius-10 w-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <h5 class="mb-0">Catogries</h5>
+                      </div>
+                      <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-list p-3 mb-3 ps ps--active-y">
+                  <!-- //catogries  -->
+                  <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
+                      <div class="ms-2">
+                          <div class="channelContent"></div>
+                      </div>
+                  </div>
+                </div>
               </div>
-              <div class="d-flex bg-info">
-              <input class="form-control" type="text" placeholder="Catogries" aria-label="default input example">
-                <button class="btn btn-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-plus"></i>   Add</button>
-              </div>
-            </div>
-
-            <div class="col-sm-4  ">
-              <h5 class="updateInfoHeading">Channel </h5>
-              <div class="catogriesContent updateInfoHeading">
-              </div>
-              <div class="d-flex bg-info">
-              <input class="form-control" type="text" placeholder="Channel" aria-label="default input example">
-                <button class="btn btn-primary d-flex justify-content-center align-items-center"><i class="fa-solid fa-plus"></i>   Add</button>
-              </div>
-            </div>
-
-            <div class="col-sm-4  ">
-              <h5 class="updateInfoHeading">Type</h5>
-              <div class="typeContent updateInfoHeading">
-              </div>
-            </div>
-
-          </div>
-        </div>
       </div>
-
+    <!-- channel  -->
+      <div class="col-4 col-xl-4 d-flex">
+                <div class="card radius-10 w-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <h5 class="mb-0">Catogries</h5>
+                      </div>
+                      <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-list p-3 mb-3 ps ps--active-y">
+                  <!-- //catogries  -->
+                  <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
+                      <div class="ms-2">
+                          <div class="catogriesContent"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+    <!-- video type  -->
+      <div class="col-4 col-xl-4 d-flex">
+                <div class="card radius-10 w-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <h5 class="mb-0">Catogries</h5>
+                      </div>
+                      <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-list p-3 mb-3 ps ps--active-y">
+                  <!-- //catogries  -->
+                  <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
+                      <div class="ms-2">
+                          <div class="typeContent"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+</div>
     </div>
   </div>
+
+        </div>
+
+
 
 
 <!-- jQuery CDN (latest version) -->
@@ -319,7 +426,6 @@ if (isset($_GET['logout'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
     <script>
       $(document).ready(function() {
           $('.updateVideoDetailsByurl').on('click', function() {
@@ -327,7 +433,12 @@ if (isset($_GET['logout'])) {
       });
       });
     </script>
-
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+  </script>
 
 </body>
 

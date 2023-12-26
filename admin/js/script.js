@@ -63,31 +63,40 @@ let apiResponce ;
 //channel name
 function appendCategoriesToDOM(categoriesArray) {
   let channelContent = document.querySelector('.channelContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-//catogries
+appendCategoriesToDOM(categoriesArray);
+
 function appendChannelToDOM(categoriesArray) {
   let channelContent = document.querySelector('.catogriesContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-//Type
+appendChannelToDOM(categoriesArray);
+
+// type 
 function appendTpeToDOM(categoriesArray) {
   let channelContent = document.querySelector('.typeContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-
+appendTpeToDOM(categoriesArray);
 
 function createSelect(className, array) {
   var selectElements = document.querySelectorAll(`.${className}`);
@@ -216,14 +225,15 @@ function mapApiResponseToDataObject(apiResponse) {
   function createTableRow(dataObject) {
     // Create a table row
       var tableRow = document.createElement("tr");
-      var indexCell = document.createElement("th");
+      var indexCell = document.createElement("td");
       var editRow = document.createElement('button');
-      editRow.classList.add("btn", "btn-danger", 'getModel');
+      editRow.classList.add("btn", "btn-danger", 'getModel' , "m-2");
       editRow.setAttribute('id', dataObject.id);
       editRow.setAttribute("data-bs-toggle", "modal");
       editRow.setAttribute("data-bs-target", "#editModel");
-      editRow.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit ';
+      editRow.innerHTML = '<i class="fa-solid fa-pen-to-square "></i> Edit ';
       indexCell.append(editRow);
+      // indexCell.classList.add('d-flex', "justify-content-center");
       tableRow.classList.add('card-hover');
       tableRow.appendChild(indexCell);
     // Create a table cell for the index
@@ -354,3 +364,4 @@ function RemoveToast(){
     console.log("No child nodes initially, terminating process.");
   }
 }
+
