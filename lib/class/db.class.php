@@ -15,7 +15,7 @@ class db{
             $servername = "mysql.selfmade.ninja";
             $usernames = "agritechs";
             $passwords = "ZACd6npSuQyU5pN";
-            $dbname = "agritechs_api";
+            $dbname = "agritechs_youtubeapi";
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);
              // Check connection

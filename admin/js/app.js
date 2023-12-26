@@ -1,29 +1,3 @@
-// function getVideoDetailsByUrl() {
-//     // var videoUrl = $('#getVideoDetaialByUrl').val();
-//     var videoUrl = "https://www.youtube.com/watch?v=UlD2BnFXV-c";
-//     $.ajax({
-//         type: 'GET',
-//         url: 'https://youtubeapi.agricreations.com/fetchvideo.php',
-//         data: { videoUrl: videoUrl },
-//         dataType: 'json',
-//         success: function(response) {
-//             if (response.error) {
-//                 $('#result').html('Error: ' + response.error);
-//             } else {
-//                 $('.result').html(
-//                     'Video ID: ' + response.videoId + '<br>' +
-//                     'Title: ' + response.title + '<br>' +
-//                     'Description: ' + response.description + '<br>' +
-//                     '<img src="' + response.thumbnailUrl + '" alt="Thumbnail">'
-//                 );
-//             console.log('AJAXSUCCESS', response);
-//             }
-//         },
-//         error: function(xhr, status, error) {
-//             console.error('AJAX Error:', status, error);
-//         }
-//     });
-// }
 
 function getVideoDetailsByUrl() {
     var videoUrl = $('.getVideoDetaialByUrl').val();
@@ -46,8 +20,3 @@ function getVideoDetailsByUrl() {
         $('#result').html('Invalid YouTube URL. Couldn\'t extract video ID.');
     }
 }
-// $(document).ready(function() {
-//     $('#getVideoDetailByUrl').on('click', function() {
-//         getVideoDetails();
-//     });
-// });

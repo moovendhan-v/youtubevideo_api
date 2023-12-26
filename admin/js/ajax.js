@@ -60,9 +60,9 @@ updateAjaxCall.addEventListener('click',(event)=>{
   var videoImage = document.querySelector('.getVideoImage').value;
   var videoTitle = document.querySelector('.getVideoTitle').value;
   var videoInfo = document.querySelector('.getVideoDescriptionInfo').value;
-  var channel = document.querySelector(".videoSelects").selectedIndex;
-  var catogries = document.querySelector('.videoCatogries').selectedIndex;
-  var type = document.querySelector('.videoType').selectedIndex;
+  var channel = document.querySelector(".videoSelectss").selectedIndex;
+  var catogries = document.querySelector('.videoCatogriess').selectedIndex;
+  var type = document.querySelector('.videoTypess').selectedIndex;
   var isLive = document.querySelector('.updateVideo #flexSwitchCheckCheckedAddNew').checked;
   if(videoId == "" && videoImage == "" && videoTitle == "" && videoInfo == ""){
     createALertButton("Please fill required fields", "danger");

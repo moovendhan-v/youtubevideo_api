@@ -37,14 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 //bootstrap script for alert
 function createALertButton(message, color){
   const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
   const appendAlert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
-      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `<div class="card-blur alert alert-${type} alert-dismissible" role="alert">`,
       `   <div>${message}</div>`,
       '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
       '</div>'
@@ -63,31 +62,43 @@ let apiResponce ;
 //channel name
 function appendCategoriesToDOM(categoriesArray) {
   let channelContent = document.querySelector('.channelContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
+  console.log(`Catogries array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-//catogries
+appendCategoriesToDOM(categoriesArray);
+
 function appendChannelToDOM(categoriesArray) {
   let channelContent = document.querySelector('.catogriesContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
+  console.log(`channel array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-//Type
+appendChannelToDOM(categoriesArray);
+
+// type 
 function appendTpeToDOM(categoriesArray) {
   let channelContent = document.querySelector('.typeContent');
+  // Clear existing content
+  channelContent.innerHTML = '';
+  console.log(`video type array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
       channelContent.appendChild(paragraph);
   });
 }
-
+appendTpeToDOM(categoriesArray);
 
 function createSelect(className, array) {
   var selectElements = document.querySelectorAll(`.${className}`);
@@ -104,7 +115,6 @@ function createSelect(className, array) {
 
 // createALertButton("Button created", "success");
 
-
 document.addEventListener('DOMContentLoaded', async function () {
     async function fetchcategoriesArray(slogan) {
         try {
@@ -119,10 +129,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     await fetchcategoriesArray("getcatogriesinfo");  
     await createSelect("videoCatogries", categoriesArray);
+    await createSelect("videoCatogriess", categoriesArray);
+
     await appendCategoriesToDOM(categoriesArray);
 
 });
-
 
 document.addEventListener('DOMContentLoaded', async function () {
   async function fetchchannelIdArray(slogan) {
@@ -139,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchchannelIdArray("getchannelinfo");
-  await createSelect("videoSelects", channelIdArray);
+  await createSelect("videoSelectss", channelIdArray);
   await appendChannelToDOM(channelIdArray);
 });
 
@@ -157,7 +168,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchgetvideoinfo("getvideoinfo");
-  await createSelect("videoType", videoTypeId  );
+  await createSelect("videoTypes", videoTypeId  );
+  await createSelect("videoTypess", videoTypeId  );
   await appendTpeToDOM(videoTypeId);
 });
 
@@ -216,14 +228,16 @@ function mapApiResponseToDataObject(apiResponse) {
   function createTableRow(dataObject) {
     // Create a table row
       var tableRow = document.createElement("tr");
-      var indexCell = document.createElement("th");
+      var indexCell = document.createElement("td");
       var editRow = document.createElement('button');
-      editRow.classList.add("btn", "btn-danger", 'getModel');
+      editRow.classList.add("btn", "btn-danger", 'getModel' , "m-2");
       editRow.setAttribute('id', dataObject.id);
       editRow.setAttribute("data-bs-toggle", "modal");
       editRow.setAttribute("data-bs-target", "#editModel");
-      editRow.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit ';
-      indexCell.append(editRow)
+      editRow.innerHTML = '<i class="fa-solid fa-pen-to-square "></i> Edit ';
+      indexCell.append(editRow);
+      // indexCell.classList.add('d-flex', "justify-content-center");
+      tableRow.classList.add('card-hover');
       tableRow.appendChild(indexCell);
     // Create a table cell for the index
       var indexCell = document.createElement("th");
@@ -234,7 +248,7 @@ function mapApiResponseToDataObject(apiResponse) {
       // Create a table cell for the image
       var imageCell = document.createElement("td");
       var imageElement = document.createElement("img");
-      imageElement.classList.add("img-fluid", "thumnail");
+      imageElement.classList.add("img-fluid", "thumnail","p-2","rounded","mb-0");
       imageElement.setAttribute("src", dataObject.image); // Replace with the actual image URL
       imageElement.setAttribute("alt", "");
       imageCell.appendChild(imageElement);
@@ -249,7 +263,7 @@ function mapApiResponseToDataObject(apiResponse) {
       }
       // Append the new table row to the existing table body within the table with id "tableData"
       var tbody = document.querySelector("tbody");
-      if(tbody.childElementCount >= 1){
+      if(tbody.childElementCount >= 0){
         var spinner = document.querySelector('.spinner');
         spinner.classList.add('visually-hidden');
       }
@@ -275,11 +289,13 @@ function mapApiResponseToDataObject(apiResponse) {
         var catogries = e.target.parentElement.parentElement.cells[6].innerText;
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
-
+console.log(e.target.parentElement.parentElement.cells[5].innerText);
         var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
         var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
         var indexOfType = videoTypeId.indexOf(type);
 
+        console.log(channelIdArray);
+        console.log(categoriesArray);
 
         console.log(indexOfType, type);
         console.log(indexOfcategoriesArray, catogries);
@@ -308,35 +324,6 @@ function mapApiResponseToDataObject(apiResponse) {
     }
 });
 
-// var parentElementsForUpdate = document.querySelector('#Ba58DtoCUes').parentElement.parentElement.childNodes;
-// parentElementsForUpdate[3].innerText = "testupdate";
-
-// function updateUpdatedDatataInUI(){
-//   var toUdateTable = document.querySelector('#Ba58DtoCUes').parentElement.parentElement;
-//   toUdateTable.childNodes[2].innerText = "test" ; //image
-//   toUdateTable.childNodes[3].innerText = "test" ; //title
-//   toUdateTable.childNodes[4].innerText = "test" ; //description
-//   toUdateTable.childNodes[5].innerText = "test"; //channel Name
-//   toUdateTable.childNodes[6].innerText = "test"; //catogries
-//   toUdateTable.childNodes[7].innerText = "test"; //type
-//   toUdateTable.childNodes[8].innerText = "test"; //is live  
-// }
-
-
-
-
-
-
-// createSelect("videoSelects", channelIdArray);
-// // createSelect("videoCatogries", categoriesArray);
-// createSelect("videoType", videoTypeId);
-
-
-
-
-
-
-
 // removing toast button 
 function RemoveToast(){
   if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
@@ -353,3 +340,4 @@ function RemoveToast(){
     console.log("No child nodes initially, terminating process.");
   }
 }
+
