@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 //bootstrap script for alert
 function createALertButton(message, color){
   const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
@@ -65,6 +64,7 @@ function appendCategoriesToDOM(categoriesArray) {
   let channelContent = document.querySelector('.channelContent');
   // Clear existing content
   channelContent.innerHTML = '';
+  console.log(`Catogries array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -77,6 +77,7 @@ function appendChannelToDOM(categoriesArray) {
   let channelContent = document.querySelector('.catogriesContent');
   // Clear existing content
   channelContent.innerHTML = '';
+  console.log(`channel array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -90,6 +91,7 @@ function appendTpeToDOM(categoriesArray) {
   let channelContent = document.querySelector('.typeContent');
   // Clear existing content
   channelContent.innerHTML = '';
+  console.log(`video type array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -113,7 +115,6 @@ function createSelect(className, array) {
 
 // createALertButton("Button created", "success");
 
-
 document.addEventListener('DOMContentLoaded', async function () {
     async function fetchcategoriesArray(slogan) {
         try {
@@ -128,10 +129,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     await fetchcategoriesArray("getcatogriesinfo");  
     await createSelect("videoCatogries", categoriesArray);
+    await createSelect("videoCatogriess", categoriesArray);
+
     await appendCategoriesToDOM(categoriesArray);
 
 });
-
 
 document.addEventListener('DOMContentLoaded', async function () {
   async function fetchchannelIdArray(slogan) {
@@ -148,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchchannelIdArray("getchannelinfo");
-  await createSelect("videoSelects", channelIdArray);
+  await createSelect("videoSelectss", channelIdArray);
   await appendChannelToDOM(channelIdArray);
 });
 
@@ -166,7 +168,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchgetvideoinfo("getvideoinfo");
-  await createSelect("videoType", videoTypeId  );
+  await createSelect("videoTypes", videoTypeId  );
+  await createSelect("videoTypess", videoTypeId  );
   await appendTpeToDOM(videoTypeId);
 });
 
@@ -286,11 +289,13 @@ function mapApiResponseToDataObject(apiResponse) {
         var catogries = e.target.parentElement.parentElement.cells[6].innerText;
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
-
+console.log(e.target.parentElement.parentElement.cells[5].innerText);
         var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
         var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
         var indexOfType = videoTypeId.indexOf(type);
 
+        console.log(channelIdArray);
+        console.log(categoriesArray);
 
         console.log(indexOfType, type);
         console.log(indexOfcategoriesArray, catogries);
@@ -318,35 +323,6 @@ function mapApiResponseToDataObject(apiResponse) {
         console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     }
 });
-
-// var parentElementsForUpdate = document.querySelector('#Ba58DtoCUes').parentElement.parentElement.childNodes;
-// parentElementsForUpdate[3].innerText = "testupdate";
-
-// function updateUpdatedDatataInUI(){
-//   var toUdateTable = document.querySelector('#Ba58DtoCUes').parentElement.parentElement;
-//   toUdateTable.childNodes[2].innerText = "test" ; //image
-//   toUdateTable.childNodes[3].innerText = "test" ; //title
-//   toUdateTable.childNodes[4].innerText = "test" ; //description
-//   toUdateTable.childNodes[5].innerText = "test"; //channel Name
-//   toUdateTable.childNodes[6].innerText = "test"; //catogries
-//   toUdateTable.childNodes[7].innerText = "test"; //type
-//   toUdateTable.childNodes[8].innerText = "test"; //is live  
-// }
-
-
-
-
-
-
-// createSelect("videoSelects", channelIdArray);
-// // createSelect("videoCatogries", categoriesArray);
-// createSelect("videoType", videoTypeId);
-
-
-
-
-
-
 
 // removing toast button 
 function RemoveToast(){

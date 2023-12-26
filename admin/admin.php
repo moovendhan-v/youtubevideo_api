@@ -306,7 +306,7 @@ if (isset($_GET['logout'])) {
             <div class="col-sm-4 ">
               <p>Channel</p>
               <div class="updateVideo">
-                <select class="form-select videoSelects" aria-label="Default select example">
+                <select class="form-select videoSelectss" aria-label="Default select example">
                   <option disabled selected>Select a Channel</option>
                 </select>
               </div>
@@ -314,7 +314,7 @@ if (isset($_GET['logout'])) {
             <div class="col-sm-4 ">
             <p>catogries</p>
             <div class="updateVideo">
-              <select class="form-select  videoCatogries" aria-label="Default select example">
+              <select class="form-select  videoCatogriess" aria-label="Default select example">
                 <option disabled selected>Select a catogries</option>
               </select>
             </div>
@@ -322,7 +322,7 @@ if (isset($_GET['logout'])) {
           <div class="col-sm-4 ">
           <p>Type</p>
           <div class="updateVideo">
-            <select class="form-select videoType" aria-label="Default select example">
+            <select class="form-select videoTypess" aria-label="Default select example">
               <option disabled selected>Video type</option>
             </select>
           </div>
