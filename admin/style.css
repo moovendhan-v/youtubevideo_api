@@ -129,6 +129,7 @@ h3{
 }
 .top-menu{
   height: 100%;
+  overflow: scroll;
 }
 .bottom-menu{
   display: flex;
