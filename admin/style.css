@@ -299,6 +299,11 @@ hr{
   height: 300px;
   overflow: auto;
 }
+.h-300{
+  min-height: 300px;
+  max-height: 300px;
+  overflow: scroll ;
+}
 
 @keyframes spinner-b87k6z {
    to {

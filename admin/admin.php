@@ -139,7 +139,7 @@ if (isset($_GET['logout'])) {
           <div class="tab"><i class="fa-brands fa-youtube text-danger"></i>Youtube</div>
           <hr>
           <div class="tab"><i class="fa-solid fa-rss text-warning"></i>Rss Feeder</div>
-          <hr>  
+          <hr>
           <div class="tab"><i class="fa-solid fa-database text-primary"></i>Notion</div>
           <!-- Add more tabs as needed -->
         </div>
@@ -156,7 +156,7 @@ if (isset($_GET['logout'])) {
     </div>
 
     <div class="right_div closeBugermenu">
-
+      <!-- Dashbord  -->
       <div class="tab-content active">
         <div class="wrap card-blur rounded p-2">
           <div class="d-flex justify-content-between align-item-center">
@@ -273,7 +273,7 @@ if (isset($_GET['logout'])) {
           <div class="spinner"></div>
         </div>
       </div>
-
+      <!-- All Videos  -->
       <div class="tab-content">
         <h6 class="text-uppercase">Add More Videos</h6>
         <hr>
@@ -352,7 +352,7 @@ if (isset($_GET['logout'])) {
           <div class="btn btn-primary updateAjaxCall">Update Video</div>
         </div>
       </div>
-
+      <!-- Update Info  -->
       <div class="tab-content">
         <div class="row">
           <!-- catogries  -->
@@ -423,32 +423,303 @@ if (isset($_GET['logout'])) {
           </div>
         </div>
       </div>
-
+      <!-- Agricreations  -->
       <div class="tab-content">
         <h6 class="text-uppercase">Agricreations Dashbord</h6>
         <hr>
-      </div>
 
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Today Visitors</p>
+                    <h4 class="my-1 dashbordTotalVideos">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-chrome"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Last Month Views</p>
+                    <h4 class="my-1 dashbordTotalLive">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-github"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Last Year Views</p>
+                    <h4 class="my-1 dashbordTotalCatogries">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Total Views</p>
+                    <h4 class="my-1 ">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- visitors History  -->
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <div>
+                <h5 class="mb-0">Recent Visitors</h5>
+              </div>
+              <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+              </div>
+            </div>
+            <hr>
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Visit-Id</th>
+                    <th>Browser</th>
+                    <th>Date</th>
+                    <th>Country</th>
+                    <th>IP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1234</td>
+                    <td><i class="fa-brands fa-firefox-browser"></i></td>
+                    <td>12 Jul 2020</td>
+                    <td>United State</td>
+                    <td>192.168.1.1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr class="text-warning">
+
+        <div class="row">
+          <div class="col-4 ">
+            <!-- Subscribed Emails  -->
+            <div class="card radius-10 ">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <h5 class="mb-0">Subscribers</h5>
+                  </div>
+                  <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
+                <hr>
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody class="h-300">
+                      <tr>
+                        <td>Email</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <!-- Contact Forms -->
+            <div class="card radius-10 ">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <h5 class="mb-0">Contacted Info</h5>
+                  </div>
+                  <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
+                <hr>
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                      </tr>
+                    </thead>
+                    <tbody class="h-300">
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                      <tr>
+                        <td>Moovendhan</td>
+                        <td>moovendhan@agricreations.com</td>
+                        <td>Sample Messages</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- Youtube -->
       <div class="tab-content">
         <h6 class="text-uppercase">Youtube Dashbord</h6>
         <hr>
-      </div>
 
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Today Visitors</p>
+                    <h4 class="my-1 dashbordTotalVideos">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-chrome"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Last Month Views</p>
+                    <h4 class="my-1 dashbordTotalLive">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-github"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Last Year Views</p>
+                    <h4 class="my-1 dashbordTotalCatogries">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card radius-10 card-blur">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <p class="mb-0">Total Views</p>
+                    <h4 class="my-1 ">⏳</h4>
+                  </div>
+                  <div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- Rss Feeder  -->
       <div class="tab-content">
         <h6 class="text-uppercase">Rss Feeder</h6>
         <hr>
       </div>
-
+      <!-- Notion -->
       <div class="tab-content">
         <h6 class="text-uppercase">Notion Dashbord</h6>
         <hr>
       </div>
-
     </div>
-
   </div>
-
-
 
 
   <!-- jQuery CDN (latest version) -->
