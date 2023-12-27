@@ -150,7 +150,9 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchchannelIdArray("getchannelinfo");
+  await createSelect("videoSelects", channelIdArray);
   await createSelect("videoSelectss", channelIdArray);
+
   await appendChannelToDOM(channelIdArray);
 });
 
@@ -168,7 +170,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
   }
   await fetchgetvideoinfo("getvideoinfo");
-  await createSelect("videoTypes", videoTypeId  );
+  await createSelect("videoType", videoTypeId  );
   await createSelect("videoTypess", videoTypeId  );
   await appendTpeToDOM(videoTypeId);
 });
