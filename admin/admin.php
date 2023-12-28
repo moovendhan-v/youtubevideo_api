@@ -39,6 +39,7 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body class="bg-image bg-theme">
+
   <div class="wrapButton">
     <div id="liveAlertPlaceholder"></div>
   </div>
@@ -206,7 +207,7 @@ if (isset($_GET['logout'])) {
                 <div class="d-flex align-items-center">
                   <div>
                     <p class="mb-0">Total catogries</p>
-                    <h4 class="my-1 dashbordTotalCatogries">⏳</h4>
+                    <h4 class="my-1 dashbordTotalCatogries ">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
                   </div>
@@ -222,6 +223,7 @@ if (isset($_GET['logout'])) {
                   <div>
                     <p class="mb-0">Subscribers</p>
                     <h4 class="my-1 ">⏳</h4>
+                    <div>⏳</div>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
                   </div>
@@ -236,6 +238,30 @@ if (isset($_GET['logout'])) {
           <div class="text">
             <h6>Latest</h6>
             <hr>
+            <div class="row my-3">
+              <div class="col-6">
+                <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="All Added videos">
+                  All Videos
+                </button>
+                <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="All Added videos">
+                  Live
+                </button>
+                <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="All Added videos">
+                  Not Live
+                </button>
+              </div>
+              <div class="col-6">
+                <div class="search-bar flex-grow-1">
+                  <div class="position-relative search-bar-box">
+                    <input type="text" class="form-control search-control" placeholder="Type to search..."> <span
+                      class="position-absolute top-50 search-show translate-middle-y">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <table class="table card-blur ">
             <thead>
@@ -253,21 +279,8 @@ if (isset($_GET['logout'])) {
             </thead>
             <tbody>
 
-              <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="All Added videos">
-                All Videos
-              </button>
-              <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="All Added videos">
-                Live
-              </button>
-              <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
-                data-bs-placement="top" title="All Added videos">
-                Not Live
-              </button>
+
             </tbody>
-
-
           </table>
 
           <div class="spinner"></div>
@@ -428,6 +441,8 @@ if (isset($_GET['logout'])) {
         <h6 class="text-uppercase">Agricreations Dashbord</h6>
         <hr>
 
+<!-- <div class='parent'><div class="magicpattern"></div> -->
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
           <div class="col">
             <div class="card radius-10 card-blur">
@@ -490,6 +505,7 @@ if (isset($_GET['logout'])) {
           </div>
 
         </div>
+
         <!-- visitors History  -->
         <div class="card radius-10">
           <div class="card-body">
@@ -637,7 +653,6 @@ if (isset($_GET['logout'])) {
           </div>
         </div>
 
-
       </div>
       <!-- Youtube -->
       <div class="tab-content">
@@ -707,11 +722,138 @@ if (isset($_GET['logout'])) {
 
         </div>
 
+        <h6 class="text-uppercase">Hkr Agri Techs</h6>
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
+          <div class="col">
+          <div class="card radius-10 ">
+              <div class="card-body ">
+                <div class="d-flex align-items-center p-2">
+                  <div>
+                    <h5 class="mb-0">Recent Subscribers</h5>
+                  </div>
+                  <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
+                <hr>
+                <div class="overflow-scrool">
+                  <div class="h-300">
+                  <div class="d-flex align-items-center p-2">
+												<div class="">
+													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
+												</div>
+												<div class="ms-2">
+													<h6 class="mb-0 font-14">Agricreations</h6>
+												</div>
+											</div>  <div class="d-flex align-items-center p-2">
+												<div class="">
+													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
+												</div>
+												<div class="ms-2">
+													<h6 class="mb-0 font-14">Moovendhan</h6>
+												</div>
+											</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+          <div class="card radius-10 ">
+              <div class="card-body ">
+                <div class="d-flex align-items-center p-2">
+                  <div>
+                    <h5 class="mb-0">Recent Comments</h5>
+                  </div>
+                  <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
+                <hr>
+                <div class="overflow-scrool">
+                  <div class="h-300">
+                  <div class="d-flex align-items-center p-2">
+												<div class="">
+													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
+												</div>
+												<div class="ms-2">
+													<h6 class="mb-0 font-14">Agricreations</h6>
+												</div>
+											</div>  <div class="d-flex align-items-center p-2">
+												<div class="">
+													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
+												</div>
+												<div class="ms-2">
+													<h6 class="mb-0 font-14">Moovendhan</h6>
+												</div>
+											</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xl-6">
+          <div class="card radius-10 ">
+              <div class="card-body max-height-300">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <h5 class="mb-0">Channel Analytics</h5>
+                  </div>
+                  <div class="font-22 ms-auto"><i class="bx bx-dots-horizontal-rounded"></i>
+                  </div>
+                </div>
+                <hr>
+                <div class="overflow-scrool">
+                  <div class="h-300">
+                   <div class="p-2">
+                    <p>Done</p>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+
+        </div>
+
       </div>
       <!-- Rss Feeder  -->
       <div class="tab-content">
         <h6 class="text-uppercase">Rss Feeder</h6>
         <hr>
+        <div class="card radius-10">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Random Tech News</h5>
+      <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
+    </div>
+    <hr>
+    <div class="">
+      <div class="row">
+        <div class="col-12 py-2 bg-head">
+          <div class="row">
+            <div class="col-2">Source</div>
+            <div class="col-6">Title</div>
+            <div class="col-4">Date</div>
+          </div>
+        </div>
+        <div class="col-12 py-2">
+          <div class="row">
+            <div class="col-2"><a href="#">Techverge.com</a></div>
+            <div class="col-6">Tech News</div>
+            <div class="col-4">12 Jul 2020</div>
+          </div>
+          <!-- Add more rows as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
       <!-- Notion -->
       <div class="tab-content">

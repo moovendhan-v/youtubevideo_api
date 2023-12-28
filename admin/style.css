@@ -305,11 +305,65 @@ hr{
   overflow: scroll ;
 }
 
+.pulse {
+   width: 22.4px;
+   height: 22.4px;
+   border-radius: 50%;
+   background: #474bff;
+   box-shadow: 0 0 0 0 rgba(71,75,255,0.5);
+   animation: pulse-kefe91md 1.5s infinite linear;
+   position: relative;
+}
+
+.pulse:before,
+.pulse:after {
+   content: "";
+   position: absolute;
+   inset: 0;
+   border-radius: inherit;
+   box-shadow: 0 0 0 0 rgba(71,75,255,0.5);
+   animation: inherit;
+   animation-delay: -0.5s;
+}
+
+.pulse:after {
+   animation-delay: -1s;
+}
+
+@keyframes pulse-kefe91md {
+   100% {
+      box-shadow: 0 0 0 44.8px #0000;
+   }
+}
+
 @keyframes spinner-b87k6z {
    to {
       transform: rotate(360deg);
    }
 }
+.bg-head{
+  background-color: rgb(255 255 255 / 15%);
+}
+
+/* dashbord for svg pattens  */
+.parent {
+  width: 80%;
+  height: 200px;
+  background: transparent;
+  overflow: hidden
+}
+.magicpattern { 
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg height=%22auto%22 viewBox=%220 0 2000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d=%22M0 986.965c66.6-18.1 199.8-57.6 333-90.503 133.2-32.902 199.8-33.898 333-74.011 133.2-40.114 199.8-82.551 333-126.556 133.2-44.005 199.8 7.346 333-93.468 133.2-100.814 199.8-382.878 333-410.603 133.2-27.726 266.4 217.58 333 271.975l2 536.201H0Z%22 fill=%22%23444cf71a%22%2F%3E%3Cpath d=%22M0 986.965c66.6-18.1 199.8-57.6 333-90.503 133.2-32.902 199.8-33.898 333-74.011 133.2-40.114 199.8-82.551 333-126.556 133.2-44.005 199.8 7.346 333-93.468 133.2-100.814 199.8-382.878 333-410.603 133.2-27.726 266.4 217.58 333 271.975%22 fill=%22none%22 stroke=%22%23444cf7%22 stroke-width=%2210%22%2F%3E%3Cg fill=%22%23444cf7%22%3E%3Ccircle cy=%22986.965%22 r=%2214%22%2F%3E%3Ccircle cx=%22333%22 cy=%22896.462%22 r=%2214%22%2F%3E%3Ccircle cx=%22666%22 cy=%22822.451%22 r=%2214%22%2F%3E%3Ccircle cx=%22999%22 cy=%22695.895%22 r=%2214%22%2F%3E%3Ccircle cx=%221332%22 cy=%22602.427%22 r=%2214%22%2F%3E%3Ccircle cx=%221665%22 cy=%22191.824%22 r=%2214%22%2F%3E%3Ccircle cx=%221998%22 cy=%22463.799%22 r=%2214%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+/* svg pattens end  */
+
+
+
 /* Media query for mobile devices */
 @media only screen and (max-width: 599px) {
   .logo h3{
