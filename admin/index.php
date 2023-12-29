@@ -6,6 +6,7 @@ loadTemplate("head");
 
 if(isset($_SESSION['login']) == "admin"){
     header("Location: admin.php");
+   
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

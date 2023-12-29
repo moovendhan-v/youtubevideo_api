@@ -89,6 +89,26 @@ h3{
     padding: 10px;
 }
 
+.btn-active{
+  background-color: #0d6efd;
+}
+.table-container{
+  height: 300px; /* Set your desired height */
+  overflow-y: auto;
+}
+.table-container-max{
+  max-height: 300px; /* Set your desired height */
+  overflow-y: auto;
+}
+.table-body {
+  /* display: block; */
+}
+.table-container::-webkit-scrollbar {
+  width: 0.5em;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+}
 .tab-content.active {
     display: block;
 }
@@ -344,13 +364,21 @@ hr{
 .bg-head{
   background-color: rgb(255 255 255 / 15%);
 }
-
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 /* dashbord for svg pattens  */
 .parent {
   width: 80%;
   height: 200px;
   background: transparent;
   overflow: hidden
+}
+.object-fit-cover{
+  object-fit:cover;
 }
 .magicpattern { 
   width: 100%;

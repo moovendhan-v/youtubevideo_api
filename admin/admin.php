@@ -240,7 +240,7 @@ if (isset($_GET['logout'])) {
             <hr>
             <div class="row my-3">
               <div class="col-6">
-                <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+                <button type="button" class="p-1 me-2 mb-3 btn btn-active" data-bs-toggle="tooltip"
                   data-bs-placement="top" title="All Added videos">
                   All Videos
                 </button>
@@ -441,7 +441,7 @@ if (isset($_GET['logout'])) {
         <h6 class="text-uppercase">Agricreations Dashbord</h6>
         <hr>
 
-<!-- <div class='parent'><div class="magicpattern"></div> -->
+        <!-- <div class='parent'><div class="magicpattern"></div> -->
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
           <div class="col">
@@ -450,7 +450,7 @@ if (isset($_GET['logout'])) {
                 <div class="d-flex align-items-center">
                   <div>
                     <p class="mb-0">Today Visitors</p>
-                    <h4 class="my-1 dashbordTotalVideos">⏳</h4>
+                    <h4 class="my-1 dashbordTodayVisitors">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-chrome"></i>
                   </div>
@@ -465,7 +465,7 @@ if (isset($_GET['logout'])) {
                 <div class="d-flex align-items-center">
                   <div>
                     <p class="mb-0">Last Month Views</p>
-                    <h4 class="my-1 dashbordTotalLive">⏳</h4>
+                    <h4 class="my-1 dashbordLastMontVisitors">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-github"></i>
                   </div>
@@ -480,7 +480,7 @@ if (isset($_GET['logout'])) {
                 <div class="d-flex align-items-center">
                   <div>
                     <p class="mb-0">Last Year Views</p>
-                    <h4 class="my-1 dashbordTotalCatogries">⏳</h4>
+                    <h4 class="my-1 dashbordLastYearVisitors">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
                   </div>
@@ -495,7 +495,7 @@ if (isset($_GET['logout'])) {
                 <div class="d-flex align-items-center">
                   <div>
                     <p class="mb-0">Total Views</p>
-                    <h4 class="my-1 ">⏳</h4>
+                    <h4 class="my-1 dashbordTotalVisitors">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
                   </div>
@@ -517,25 +517,26 @@ if (isset($_GET['logout'])) {
               </div>
             </div>
             <hr>
-            <div class="table-responsive">
-              <table class="table align-middle mb-0">
+            <div class="table-responsive table-container-max">
+              <table class="table align-middle mb-0" >
                 <thead class="table-light">
                   <tr>
-                    <th>Visit-Id</th>
+                    <th>Visit-Region</th>
                     <th>Browser</th>
                     <th>Date</th>
                     <th>Country</th>
+                    <th>TimeZone</th>
                     <th>IP</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody id="visitorTable">
+                  <!-- <tr>
                     <td>#1234</td>
                     <td><i class="fa-brands fa-firefox-browser"></i></td>
                     <td>12 Jul 2020</td>
                     <td>United State</td>
                     <td>192.168.1.1</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
@@ -546,7 +547,7 @@ if (isset($_GET['logout'])) {
         <div class="row">
           <div class="col-4 ">
             <!-- Subscribed Emails  -->
-            <div class="card radius-10 ">
+            <div class="card radius-10  ">
               <div class="card-body">
                 <div class="d-flex align-items-center">
                   <div>
@@ -556,14 +557,14 @@ if (isset($_GET['logout'])) {
                   </div>
                 </div>
                 <hr>
-                <div class="table-responsive">
+                <div class="table-responsive table-container">
                   <table class="table align-middle mb-0">
-                    <thead class="table-light">
+                    <thead class="table-light"> 
                       <tr>
                         <th>Email</th>
                       </tr>
                     </thead>
-                    <tbody class="h-300">
+                    <tbody class="table-body "  id="subscribersTable">
                       <tr>
                         <td>Email</td>
                       </tr>
@@ -585,7 +586,7 @@ if (isset($_GET['logout'])) {
                   </div>
                 </div>
                 <hr>
-                <div class="table-responsive">
+                <div class="table-responsive table-container">
                   <table class="table align-middle mb-0">
                     <thead class="table-light">
                       <tr>
@@ -594,57 +595,8 @@ if (isset($_GET['logout'])) {
                         <th>Message</th>
                       </tr>
                     </thead>
-                    <tbody class="h-300">
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
-                      <tr>
-                        <td>Moovendhan</td>
-                        <td>moovendhan@agricreations.com</td>
-                        <td>Sample Messages</td>
-                      </tr>
+                    <tbody class="h-300" id="contactTable">
+                     
                     </tbody>
                   </table>
                 </div>
@@ -727,7 +679,7 @@ if (isset($_GET['logout'])) {
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 my-3">
           <div class="col">
-          <div class="card radius-10 ">
+            <div class="card radius-10 ">
               <div class="card-body ">
                 <div class="d-flex align-items-center p-2">
                   <div>
@@ -739,21 +691,26 @@ if (isset($_GET['logout'])) {
                 <hr>
                 <div class="overflow-scrool">
                   <div class="h-300">
-                  <div class="d-flex align-items-center p-2">
-												<div class="">
-													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
-												</div>
-												<div class="ms-2">
-													<h6 class="mb-0 font-14">Agricreations</h6>
-												</div>
-											</div>  <div class="d-flex align-items-center p-2">
-												<div class="">
-													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
-												</div>
-												<div class="ms-2">
-													<h6 class="mb-0 font-14">Moovendhan</h6>
-												</div>
-											</div>
+                    <div class="d-flex align-items-center p-2">
+                      <div class="">
+                        <img
+                          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png"
+                          class="rounded-circle object-fit-cover" width="40" height="40" alt="">
+                      </div>
+                      <div class="ms-2">
+                        <h6 class="mb-0 font-14">Agricreations</h6>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center p-2">
+                      <div class="">
+                        <img
+                          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png"
+                          class="rounded-circle object-fit-cover" width="40" height="40" alt="">
+                      </div>
+                      <div class="ms-2">
+                        <h6 class="mb-0 font-14">Moovendhan</h6>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -761,7 +718,7 @@ if (isset($_GET['logout'])) {
           </div>
 
           <div class="col">
-          <div class="card radius-10 ">
+            <div class="card radius-10 ">
               <div class="card-body ">
                 <div class="d-flex align-items-center p-2">
                   <div>
@@ -773,21 +730,26 @@ if (isset($_GET['logout'])) {
                 <hr>
                 <div class="overflow-scrool">
                   <div class="h-300">
-                  <div class="d-flex align-items-center p-2">
-												<div class="">
-													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
-												</div>
-												<div class="ms-2">
-													<h6 class="mb-0 font-14">Agricreations</h6>
-												</div>
-											</div>  <div class="d-flex align-items-center p-2">
-												<div class="">
-													<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png" class="rounded-circle" width="40" height="40" alt="">
-												</div>
-												<div class="ms-2">
-													<h6 class="mb-0 font-14">Moovendhan</h6>
-												</div>
-											</div>
+                    <div class="d-flex align-items-center p-2">
+                      <div class="">
+                        <img
+                          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png"
+                          class="rounded-circle object-fit-cover" width="40" height="40" alt="">
+                      </div>
+                      <div class="ms-2">
+                        <h6 class="mb-0 font-14">Agricreations</h6>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center p-2">
+                      <div class="">
+                        <img
+                          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCH-3_SqeMgUiRQagUmhCpKgwbecRKlEdT65Rps63k0Vm48wXtUY6f4kS1uJZXOs24FLdBtUf5jezktSPOQEH9pQlHw6bCkRm23D5uoV-As2-Z3yfCqx2UgeXy_qeB9_GWMWpZucG4F8GEzck06DitIvaF3PCcRV3QP3y8RoKm-BAnLni5QUa4FrZ82mcF/s16000/moovendhan_service_webdev.png"
+                          class="rounded-circle object-fit-cover" width="40" height="40" alt="">
+                      </div>
+                      <div class="ms-2">
+                        <h6 class="mb-0 font-14">Moovendhan</h6>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -795,7 +757,7 @@ if (isset($_GET['logout'])) {
           </div>
 
           <div class="col-md-12 col-xl-6">
-          <div class="card radius-10 ">
+            <div class="card radius-10 ">
               <div class="card-body max-height-300">
                 <div class="d-flex align-items-center">
                   <div>
@@ -807,60 +769,134 @@ if (isset($_GET['logout'])) {
                 <hr>
                 <div class="overflow-scrool">
                   <div class="h-300">
-                   <div class="p-2">
-                    <p>Done</p>
-                   </div>
+                    <div class="p-2">
+                      <p>Done</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-        
-
         </div>
-
       </div>
       <!-- Rss Feeder  -->
       <div class="tab-content">
-        <h6 class="text-uppercase">Rss Feeder</h6>
         <hr>
-        <div class="card radius-10">
-  <div class="card-body">
-    <div class="d-flex align-items-center justify-content-between">
-      <h5 class="mb-0">Random Tech News</h5>
-      <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
-    </div>
-    <hr>
-    <div class="">
-      <div class="row">
-        <div class="col-12 py-2 bg-head">
-          <div class="row">
-            <div class="col-2">Source</div>
-            <div class="col-6">Title</div>
-            <div class="col-4">Date</div>
+        <div class="row my-3">
+          <div class="col-6">
+            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary btn-active" data-bs-toggle="tooltip"
+              data-bs-placement="top" data-bs-original-title="All Added videos">
+              Random
+            </button>
+            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+              data-bs-placement="top" data-bs-original-title="All Added videos">
+              Tech
+            </button>
+            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
+              data-bs-placement="top" data-bs-original-title="All Added videos">
+              Programming
+            </button>
           </div>
         </div>
-        <div class="col-12 py-2">
-          <div class="row">
-            <div class="col-2"><a href="#">Techverge.com</a></div>
-            <div class="col-6">Tech News</div>
-            <div class="col-4">12 Jul 2020</div>
-          </div>
-          <!-- Add more rows as needed -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="mb-0">Random Tech News</h5>
+              <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
+              <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
+                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: conver;">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title ">Card title</h5>
+                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
+                          additional content. This content is a little bit longer.</p>
+                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                        <a href="#" class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
+                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
+                          additional content. This content is a little bit longer.</p>
+                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                        <a href="#" class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
+                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
+                          additional content. This content is a little bit longer.</p>
+                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                        <a href="#" class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
+                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
+                          additional content. This content is a little bit longer.</p>
+                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+                        <a href="#" class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Notion -->
       <div class="tab-content">
         <h6 class="text-uppercase">Notion Dashbord</h6>
         <hr>
+
       </div>
     </div>
+
+  </div>
   </div>
 
 
@@ -870,6 +906,7 @@ if (isset($_GET['logout'])) {
   <script src="./js/script.js"></script>
   <script src="./js/ajax.js"></script>
   <script src="./js/app.js"></script>
+  <script src="./js/visitor.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
@@ -880,12 +917,56 @@ if (isset($_GET['logout'])) {
       });
     });
   </script>
+
   <script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+
+    //removing toast
+    $(document).ready(function() {
+    setInterval(function() {
+      if ($("#liveAlertPlaceholder .alert").length > 0) {
+        $(".alert:first").remove();
+      }
+    }, 5000); 
+  });
+
+
+  const NOTION_API_URL = 'https://api.notion.com/v1';
+const DATABASE_ID = 'b9839cf6671f49e89333f95c0c3df20d?v=02aa64a2c6d24db9a737aca92473fd03&pvs=4';
+// https://www.notion.so/agricreations/b9839cf6671f49e89333f95c0c3df20d?v=02aa64a2c6d24db9a737aca92473fd03&pvs=4
+
+const NOTION_API_KEY = 'secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY'; // Replace with your actual API key
+
+const headers = {
+  'Authorization': `Bearer ${NOTION_API_KEY}`,
+  'Content-Type': 'application/json',
+  'Notion-Version': '2023-01-27', // Replace with the desired Notion API version
+};
+
+function tests() {
+  $.ajax({
+    url: `${NOTION_API_URL}/databases/${DATABASE_ID}`,
+    type: 'GET',
+    headers: headers,
+    success: function (data) {
+      console.log(${NOTION_API_URL}/databases/${DATABASE_ID});
+      console.log('Database Info:', data);
+    },
+    error: function (error) {
+      console.error('Error fetching database info:', error);
+    },
+  });
+}
+
+// Call the function to get database info
+tests();
+
   </script>
+  
+  
 
 </body>
 

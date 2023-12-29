@@ -36,6 +36,24 @@ if(isset($_SESSION['login']) == "admin"){
             echo operations::updateData();
             return;
         }
+        if(isset($_REQUEST['getvisitorsinfo'])){
+            echo agri::getVisitorsInfo();
+            return;
+        }
+        if(isset($_REQUEST['inserusertcontactmessage'])){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['emails'];
+            $telegram = $_POST['telegram'];
+            $message = $_post['message'];
+            echo agri::insertUserContactMessage($email , $telegram, $message);
+            return;
+            }else{
+                header('Content-Type: application/json');
+                echo json_encode(["status" => "error", "message" => "Invalid Method"]);
+                return;
+            }
+        }
+
 }
 
 $result = youtube::buildJson('agricreations_app');

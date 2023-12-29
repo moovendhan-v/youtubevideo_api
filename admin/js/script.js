@@ -43,7 +43,7 @@ function createALertButton(message, color){
   const appendAlert = (message, type) => {
     const wrapper = document.createElement('div')
     wrapper.innerHTML = [
-      `<div class="card-blur alert alert-${type} alert-dismissible" role="alert">`,
+      `<div class="alert bg-${type} alert-dismissible" role="alert">`,
       `   <div>${message}</div>`,
       '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
       '</div>'
@@ -326,20 +326,7 @@ console.log(e.target.parentElement.parentElement.cells[5].innerText);
     }
 });
 
-// removing toast button 
-function RemoveToast(){
-  if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-    console.log("true");
-    setInterval(() => {
-      if (document.getElementById('liveAlertPlaceholder').childNodes.length >= 1) {
-        document.getElementById('liveAlertPlaceholder').childNodes[document.getElementById('liveAlertPlaceholder').childNodes.length-1].remove();
-      } else {
-        console.log("Terminating process, no more child nodes.");
-        clearInterval(intervalId);
-      }
-    }, 4000);
-  } else {
-    console.log("No child nodes initially, terminating process.");
-  }
-}
+// notion api 
+
+// secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY
 
