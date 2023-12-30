@@ -61,7 +61,7 @@ class youtube {
         ci.`channel_id` AS yt_channel_id,
         yvc.`catogries` AS video_category,
         yvt.`type` AS video_type,
-        yt.`islive`
+        yt.`islive` 
     FROM 
         `youtube_videos_api` yt
     LEFT JOIN 
@@ -69,10 +69,12 @@ class youtube {
     LEFT JOIN 
         `youtube_videos_catogries` yvc ON yt.`catogries` = yvc.`id`
     LEFT JOIN 
-        `youtube_video_type` yvt ON yt.`type` = yvt.`id`
-    WHERE 
-        1;
-    ";
+        `youtube_video_type` yvt ON yt.`type` = yvt.`id`";
+
+    if (isset($_GET["query"])) {
+        $query .= " WHERE title LIKE '%" . $_GET['query'] . "%'";
+    };
+
         $result = $conn->query($query);
         $AllData = array();
         if($result->num_rows > 0){
@@ -86,4 +88,21 @@ class youtube {
         header('Content-Type: application/json');
         return $jsonData;
     }
+
+    public static function searchyoutubeVideos($query){
+        $conn = db::makeConnection();
+        $query = "SELECT * FROM youtube_videos_api
+        WHERE title LIKE '%$query%'";
+        $result = $conn->query($query);
+        $videos = array();
+        if($result->num_rows > 0){
+            while ($row = $result->fetch_assoc()) {
+                $videos[] = $row;
+            }
+        }
+        $jsonResult = json_encode($videos);
+        header('Content-Type: application/json');
+        $conn->close();
+        return $jsonResult;
+        }
 }

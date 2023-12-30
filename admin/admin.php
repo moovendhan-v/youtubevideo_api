@@ -157,6 +157,9 @@ if (isset($_GET['logout'])) {
     </div>
 
     <div class="right_div closeBugermenu">
+    <!-- <iframe src=""></iframe>
+ <h3>Video Title</h3>
+ <p class="description">Video Description<p> -->
       <!-- Dashbord  -->
       <div class="tab-content active">
         <div class="wrap card-blur rounded p-2">
@@ -479,8 +482,8 @@ if (isset($_GET['logout'])) {
               <div class="card-body">
                 <div class="d-flex align-items-center">
                   <div>
-                    <p class="mb-0">Last Year Views</p>
-                    <h4 class="my-1 dashbordLastYearVisitors">⏳</h4>
+                    <p class="mb-0">Total Subscribers</p>
+                    <h4 class="my-1 dashbordTotalSubscribers">⏳</h4>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-firefox"></i>
                   </div>
@@ -907,6 +910,8 @@ if (isset($_GET['logout'])) {
   <script src="./js/ajax.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/visitor.js"></script>
+  <script src="./js/youtube.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>

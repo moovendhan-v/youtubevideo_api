@@ -120,6 +120,9 @@ class agri {
          if (!$result) {
              throw new Exception('🚨 Visitors Info Not fetched');
          }
+         header('Content-Type: application/json');
+         echo json_encode(["status" => "success", "message" => "Submitted"]);
+        self::sendDiscordWebhook("Done: " . $email. $telegram. $message , "warning");
        } catch(Exception $e) {
         echo json_encode(["status" => "error", "message" => $e->getMessage()]);
         self::sendDiscordWebhook("Exception: " . $e->getMessage(), "warning");

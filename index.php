@@ -40,20 +40,31 @@ if(isset($_SESSION['login']) == "admin"){
             echo agri::getVisitorsInfo();
             return;
         }
-        if(isset($_REQUEST['inserusertcontactmessage'])){
+        if (isset($_REQUEST['inserusertcontactmessage'])) {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $email = $_POST['emails'];
-            $telegram = $_POST['telegram'];
-            $message = $_post['message'];
-            echo agri::insertUserContactMessage($email , $telegram, $message);
-            return;
-            }else{
+                if (isset($_POST['emails'])) {
+                    $email = $_POST['emails'];
+                }
+                if (isset($_POST['telegram'])) {
+                    $telegram = $_POST['telegram'];
+                }
+                if (isset($_POST['message'])) {
+                    $message = $_POST['message'];
+                }
+                agri::insertUserContactMessage($email, $telegram, $message);
+                return;
+            } else {
                 header('Content-Type: application/json');
                 echo json_encode(["status" => "error", "message" => "Invalid Method"]);
                 return;
             }
         }
-
+        if (isset($_REQUEST['searchyoutubevideos'])) {
+            $query = $_GET['query'];
+            echo youtube::buildJson('agricreations_app');
+            return;
+        }
+        
 }
 
 $result = youtube::buildJson('agricreations_app');

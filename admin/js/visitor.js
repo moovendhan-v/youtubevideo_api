@@ -44,8 +44,6 @@ class VisitorInfo {
     }
 }
 
-
-
 $.ajax({
     url: visitorsInfo,
     method: "GET",
@@ -80,7 +78,7 @@ $.ajax({
 
         // $('.dashbordTodayVisitors').text(visitorsInfoArray.length);
         // $('.dashbordLastMontVisitors').text(visitorsInfoArray.length);
-        // $('.dashbordLastYearVisitors').text(visitorsInfoArray.length);
+        $('.dashbordTotalSubscribers').text(emailsubscribers.length);
         $('.dashbordTotalVisitors').text(visitorsInfoArray.length);
     },
     error: function (xhr, status, error) {
