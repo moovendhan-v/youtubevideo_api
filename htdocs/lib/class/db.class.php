@@ -12,10 +12,10 @@ class db{
     public static $conn = null;
     public static function makeConnection(){
         if(db::$conn==null){
-            $servername = "mysql.selfmade.ninja";
-            $usernames = "agritechs";
-            $passwords = "ZACd6npSuQyU5pN";
-            $dbname = "agritechs_youtubeapi";
+            $servername = "mysql";
+            $usernames = "your_mysql_user";
+            $passwords = "your_mysql_password";
+            $dbname = "your_database_name";
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);
              // Check connection

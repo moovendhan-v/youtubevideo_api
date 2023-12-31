@@ -1,0 +1,47 @@
+{
+	"name": "grut-tools",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"grunt": "cd /var/www/html/project/grunt && grunt"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"grunt": "^1.6.1",
+		"grunt-contrib-concat": "^2.1.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-cssmin": "^5.0.0",
+		"grunt-contrib-obfuscator": "^8.0.0",
+		"grunt-contrib-sass": "^2.0.0",
+		"grunt-contrib-uglify": "^5.2.2",
+		"grunt-contrib-watch": "^1.1.0"
+	},
+	"Resources": {
+		"Table": {
+			"Type": "AWS::DynamoDB::Table",
+			"Properties": {
+				"AttributeDefinitions": [
+					{
+						"AttributeName": "id",
+						"AttributeType": "S"
+					}
+				],
+				"BillingMode": "PAY_PER_REQUEST",
+				"KeySchema": [
+					{
+						"AttributeName": "id",
+						"KeyType": "HASH"
+					}
+				],
+				"StreamSpecification": {
+					"StreamViewType": "NEW_AND_OLD_IMAGES"
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"grunt-sass": "^3.1.0"
+	}
+}

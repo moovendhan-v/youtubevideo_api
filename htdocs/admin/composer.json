@@ -1,0 +1,5 @@
+{
+    "require": {
+        "browscap/browscap": "^6018.0"
+    }
+}
