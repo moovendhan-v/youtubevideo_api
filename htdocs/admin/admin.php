@@ -226,7 +226,6 @@ if (isset($_GET['logout'])) {
                   <div>
                     <p class="mb-0">Subscribers</p>
                     <h4 class="my-1 ">⏳</h4>
-                    <div>⏳</div>
                   </div>
                   <div class="ms-auto font-35 text-white"><i class="bx bxl-shopify"></i>
                   </div>
@@ -387,7 +386,7 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="channelContent"></div>
+                    <div class="channelContent"><p>best apps</p><p>networking</p><p>tech news</p><p>linux</p></div>
                   </div>
                 </div>
               </div>
@@ -409,7 +408,7 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="catogriesContent"></div>
+                    <div class="catogriesContent"><p>hkr agri techs</p><p>best apps in tamil</p><p>network chunk</p><p>mkbhd</p><p>mr whose the boss</p></div>
                   </div>
                 </div>
               </div>
@@ -431,7 +430,7 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="typeContent"></div>
+                    <div class="typeContent"><p>normal</p><p>shorts</p></div>
                   </div>
                 </div>
               </div>
@@ -906,11 +905,7 @@ if (isset($_GET['logout'])) {
   <!-- jQuery CDN (latest version) -->
   <script src="https://code.jquery.com/jquery.min.js"></script>
 
-  <script src="./js/script.js"></script>
-  <script src="./js/ajax.js"></script>
-  <script src="./js/app.js"></script>
-  <script src="./js/visitor.js"></script>
-  <script src="./js/youtube.js"></script>
+  <script src="./dist/js/app.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -937,37 +932,6 @@ if (isset($_GET['logout'])) {
       }
     }, 5000); 
   });
-
-
-  const NOTION_API_URL = 'https://api.notion.com/v1';
-const DATABASE_ID = 'b9839cf6671f49e89333f95c0c3df20d?v=02aa64a2c6d24db9a737aca92473fd03&pvs=4';
-// https://www.notion.so/agricreations/b9839cf6671f49e89333f95c0c3df20d?v=02aa64a2c6d24db9a737aca92473fd03&pvs=4
-
-const NOTION_API_KEY = 'secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY'; // Replace with your actual API key
-
-const headers = {
-  'Authorization': `Bearer ${NOTION_API_KEY}`,
-  'Content-Type': 'application/json',
-  'Notion-Version': '2023-01-27', // Replace with the desired Notion API version
-};
-
-function tests() {
-  $.ajax({
-    url: `${NOTION_API_URL}/databases/${DATABASE_ID}`,
-    type: 'GET',
-    headers: headers,
-    success: function (data) {
-      console.log(${NOTION_API_URL}/databases/${DATABASE_ID});
-      console.log('Database Info:', data);
-    },
-    error: function (error) {
-      console.error('Error fetching database info:', error);
-    },
-  });
-}
-
-// Call the function to get database info
-tests();
 
   </script>
   

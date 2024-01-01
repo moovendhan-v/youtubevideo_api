@@ -1,4 +1,4 @@
-var visitorsInfo = "https://youtubeapi.agricreations.com/?getvisitorsinfo";
+var visitorsInfo = `${BASE_URI}?getvisitorsinfo`;
 
 var visitorsInfoArray = [];
 var emailsubscribers = [];

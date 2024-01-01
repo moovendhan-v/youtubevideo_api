@@ -19,18 +19,18 @@ updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
   if(!isLive){
     status = 0;
   }
-  var formData = new FormData();
-  formData.append("videoId", videoId);
-  formData.append("videoImage", videoImage);
-  formData.append("videoTitle", videoTitle);
-  formData.append("videoInfo", videoInfo);
-  formData.append("channel", channel+1); //this +1 for incrementing id in database (the index is getting from array)
-  formData.append("catogries", catogries+1); //this +1 for incrementing id in database
-  formData.append("type", type+1); //this +1 for incrementing id in database
-  formData.append("isLive", status);
+  var formDatas = new FormData();
+  formDatas.append("videoId", videoId);
+  formDatas.append("videoImage", videoImage);
+  formDatas.append("videoTitle", videoTitle);
+  formDatas.append("videoInfo", videoInfo);
+  formDatas.append("channel", channel+1); //this +1 for incrementing id in database (the index is getting from array)
+  formDatas.append("catogries", catogries+1); //this +1 for incrementing id in database
+  formDatas.append("type", type+1); //this +1 for incrementing id in database
+  formDatas.append("isLive", status);
   // Perform the AJAX request
   var xhr = new XMLHttpRequest();
-  var url = "https://youtubeapi.agricreations.com?updatedata"; // Replace with your actual PHP endpoint
+  var url = `${BASE_URI}?updatedata`; // Replace with your actual PHP endpoint
   xhr.open("POST", url, true);
   xhr.onload = function () {
     if (xhr.status === 200) {
@@ -50,7 +50,7 @@ updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
   xhr.onerror = function () {
     createALertButton("Check Your Network", "danger");
   };
-  xhr.send(formData);
+  xhr.send(formDatas);
 })
 
 
@@ -83,7 +83,7 @@ updateAjaxCall.addEventListener('click',(event)=>{
   formData.append("isLive", status);
   // Perform the AJAX request
   var xhr = new XMLHttpRequest();
-  var url = "https://youtubeapi.agricreations.com?update"; // Replace with your actual PHP endpoint
+  var url = `${BASE_URI}?update`; // Replace with your actual PHP endpoint
   xhr.open("POST", url, true);
   xhr.onload = function () {
     if (xhr.status === 200) {
