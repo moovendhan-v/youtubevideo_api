@@ -16,7 +16,8 @@
 		"grunt-contrib-obfuscator": "^8.0.0",
 		"grunt-contrib-sass": "^2.0.0",
 		"grunt-contrib-uglify": "^5.2.2",
-		"grunt-contrib-watch": "^1.1.0"
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-dart-sass": "^2.0.1"
 	},
 	"Resources": {
 		"Table": {
