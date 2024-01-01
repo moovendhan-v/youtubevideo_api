@@ -17,6 +17,7 @@
 
 // fetchConfig();
 
+const admin = "Techey Guys";
 const BASE_URI = "http://localhost/htdocs/";
 var visitorsInfo = `${BASE_URI}?getvisitorsinfo`;
 

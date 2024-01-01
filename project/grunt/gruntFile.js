@@ -49,7 +49,7 @@ module.exports = function (grunt) {
       sass:{
         dist:{
           options:{
-            style: 'expanded'
+            style: 'compressed'
           },
           files:{
             "../../htdocs/admin/dist/scss/app.css": ["dist/scss/style.scss"],
@@ -57,6 +57,16 @@ module.exports = function (grunt) {
         }
       },
 
+      'dart-sass': {
+        dist: {
+          options: {
+            style: 'compressed', // Set the output style ('expanded', 'compressed', etc.)
+          },
+          files: {
+            "../../htdocs/admin/dist/scss/app.css": ["dist/scss/style.scss"],
+          },
+        },
+      },
 
       uglify: {
         my_target: {
@@ -85,14 +95,15 @@ module.exports = function (grunt) {
   
       obfuscator: {
         options: {
-          // banner: '// obfuscated with grunt-contrib-obfuscator.\n',
-          // // debugProtection: true,
+          banner: '// obfuscated with grunt-contrib-obfuscator.\n',
+          // debugProtection: true,
           // debugProtectionInterval: true,
-          // domainLock: ['www.example.com']
+          // domainLock: ['localhost']
         },
         task1: {
           options: {
             // options for each sub task
+            // sourceMap: true,
           },
           files: {
             '../../htdocs/admin/dist/js/app.o.js': [
@@ -121,7 +132,7 @@ module.exports = function (grunt) {
           files: [        
             '../scss/**/*.scss'
           ],
-          tasks: ['concat:scss','sass', 'cssmin:scss'],
+          tasks: ['concat:scss','dart-sass', 'cssmin:scss'],
           options: {
             spawn: false,
           },
@@ -130,17 +141,20 @@ module.exports = function (grunt) {
   
     });
 
-    
+    grunt.registerTask('dart-sass', ['dart-sass']);
+
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     // grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-obfuscator');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    // grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-dart-sass');
+
     // grunt.loadNpmTasks('grunt-sass');
     
-    grunt.registerTask('css',['concat:css','cssmin','sass']);    
+    grunt.registerTask('css',['concat:css','cssmin','dart-sass']);    
     grunt.registerTask('js',['concat:js','uglify','obfuscator']); 
   
     grunt.registerTask("default", [
@@ -148,7 +162,7 @@ module.exports = function (grunt) {
     //   "copy",
       "concat",
       "cssmin",
-      'sass',
+      'dart-sass',
       "uglify",
       'obfuscator',
       "watch",
