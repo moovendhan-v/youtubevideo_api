@@ -1,4 +1,4 @@
-var visitorsInfo = "http://localhost/htdocs/?getvisitorsinfo";
+var visitorsInfo = `${BASE_URI}?getvisitorsinfo`;
 
 var visitorsInfoArray = [];
 var emailsubscribers = [];

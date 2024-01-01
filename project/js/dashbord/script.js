@@ -64,7 +64,6 @@ function appendCategoriesToDOM(categoriesArray) {
   let channelContent = document.querySelector('.channelContent');
   // Clear existing content
   channelContent.innerHTML = '';
-  console.log(`Catogries array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -118,7 +117,7 @@ function createSelect(className, array) {
 document.addEventListener('DOMContentLoaded', async function () {
     async function fetchcategoriesArray(slogan) {
         try {
-            const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+            const response = await fetch(`${BASE_URI}?${slogan}`);
             const data = await response.json();
             categoriesArray = data.catogries.map(function (data) {
                 return data.toLowerCase();
@@ -138,7 +137,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 document.addEventListener('DOMContentLoaded', async function () {
   async function fetchchannelIdArray(slogan) {
       try {
-          const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+          const response = await fetch(`${BASE_URI}?${slogan}`);
           apiResponce = response;
           const data = await response.json();
           channelIdArray = data.channel.map(function (data) {
@@ -159,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 document.addEventListener('DOMContentLoaded', async function () {
   async function fetchgetvideoinfo(slogan) {
       try {
-          const response = await fetch(`https://youtubeapi.agricreations.com/?${slogan}`);
+          const response = await fetch(`${BASE_URI}?${slogan}`);
           const data = await response.json();
           videoTypeId = data.videoinfo.map(function (data) {
               return data.toLowerCase();
@@ -185,7 +184,7 @@ function updateDashbord(length){
 
 async function fetchData() {
   try {
-    const response = await fetch('https://youtubeapi.agricreations.com/');
+    const response = await fetch(BASE_URI);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -329,4 +328,3 @@ console.log(e.target.parentElement.parentElement.cells[5].innerText);
 // notion api 
 
 // secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY
-
