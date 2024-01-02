@@ -14,10 +14,14 @@ if(isset($_REQUEST['webhook'])){
         $channel = isset($_GET['channel']);
     return agri::sendDiscordWebhook($message, $channel);
 }
-if(isset($_REQUEST['insertrss'])){
-    return operations::inserRssData();
-}
+// if(isset($_REQUEST['insertrss'])){
+//     return operations::inserRssData();
+// }
 //this condition will works if its admin is logged in
+if(isset($_REQUEST['rssfetch'])){
+        echo rss::rssFetch();
+        return;
+}
 
 if(isset($_SESSION['login']) == "admin"){
         if(isset($_REQUEST['update'])){

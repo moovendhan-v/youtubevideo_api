@@ -3,9 +3,17 @@
     "rss" : {
         "host" : "https://rss-5lld.onrender.com/",
         "uri" : [
-            "https://www.gadgets360.com/rss/apps/feeds",
-            "www.gadgets360.com/rss/feeds"
+            "www.gadgets360.com/rss/feeds",
+            "www.theverge.com/rss/tech/index.xml",
+            "www.9to5mac.com/feed/",
+            "www.9to5google.com/feed/"
         ]
+    },
+    "mysql":{
+        "host" : "mysql",
+        "username" : "your_mysql_user",
+        "password" : "your_mysql_password",
+        "database" : "your_database_name"
     },
     "api":{
         "ip": "c664d8a24cc967"

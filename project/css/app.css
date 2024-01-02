@@ -16,7 +16,7 @@ body {
     /* background-color: #f4f4f4; */
 }
 .bg-image{
-  background-image: url('../admin/assets/images/2.png');
+  background-image: url('../../assets/images/2.png');
 
 }
 .bg-theme{
@@ -27,7 +27,7 @@ body {
   /* transition: background .2s; */
 }
 .bg-image{
-  background-image: url('../admin/assets/images/2.png');
+  background-image: url('../../assets/images/2.png');
 }
 h3{
   color: white;
@@ -218,24 +218,13 @@ h3{
     box-shadow: 0 0 0 .25rem rgba(0, 0, 0, 0);
   }
 
-/* left menu bar closing  */
-
-/* .left_div{
-    width: -20%;
-  min-height: 100vh;
-  background-color: dodgerblue;
-  color: white;
-  position: absolute;
-  left: -226px;
-} */
-
-
 .display-none{
     display: none !important;
   }
   .mobileNav{
     display:none;
   }
+
   .updateInfoHeading{
     /* background-color: #1e90ff; */
   padding: 10px;
@@ -327,42 +316,6 @@ hr{
   overflow: scroll ;
 }
 
-.pulse {
-   width: 22.4px;
-   height: 22.4px;
-   border-radius: 50%;
-   background: #474bff;
-   box-shadow: 0 0 0 0 rgba(71,75,255,0.5);
-   animation: pulse-kefe91md 1.5s infinite linear;
-   position: relative;
-}
-
-.pulse:before,
-.pulse:after {
-   content: "";
-   position: absolute;
-   inset: 0;
-   border-radius: inherit;
-   box-shadow: 0 0 0 0 rgba(71,75,255,0.5);
-   animation: inherit;
-   animation-delay: -0.5s;
-}
-
-.pulse:after {
-   animation-delay: -1s;
-}
-
-@keyframes pulse-kefe91md {
-   100% {
-      box-shadow: 0 0 0 44.8px #0000;
-   }
-}
-
-@keyframes spinner-b87k6z {
-   to {
-      transform: rotate(360deg);
-   }
-}
 .bg-head{
   background-color: rgb(255 255 255 / 15%);
 }
@@ -390,54 +343,22 @@ hr{
   background-repeat: repeat;
   background-image: url("data:image/svg+xml;utf8,%3Csvg height=%22auto%22 viewBox=%220 0 2000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d=%22M0 986.965c66.6-18.1 199.8-57.6 333-90.503 133.2-32.902 199.8-33.898 333-74.011 133.2-40.114 199.8-82.551 333-126.556 133.2-44.005 199.8 7.346 333-93.468 133.2-100.814 199.8-382.878 333-410.603 133.2-27.726 266.4 217.58 333 271.975l2 536.201H0Z%22 fill=%22%23444cf71a%22%2F%3E%3Cpath d=%22M0 986.965c66.6-18.1 199.8-57.6 333-90.503 133.2-32.902 199.8-33.898 333-74.011 133.2-40.114 199.8-82.551 333-126.556 133.2-44.005 199.8 7.346 333-93.468 133.2-100.814 199.8-382.878 333-410.603 133.2-27.726 266.4 217.58 333 271.975%22 fill=%22none%22 stroke=%22%23444cf7%22 stroke-width=%2210%22%2F%3E%3Cg fill=%22%23444cf7%22%3E%3Ccircle cy=%22986.965%22 r=%2214%22%2F%3E%3Ccircle cx=%22333%22 cy=%22896.462%22 r=%2214%22%2F%3E%3Ccircle cx=%22666%22 cy=%22822.451%22 r=%2214%22%2F%3E%3Ccircle cx=%22999%22 cy=%22695.895%22 r=%2214%22%2F%3E%3Ccircle cx=%221332%22 cy=%22602.427%22 r=%2214%22%2F%3E%3Ccircle cx=%221665%22 cy=%22191.824%22 r=%2214%22%2F%3E%3Ccircle cx=%221998%22 cy=%22463.799%22 r=%2214%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
-/* svg pattens end  */
-
-
-
-/* Media query for mobile devices */
-@media only screen and (max-width: 599px) {
-  .logo h3{
-    font-size: 16px;
-  }
-      .left_div{
-        /* display:none; */
-        position: absolute;
-        width: 80% !important;
-        height: 100vh;
-        background-color: dodgerblue;
-        color: white;
-        left : -80%;
-        transition: 1s ease;
-      }
-      .left_div_open{
-        /* display:none; */
-        position: absolute;
-        width: 80% !important;
-        min-height: 100vh;
-        background-color: dodgerblue;
-        color: white;
-        left: 0;
-        transition: 1s ease;
-      }
-      .right_div{
-        width: 100%;
-    margin-left: 0;
-        height: 100vh;
-        overflow-x: hidden;
-        
-      }
-      .updateInfo .row .col-sm-4{
-        margin-top: 10px;
-        background-color: #8080801c;
-        padding: 10px;
-      }
-      .addVideos .d-flex {
-        display: block !important;
-      }
-      .addVideos .d-flex .w-50{
-          width: 100% !important;
-      }
-      .mobileNav{
-        display: block;
-      }
-  }
+.page_loader{
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+}
+/* .skeleton-loader {
+background: #f0f0f014;
+  height: 20px; 
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+} */

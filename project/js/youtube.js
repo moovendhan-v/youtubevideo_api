@@ -23,7 +23,6 @@ $(document).ready(function() {
           embedVideo(data)
       },
       error: function(response){
-          console.log("Request Failed");
       }
     });
   }
@@ -65,10 +64,6 @@ $(document).ready(function() {
                   var recentSubscribers = statistics.subscriberCount;
                   var channelTitle = snippet.title;
 
-                  console.log(data.items[0]);
-
-                  console.log('Recent Subscribers:', recentSubscribers);
-                  console.log('Channel Title:', channelTitle);
               }
           });
       });

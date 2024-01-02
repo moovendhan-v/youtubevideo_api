@@ -1,0 +1,48 @@
+/* Media query for mobile devices */
+@media only screen and (max-width: 599px) {
+  
+    .logo h3{
+      font-size: 16px;
+    }
+        .left_div{
+          /* display:none; */
+          position: absolute;
+          width: 80% !important;
+          height: 100vh;
+          background-color: dodgerblue;
+          color: white;
+          left : -80%;
+          transition: 1s ease;
+        }
+        .left_div_open{
+          /* display:none; */
+          position: absolute;
+          width: 80% !important;
+          min-height: 100vh;
+          background-color: dodgerblue;
+          color: white;
+          left: 0;
+          transition: 1s ease;
+        }
+        .right_div{
+          width: 100%;
+      margin-left: 0;
+          height: 100vh;
+          overflow-x: hidden;
+          
+        }
+        .updateInfo .row .col-sm-4{
+          margin-top: 10px;
+          background-color: #8080801c;
+          padding: 10px;
+        }
+        .addVideos .d-flex {
+          display: block !important;
+        }
+        .addVideos .d-flex .w-50{
+            width: 100% !important;
+        }
+        .mobileNav{
+          display: block;
+        }
+    }

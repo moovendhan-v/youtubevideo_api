@@ -152,7 +152,6 @@ updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
       }else{
             createALertButton(responseData.message, "danger");
       }
-      console.log(responseData);
     } else {
       console.error("Error: " + xhr.status);
     }
@@ -214,7 +213,6 @@ updateAjaxCall.addEventListener('click',(event)=>{
       }else{
             createALertButton(responseData.message, "danger");
       }
-      console.log(responseData);
     } else {
       // Error handling
       console.error("Error: " + xhr.status);
@@ -327,7 +325,6 @@ function appendChannelToDOM(categoriesArray) {
   let channelContent = document.querySelector('.catogriesContent');
   // Clear existing content
   channelContent.innerHTML = '';
-  console.log(`channel array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -341,7 +338,6 @@ function appendTpeToDOM(categoriesArray) {
   let channelContent = document.querySelector('.typeContent');
   // Clear existing content
   channelContent.innerHTML = '';
-  console.log(`video type array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -394,7 +390,6 @@ document.addEventListener('DOMContentLoaded', async function () {
           channelIdArray = data.channel.map(function (data) {
               return data.toLowerCase();
           });
-          console.log(channelIdArray);
       } catch (error) {
           console.error('Error fetching data:', error);
       }
@@ -414,7 +409,6 @@ document.addEventListener('DOMContentLoaded', async function () {
           videoTypeId = data.videoinfo.map(function (data) {
               return data.toLowerCase();
           });
-          console.log(videoTypeId);
       } catch (error) {
           console.error('Error fetching data:', error);
       }
@@ -426,7 +420,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function updateDashbord(length){
-  console.log("length", length);
   document.querySelector('.dashbordTotalVideos').innerText = length;
   document.querySelector('.dashbordTotalLive').innerText = length;
   document.querySelector('.dashbordTotalCatogries').innerText = categoriesArray.length;
@@ -445,7 +438,6 @@ async function fetchData() {
       createTableRow(dataObjects[i]);
   }
   updateDashbord(data.length);
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -541,18 +533,11 @@ function mapApiResponseToDataObject(apiResponse) {
         var catogries = e.target.parentElement.parentElement.cells[6].innerText;
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
-console.log(e.target.parentElement.parentElement.cells[5].innerText);
         var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
         var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
         var indexOfType = videoTypeId.indexOf(type);
 
-        console.log(channelIdArray);
-        console.log(categoriesArray);
-
-        console.log(indexOfType, type);
-        console.log(indexOfcategoriesArray, catogries);
-        console.log(indexOfchannelIdArray, cannelid);
-
+    
         document.querySelector('.modalId').innerText = id;
         document.querySelector('.modalTitle').value = title;
         document.querySelector('.modalImage').value = image;
@@ -572,21 +557,91 @@ console.log(e.target.parentElement.parentElement.cells[5].innerText);
         //   toUdateTable.childNodes[7].innerText = type; //type
         //   toUdateTable.childNodes[8].innerText = islive; //is live  
         // }
-        console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     }
 });
 
 // notion api 
 
 // secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY
+  // Function to fetch data from the endpoint and populate content
+  function fetchDataAndPopulateContent() {
+    // Make an AJAX request to fetch data from the endpoint
+    $.ajax({
+      url: 'http://localhost/htdocs/?rssfetch',
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        populateContent(data);
+      },
+      error: function() {
+        console.error('Failed to fetch data from the endpoint.');
+      }
+    });
+  }
+
+  // Function to populate content
+function populateContent(data) {
+    // var siteLength = data;
+    // var itemLength = data[1].rss.channel.item.length;
+
+    // alert(`${siteLength} ${itemLength}`);
+    var contentContainer = $('#contentContainer');
+    var rssTitle = $('#rssTitle');
+
+    // alert(data[1].rss.channel.title)
+    $.each(data, function(index, items) {
+        var titleWithUnderscores = items.rss.channel.title.replace(/ /g, "_");
+        var tileHtml = `<button type="button" class="${titleWithUnderscores} card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+       ${items.rss.channel.title}
+      </button>`;
+        rssTitle.append(tileHtml);
+        $.each(data[index].rss.channel.item, function(index, item) {
+            var cardHtml = `
+                <div class="col ${titleWithUnderscores}">
+                    <div class="card card-hover mb-3" style="max-width: 540px;">
+                        <div class="row  g-0">
+                            <div class="col-md-4">
+                                <img src="${item.og_image}" class="img-fluid rounded-start" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title clamp-2 skeleton-loader">${item.og_title}</h5>
+                                    <p class="card-text clamp-2 skeleton-loader">${item.og_description}</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                    <div>
+                                     <span class="badge rounded-pill text-bg-primary skeleton-loader">${items.rss.channel.title}</span> 
+                                     <span class="badge rounded-pill text-bg-success skeleton-loader">${item.category}</span> 
+                                     </div>                                    
+                                    <a href="${item.link}" class="text-primary link-underline link-underline-opacity-0">Visit</a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contentContainer.append(cardHtml);
+        });
+    });
+       
+}
+
+
+  fetchDataAndPopulateContent();
+$(document).ready(function () {
+    // Simulate an API call delay for demonstration purposes
+    setTimeout(function () {
+        // Hide skeleton loader and show content
+        $('#cardContainer .skeleton-loader').addClass('d-none');
+        $('#cardContainer img, #cardContainer .card-title, #cardContainer .card-text, #cardContainer .badge, #cardContainer a').removeClass('d-none');
+    }, 2000); // Adjust the delay as needed
+});
 document.addEventListener('DOMContentLoaded',()=>{
     var getModelButtons = document.querySelectorAll('.getModel');
 
     getModelButtons.forEach(function (button) {
-        console.log(button);
         button.addEventListener('click', function (e) {
             // Your existing code here
-            console.log(e);
     
             var id = button.parentElement.parentElement.cells[1].innerText;
             var image = button.parentElement.parentElement.cells[2].lastChild.src;
@@ -603,12 +658,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             var modalChecked = document.querySelector('.modalChecked').checked = islive == 1 ? true : false ;
     
             // var modalChannelId = document.querySelector('.modalDes').value = description;
-            console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
         });
     });
     
     var getModelButtonss = document.querySelectorAll('.getModel')[0];
-    console.log(getModelButtonss);
 })
 
 
@@ -637,7 +690,6 @@ $(document).ready(function() {
           embedVideo(data)
       },
       error: function(response){
-          console.log("Request Failed");
       }
     });
   }
@@ -679,10 +731,6 @@ $(document).ready(function() {
                   var recentSubscribers = statistics.subscriberCount;
                   var channelTitle = snippet.title;
 
-                  console.log(data.items[0]);
-
-                  console.log('Recent Subscribers:', recentSubscribers);
-                  console.log('Channel Title:', channelTitle);
               }
           });
       });

@@ -5,11 +5,12 @@
 class db{
     public static $conn = null;
     public static function makeConnection(){
+        $apiDatas = getJsonApis();
         if(db::$conn==null){
-            $servername = "mysql";
-            $usernames = "your_mysql_user";
-            $passwords = "your_mysql_password";
-            $dbname = "your_database_name";
+            $servername = $apiDatas['mysql']['host'];
+            $usernames = $apiDatas['mysql']['username'];
+            $passwords = $apiDatas['mysql']['password'];
+            $dbname = $apiDatas['mysql']['database'];
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);
              // Check connection

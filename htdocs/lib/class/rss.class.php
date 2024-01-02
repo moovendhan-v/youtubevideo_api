@@ -9,7 +9,7 @@ class rss {
             }
             $hostLink = $apiDatas['rss']['host'];
             $uriArray = $apiDatas['rss']['uri'];
-            $max = 10;
+            $max = 4;
             $resultArray = [];
             foreach ($uriArray as $uriPath) {
                 $targetUrl = $uriPath; 

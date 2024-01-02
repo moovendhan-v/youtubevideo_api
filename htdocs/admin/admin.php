@@ -32,7 +32,7 @@ if (isset($_GET['logout'])) {
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./dist/css/app.css" />
 
   <style>
 
@@ -40,7 +40,15 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body class="bg-image bg-theme">
+<div class="page_loader">
+ <div class="pulse">
 
+ </div>
+ <div class="d-flex align-items-center flex-direction-column flex-column p-5">
+  <h3>Getting Things Ready</h3>
+  <p>Please Wait</p>
+ </div>
+</div>
   <div class="wrapButton">
     <div id="liveAlertPlaceholder"></div>
   </div>
@@ -115,7 +123,7 @@ if (isset($_GET['logout'])) {
   <div class="mobileNav">
     <div><i class="burgerMenu fa-solid fa-bars"></i></div>
   </div>
-  <div class=" main_container">
+  <div class="main_container loading">
 
     <div class="left_div closeBugermenu card-blur">
       <!-- <div class="menuHideBar">
@@ -784,113 +792,55 @@ if (isset($_GET['logout'])) {
       </div>
       <!-- Rss Feeder  -->
       <div class="tab-content">
-        <hr>
-        <div class="row my-3">
-          <div class="col-6">
-            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary btn-active" data-bs-toggle="tooltip"
-              data-bs-placement="top" data-bs-original-title="All Added videos">
-              Random
-            </button>
-            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
-              data-bs-placement="top" data-bs-original-title="All Added videos">
-              Tech
-            </button>
-            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip"
-              data-bs-placement="top" data-bs-original-title="All Added videos">
-              Programming
-            </button>
-          </div>
-        </div>
+  <hr>
+  <div class="row my-3">
+    <div class="col-6 rssTitle" id="rssTitle">
+      <!-- Buttons for categories -->
+      <button type="button" class="p-1 me-2 mb-3 btn btn-secondary btn-active card-blur rounded" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+        All News
+      </button>
+    </div>
+  </div>
 
-
-        <div class="card radius-10">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-              <h5 class="mb-0">Random Tech News</h5>
-              <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
-            </div>
-            <hr>
-            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
-              <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
-                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: conver;">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
-                        <a href="#" class="btn btn-primary">Button</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
-                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
-                        <a href="#" class="btn btn-primary">Button</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
-                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
-                        <a href="#" class="btn btn-primary">Button</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="https://photogram.agricreations.com/files/af1d4fb102dd9cba782ec3b11cdb3448.jpeg"
-                        class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text clamp-2">This is a wider card with supporting text below as a natural lead-in to
-                          additional content. This content is a little bit longer.</p>
-                        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
-                        <a href="#" class="btn btn-primary">Button</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="card radius-10">
+    <div class="card-body">
+      <div class="d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">All Tech News</h5>
+        <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
       </div>
+      <hr>
+      <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
+        
+      <!-- <div class="col Gadgets_360">
+    <div class="card card-hover mb-3" style="max-width: 540px;" id="cardContainer">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <div class="skeleton-loader"></div>
+                <img src="https://i.gadgets360cdn.com/large/indian_railways_pixabay_1559194239468.jpg" class="img-fluid rounded-start d-none" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title clamp-2 skeleton-loader"></h5>
+                    <p class="card-text clamp-2 skeleton-loader"></p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="badge rounded-pill text-bg-primary skeleton-loader"></span>
+                            <span class="badge rounded-pill text-bg-success skeleton-loader"></span>
+                        </div>
+                        <a href="#" class="text-primary link-underline link-underline-opacity-0 skeleton-loader"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+        <!-- Content will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
       <!-- Notion -->
       <div class="tab-content">
         <h6 class="text-uppercase">Notion Dashbord</h6>
@@ -932,6 +882,7 @@ if (isset($_GET['logout'])) {
 
     //removing toast
     $(document).ready(function() {
+      $('.page_loader').remove(); 
     setInterval(function() {
       if ($("#liveAlertPlaceholder .alert").length > 0) {
         $(".alert:first").remove();
