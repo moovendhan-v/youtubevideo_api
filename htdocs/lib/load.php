@@ -15,6 +15,7 @@ include __DIR__."/class/operations.class.php";
 include_once __DIR__."/class/agricreations.class.php";
 include_once __DIR__."/class/db.class.php";
 include_once __DIR__."/class/cron.class.php";
+include_once __DIR__."/class/rss.class.php";
 
 function getJsonApis(){
     $_apis = __DIR__.'../../../project/config.json';

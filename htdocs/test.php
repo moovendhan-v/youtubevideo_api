@@ -8,7 +8,8 @@ include __DIR__.'/lib/load.php';
     <?php
     // agri::insertUserContactMessage("test","test","test");
 
-$test = getJsonApis();
-print_r($test);
+// $test = getJsonApis();
+// print_r($test);
+echo rss::rssFetch();
 
 ?>

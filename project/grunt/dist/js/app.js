@@ -107,6 +107,7 @@ $.ajax({
     }
 });
 
+
 var updateAjaxCall = document.querySelector('.updateAjaxCall');
 var updateVideoDetailsAjaxCall = document.querySelector('.updateVideoDetails');
 

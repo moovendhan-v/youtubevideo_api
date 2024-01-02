@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
+
 
 class operations {
     public static function insertData(){
@@ -154,5 +153,28 @@ class operations {
             header('Content-Type: application/json');
             return $jsonData;
         }
+
+        public static function inserRssData(){
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            $title = $_POST['feedtitle'];
+            $description = $_POST['feeddescription'];
+            $link = $_POST['feedlink'];
+            $image = $_POST['image'];
+
+            $conn = db::makeConnection();
+            $query = "INSERT INTO `agricreation_rss` (`title`, `description`, `link`,`iamge`, `pub_date`)
+            VALUES ('$title', '$description', '$link',`$image`, now());";
+             $result = $conn->query($query);
+             if($result){
+                 echo json_encode(["status" => "success", "message" => "Data received successfully"]);
+             }else{
+                 echo json_encode(["status" => "error", "message" => "Data not inserted"]);
+             }
+             $conn->close();
+        }else{
+            echo json_encode(["status" => "error", "message" => "Invalid request method"]);
+        }
+    }
 
     }
