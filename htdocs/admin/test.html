@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contentContainer">
+    </div>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script>
+// Function to populate content
+function populateContent(data) {
+    var contentContainer = $('#contentContainer');
+
+    // Check if the expected structure is present
+    if (data && data.rss && data.rss.channel && data.rss.channel.item) {
+        // Iterate through the data and create cards dynamically
+        $.each(data.rss.channel.item, function(index, item) {
+            console.log(item);
+            var cardHtml = `
+                <div class="col">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${data.rss.channel.image.url}" class="img-fluid rounded-start" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.title}</h5>
+                                    <p class="card-text clamp-2">${item.description}</p>
+                                    <a href="${item.link}" class="btn btn-primary">Visit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            contentContainer.append(cardHtml);
+        });
+    } else {
+        console.error('Unexpected data structure from the endpoint.');
+    }
+}
+
+// Call the function to fetch data and populate content
+fetchDataAndPopulateContent();
+
+    </script>
+</body>
+</html>

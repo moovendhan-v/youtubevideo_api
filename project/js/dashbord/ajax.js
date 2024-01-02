@@ -42,7 +42,6 @@ updateVideoDetailsAjaxCall.addEventListener('click',(event)=>{
       }else{
             createALertButton(responseData.message, "danger");
       }
-      console.log(responseData);
     } else {
       console.error("Error: " + xhr.status);
     }
@@ -104,7 +103,6 @@ updateAjaxCall.addEventListener('click',(event)=>{
       }else{
             createALertButton(responseData.message, "danger");
       }
-      console.log(responseData);
     } else {
       // Error handling
       console.error("Error: " + xhr.status);

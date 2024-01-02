@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     var getModelButtons = document.querySelectorAll('.getModel');
 
     getModelButtons.forEach(function (button) {
-        console.log(button);
         button.addEventListener('click', function (e) {
             // Your existing code here
-            console.log(e);
     
             var id = button.parentElement.parentElement.cells[1].innerText;
             var image = button.parentElement.parentElement.cells[2].lastChild.src;
@@ -22,11 +20,9 @@ document.addEventListener('DOMContentLoaded',()=>{
             var modalChecked = document.querySelector('.modalChecked').checked = islive == 1 ? true : false ;
     
             // var modalChannelId = document.querySelector('.modalDes').value = description;
-            console.log(` ${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
         });
     });
     
     var getModelButtonss = document.querySelectorAll('.getModel')[0];
-    console.log(getModelButtonss);
 })
 

@@ -1,21 +1,16 @@
 <?php
 
-// $jsonContent = file_get_contents(__dir__.'../env.json');
-// $data = json_decode($jsonContent, true);
 
-// $mysql_servername = $data['DB_HOST'];
-// $mysql_usernames = $data['DB_USER'];
-// $mysql_passwords = $data['DB_PASS'];
-// $mysql_db = $data['DB_DB'];
 
 class db{
     public static $conn = null;
     public static function makeConnection(){
+        $apiDatas = getJsonApis();
         if(db::$conn==null){
-            $servername = "mysql";
-            $usernames = "your_mysql_user";
-            $passwords = "your_mysql_password";
-            $dbname = "your_database_name";
+            $servername = $apiDatas['mysql']['host'];
+            $usernames = $apiDatas['mysql']['username'];
+            $passwords = $apiDatas['mysql']['password'];
+            $dbname = $apiDatas['mysql']['database'];
             // Create connection
             $conn = new mysqli($servername, $usernames, $passwords, $dbname);
              // Check connection

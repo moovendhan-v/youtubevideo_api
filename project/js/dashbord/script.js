@@ -76,7 +76,6 @@ function appendChannelToDOM(categoriesArray) {
   let channelContent = document.querySelector('.catogriesContent');
   // Clear existing content
   channelContent.innerHTML = '';
-  console.log(`channel array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -90,7 +89,6 @@ function appendTpeToDOM(categoriesArray) {
   let channelContent = document.querySelector('.typeContent');
   // Clear existing content
   channelContent.innerHTML = '';
-  console.log(`video type array1 ${categoriesArray}`);
   categoriesArray.forEach(category => {
       let paragraph = document.createElement('p');
       paragraph.textContent = category;
@@ -143,7 +141,6 @@ document.addEventListener('DOMContentLoaded', async function () {
           channelIdArray = data.channel.map(function (data) {
               return data.toLowerCase();
           });
-          console.log(channelIdArray);
       } catch (error) {
           console.error('Error fetching data:', error);
       }
@@ -163,7 +160,6 @@ document.addEventListener('DOMContentLoaded', async function () {
           videoTypeId = data.videoinfo.map(function (data) {
               return data.toLowerCase();
           });
-          console.log(videoTypeId);
       } catch (error) {
           console.error('Error fetching data:', error);
       }
@@ -175,7 +171,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function updateDashbord(length){
-  console.log("length", length);
   document.querySelector('.dashbordTotalVideos').innerText = length;
   document.querySelector('.dashbordTotalLive').innerText = length;
   document.querySelector('.dashbordTotalCatogries').innerText = categoriesArray.length;
@@ -194,7 +189,6 @@ async function fetchData() {
       createTableRow(dataObjects[i]);
   }
   updateDashbord(data.length);
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -290,18 +284,11 @@ function mapApiResponseToDataObject(apiResponse) {
         var catogries = e.target.parentElement.parentElement.cells[6].innerText;
         var type = e.target.parentElement.parentElement.cells[7].innerText;
         var islive = e.target.parentElement.parentElement.cells[8].innerText;
-console.log(e.target.parentElement.parentElement.cells[5].innerText);
         var indexOfchannelIdArray = channelIdArray.indexOf(cannelid);
         var indexOfcategoriesArray = categoriesArray.indexOf(catogries);
         var indexOfType = videoTypeId.indexOf(type);
 
-        console.log(channelIdArray);
-        console.log(categoriesArray);
-
-        console.log(indexOfType, type);
-        console.log(indexOfcategoriesArray, catogries);
-        console.log(indexOfchannelIdArray, cannelid);
-
+    
         document.querySelector('.modalId').innerText = id;
         document.querySelector('.modalTitle').value = title;
         document.querySelector('.modalImage').value = image;
@@ -321,7 +308,6 @@ console.log(e.target.parentElement.parentElement.cells[5].innerText);
         //   toUdateTable.childNodes[7].innerText = type; //type
         //   toUdateTable.childNodes[8].innerText = islive; //is live  
         // }
-        console.log(`${image} ${title} ${description}, ${cannelid}, ${catogries} ${type} ${islive}`);
     }
 });
 

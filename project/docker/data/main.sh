@@ -27,5 +27,5 @@ apt install -y php-pgsql
 
 apt-get clean
 
-mv -f /home/config.json /var/www/html/project
+cp -f /home/config.json /var/www/html/project
 
