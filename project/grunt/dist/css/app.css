@@ -419,6 +419,13 @@ hr{
   bottom: 0;
   z-index: 999;
 }
+.spinner-grow{
+  --bs-spinner-width: 10px;
+  --bs-spinner-height: 10px;
+}
+
+
+
 /* .skeleton-loader {
 background: #f0f0f014;
   height: 20px; 

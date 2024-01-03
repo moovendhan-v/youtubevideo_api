@@ -2,7 +2,7 @@
   function fetchDataAndPopulateContent() {
     // Make an AJAX request to fetch data from the endpoint
     $.ajax({
-      url: 'http://localhost/htdocs/?rssfetch',
+      url: `${BASE_URI}?rssfetch`,
       method: 'GET',
       dataType: 'json',
       success: function(data) {
@@ -16,8 +16,6 @@
 
   // Function to populate content
 function populateContent(data) {
-
-
     var contentContainer = $('#contentContainer');
     var rssTitle = $('#rssTitle');
 
@@ -35,7 +33,7 @@ function populateContent(data) {
             uniqueId = hashValue;
             console.log(`Unique Hash value for ${inputData}: ${uniqueId}`);
                     
-        var tileHtml = `<button type="button" id=${uniqueId} class="${titleWithUnderscores} card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+        var tileHtml = `<button type="button" id=${uniqueId} class="${titleWithUnderscores} rssbutton card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
         ${items.rss.channel.title}
        </button>`;
          rssTitle.append(tileHtml);
@@ -70,8 +68,25 @@ function populateContent(data) {
           .catch(error => console.error('Error generating hash:', error));
 
     });
-       
+
 }
 
+
+
+   
+$(function() {
+  $('.rssbutton').each(function() {
+      var elementId = $(this).attr('id');
+console.log("---------");
+      $(this).on('click', function() {
+          console.log(`ID for clicked element with class 'rssbutton': ${elementId}`);
+      });
+  });
+});
+
+
+
+
+    
 fetchDataAndPopulateContent();
 

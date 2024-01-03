@@ -581,10 +581,77 @@ function generateUniqueHash(input) {
 }
 
   // Function to fetch data from the endpoint and populate content
+  function fetchNotionApi() {
+    // Make an AJAX request to fetch data from the endpoint
+    $.ajax({
+      url: `${BASE_URI}/test.php`,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        createContent(data);
+      },
+      error: function() {
+        console.error('Failed to fetch data from the endpoint.');
+      }
+    });
+  }
+
+  function createContent(data){
+    var contentContainersOfNotion = $('#notionContainer');
+    const holdingContainers = $('.notionHolding');
+    const processingContainers = $('.notionProcessing');
+    const liveContainers = $('.notionLive');
+
+    $.each(data['results'], function(index, items) {
+        
+        var notionStatus = items['properties']['Status']['status'].name;
+        var notionText = items['properties']['Name']['title'][0]['text']['content'];
+        let layout = `
+        <div class="card card-hover mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col">
+                <div class="card-body">
+                    <h5 class="card-title h6">${notionText}</h5>
+                    <div class="d-flex justify-content-between align-items-end">
+                    <div>
+                        <span class="badge rounded-pill skeleton-loader 
+                        ${(notionStatus === "Done") ? "text-bg-success" :
+                        (notionStatus === "Not started") ? "text-bg-danger" :
+                        (notionStatus === "In progress") ? "text-bg-warning" : "text-bg-danger"}
+                        ">
+                        
+                        <div class="spinner-grow" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+                        ${(notionStatus === "Done") ? "Done" :
+                        (notionStatus === "Not started") ? "Not Processed" :
+                        (notionStatus === "In progress") ? "In Progress" : "Nothing"}</span> 
+                    </div>                                    
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        console.log(`>>> ${notionText}`);
+        if(notionStatus == "Done"){
+            liveContainers.append(layout);
+        }if(notionStatus == "Not started"){
+            processingContainers.append(layout);
+        }if(notionStatus == "In progress"){
+            holdingContainers.append(layout);
+        }
+    });
+
+
+  }
+
+
+  fetchNotionApi();
+  // Function to fetch data from the endpoint and populate content
   function fetchDataAndPopulateContent() {
     // Make an AJAX request to fetch data from the endpoint
     $.ajax({
-      url: 'http://localhost/htdocs/?rssfetch',
+      url: `${BASE_URI}?rssfetch`,
       method: 'GET',
       dataType: 'json',
       success: function(data) {
@@ -598,8 +665,6 @@ function generateUniqueHash(input) {
 
   // Function to populate content
 function populateContent(data) {
-
-
     var contentContainer = $('#contentContainer');
     var rssTitle = $('#rssTitle');
 
@@ -617,7 +682,7 @@ function populateContent(data) {
             uniqueId = hashValue;
             console.log(`Unique Hash value for ${inputData}: ${uniqueId}`);
                     
-        var tileHtml = `<button type="button" id=${uniqueId} class="${titleWithUnderscores} card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+        var tileHtml = `<button type="button" id=${uniqueId} class="${titleWithUnderscores} rssbutton card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
         ${items.rss.channel.title}
        </button>`;
          rssTitle.append(tileHtml);
@@ -652,9 +717,26 @@ function populateContent(data) {
           .catch(error => console.error('Error generating hash:', error));
 
     });
-       
+
 }
 
+
+
+   
+$(function() {
+  $('.rssbutton').each(function() {
+      var elementId = $(this).attr('id');
+console.log("---------");
+      $(this).on('click', function() {
+          console.log(`ID for clicked element with class 'rssbutton': ${elementId}`);
+      });
+  });
+});
+
+
+
+
+    
 fetchDataAndPopulateContent();
 
 

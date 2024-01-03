@@ -40,15 +40,15 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body class="bg-image bg-theme">
-<div class="page_loader">
- <div class="pulse">
+  <div class="page_loader">
+    <div class="pulse">
 
- </div>
- <div class="d-flex align-items-center flex-direction-column flex-column p-5">
-  <h3>Getting Things Ready</h3>
-  <p>Please Wait</p>
- </div>
-</div>
+    </div>
+    <div class="d-flex align-items-center flex-direction-column flex-column p-5">
+      <h3>Getting Things Ready</h3>
+      <p>Please Wait</p>
+    </div>
+  </div>
   <div class="wrapButton">
     <div id="liveAlertPlaceholder"></div>
   </div>
@@ -146,11 +146,14 @@ if (isset($_GET['logout'])) {
           <div class="tab"><i class="fa-solid fa-pen-to-square text-warning"></i>Update Info</div>
           <hr>
           <div class="tab"><i class="fa-brands fa-google text-info"></i>Agricreations</div>
-          <div class="tab"><i class="fa-brands fa-youtube text-danger"></i>Youtube</div>
+          <div class="tab"><i class="fa-solid fa-heart text-success"></i>Client Reviews</div>
+          <div class="tab"><i class="fa-brands fa-youtube text-danger"></i>Youtube</div>2f424
           <hr>
           <div class="tab"><i class="fa-solid fa-rss text-warning"></i>Rss Feeder</div>
           <hr>
           <div class="tab"><i class="fa-solid fa-database text-primary"></i>Notion</div>
+          <hr>
+          <div class="tab"><i class="fa-solid fa-clock text-warning"></i>Cron job</div>
           <!-- Add more tabs as needed -->
         </div>
 
@@ -166,7 +169,7 @@ if (isset($_GET['logout'])) {
     </div>
 
     <div class="right_div closeBugermenu">
-    <!-- <iframe src=""></iframe>
+      <!-- <iframe src=""></iframe>
  <h3>Video Title</h3>
  <p class="description">Video Description<p> -->
       <!-- Dashbord  -->
@@ -395,7 +398,12 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="channelContent"><p>best apps</p><p>networking</p><p>tech news</p><p>linux</p></div>
+                    <div class="channelContent">
+                      <p>best apps</p>
+                      <p>networking</p>
+                      <p>tech news</p>
+                      <p>linux</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -417,7 +425,13 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="catogriesContent"><p>hkr agri techs</p><p>best apps in tamil</p><p>network chunk</p><p>mkbhd</p><p>mr whose the boss</p></div>
+                    <div class="catogriesContent">
+                      <p>hkr agri techs</p>
+                      <p>best apps in tamil</p>
+                      <p>network chunk</p>
+                      <p>mkbhd</p>
+                      <p>mr whose the boss</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -439,7 +453,10 @@ if (isset($_GET['logout'])) {
                 <!-- //catogries  -->
                 <div class="custom-list-item d-flex align-items-center mb-0 rounded card-blur p-2 cursor-pointer">
                   <div class="ms-2">
-                    <div class="typeContent"><p>normal</p><p>shorts</p></div>
+                    <div class="typeContent">
+                      <p>normal</p>
+                      <p>shorts</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -529,7 +546,7 @@ if (isset($_GET['logout'])) {
             </div>
             <hr>
             <div class="table-responsive table-container-max">
-              <table class="table align-middle mb-0" >
+              <table class="table align-middle mb-0">
                 <thead class="table-light">
                   <tr>
                     <th>Visit-Region</th>
@@ -570,12 +587,12 @@ if (isset($_GET['logout'])) {
                 <hr>
                 <div class="table-responsive table-container">
                   <table class="table align-middle mb-0">
-                    <thead class="table-light"> 
+                    <thead class="table-light">
                       <tr>
                         <th>Email</th>
                       </tr>
                     </thead>
-                    <tbody class="table-body "  id="subscribersTable">
+                    <tbody class="table-body " id="subscribersTable">
                       <tr>
                         <td>Email</td>
                       </tr>
@@ -607,7 +624,7 @@ if (isset($_GET['logout'])) {
                       </tr>
                     </thead>
                     <tbody class="h-300" id="contactTable">
-                     
+
                     </tbody>
                   </table>
                 </div>
@@ -616,6 +633,11 @@ if (isset($_GET['logout'])) {
           </div>
         </div>
 
+      </div>
+      <!-- client Review   -->
+      <div class="tab-content">
+      <h6 class="text-uppercase">Client Review</h6>
+        <hr>
       </div>
       <!-- Youtube -->
       <div class="tab-content">
@@ -792,107 +814,104 @@ if (isset($_GET['logout'])) {
       </div>
       <!-- Rss Feeder  -->
       <div class="tab-content">
-  <hr>
-  <div class="row my-3">
-    <div class="col-6 rssTitle" id="rssTitle">
-      <!-- Buttons for categories -->
-      <button type="button" class="p-1 me-2 mb-3 btn btn-secondary btn-active card-blur rounded" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
-        All News
-      </button>
-    </div>
-  </div>
+        <h6 class="text-uppercase">Rss Feed Reader</h6>
+        <hr>
+        <div class="row my-3">
+          <div class="col-6 rssTitle" id="rssTitle">
+            <!-- Buttons for categories -->
+            <button type="button" class="p-1 me-2 mb-3 btn btn-secondary btn-active card-blur rounded"
+              data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+              All News
+            </button>
+          </div>
+        </div>
 
-  <div class="card radius-10">
-    <div class="card-body">
-      <div class="d-flex align-items-center justify-content-between">
-        <h5 class="mb-0">All Tech News</h5>
-        <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="mb-0">All Tech News</h5>
+              <div class="font-22"><i class="bx bx-dots-horizontal-rounded"></i></div>
+            </div>
+            <hr>
+            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
+              <!-- Content will be dynamically added here -->
+            </div>
+          </div>
+        </div>
       </div>
-      <hr>
-      <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
-        <!-- Content will be dynamically added here -->
-      </div>
-    </div>
-  </div>
-</div>
-
-
       <!-- Notion -->
       <div class="tab-content">
         <h6 class="text-uppercase">Notion Dashbord</h6>
         <hr>
 
-        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
-        <!-- Content will be dynamically added here -->
-      
-                <div class="col Gadgets_360">
-                    <div class="card card-hover mb-3" style="max-width: 540px;">
-                        <div class="row  g-0">
-                            <div class="col-md-4">
-                                <img src="https://i.gadgets360cdn.com/large/apple_iphone_15_pro_max_side_cameras_ndtv_1699429121899.jpg" class="img-fluid rounded-start" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title clamp-2 skeleton-loader">Apple Shares Plunge as Barclays Predicts 'Lacklustre' iPhone 16: Report</h5>
-                                    <p class="card-text clamp-2 skeleton-loader">Barclays has also highlighted soft demand for the iPhone 15 series and challenges facing Apple in China such as the resurgence of its rival Huawei.</p>
-                                    <div class="d-flex justify-content-between align-items-end">
-                                    <div>
-                                     <span class="badge rounded-pill text-bg-primary skeleton-loader">Gadgets 360</span> 
-                                     <span class="badge rounded-pill text-bg-success skeleton-loader">mobiles</span> 
-                                     </div>                                    
-                                    <a href="https://www.gadgets360.com/mobiles/news/iphone-16-lacklustre-prediction-barclays-shares-fall-report-4791361#rss-gadgets-all" class="text-primary link-underline link-underline-opacity-0">Visit</a>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
+        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3" id="notionContainer">
+          <!-- Content will be dynamically added here -->
+
+          <div class="col card-blur p-3 notionProcessing">
+            <h6 class="text-uppercase">Processing</h6>
+            <!-- content will dynamically added here  -->
+          </div>
+
+          <div class="col card-blur p-3 notionHolding">
+            <h6 class="text-uppercase">Holding</h6>
+            <!-- content will dynamically added here  -->
+          </div>
+
+          <div class="col card-blur p-3 notionLive">
+            <h6 class="text-uppercase">Live</h6>
+            <!-- content will dynamically added here  -->
+          </div>
+
+        </div>
+
+      </div>
+      <!-- cron jobs -->
+      <div class="tab-content">
+      <h6 class="text-uppercase">Cron Jobs</h6>
+        <hr>
       </div>
     </div>
 
-  </div>
-  </div>
+
+    <!-- jQuery CDN (latest version) -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
 
 
-  <!-- jQuery CDN (latest version) -->
-  <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
-  <script src="./dist/js/app.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+    <script src="./dist/js/app.js"></script>
 
     <script>
 
     </script>
 
-  <script>
-    $(document).ready(function () {
-      $('.updateVideoDetailsByurl').on('click', function () {
-        getVideoDetailsByUrl();
+    <script>
+      $(document).ready(function () {
+        $('.updateVideoDetailsByurl').on('click', function () {
+          getVideoDetailsByUrl();
+        });
       });
-    });
-  </script>
+    </script>
 
-  <script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
+    <script>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
 
-    //removing toast
-    $(document).ready(function() {
-      $('.page_loader').remove(); 
-    setInterval(function() {
-      if ($("#liveAlertPlaceholder .alert").length > 0) {
-        $(".alert:first").remove();
-      }
-    }, 5000); 
-  });
+      //removing toast
+      $(document).ready(function () {
+        $('.page_loader').remove();
+        setInterval(function () {
+          if ($("#liveAlertPlaceholder .alert").length > 0) {
+            $(".alert:first").remove();
+          }
+        }, 5000);
+      });
 
-  </script>
+    </script>
 
 </body>
 
