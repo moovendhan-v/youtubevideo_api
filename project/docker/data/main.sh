@@ -16,6 +16,7 @@ npm install -y grunt-dart-sass --save-dev
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php
 apt-get update
+apt-get install php-curl
 
 # Skip time zone question by echoing a default choice
 echo "12" | apt-get install -y php
