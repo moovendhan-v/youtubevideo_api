@@ -19,6 +19,7 @@
 
 const admin = "Techey Guys";
 const BASE_URI = "http://localhost/htdocs/";
+const NOTION_API = "secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY";
 var visitorsInfo = `${BASE_URI}?getvisitorsinfo`;
 
 var visitorsInfoArray = [];

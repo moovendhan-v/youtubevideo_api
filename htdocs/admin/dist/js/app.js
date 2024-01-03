@@ -1,4 +1,4 @@
-const admin="Techey Guys",BASE_URI="http://localhost/htdocs/";var visitorsInfo=BASE_URI+"?getvisitorsinfo",visitorsInfoArray=[],emailsubscribers=[],contactMessage=[];function createVisitorTableRow(e){return`
+const admin="Techey Guys",BASE_URI="http://localhost/htdocs/",NOTION_API="secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY";var visitorsInfo=BASE_URI+"?getvisitorsinfo",visitorsInfoArray=[],emailsubscribers=[],contactMessage=[];function createVisitorTableRow(e){return`
         <tr>
             <td>${e.region}</td>
             <td><i class="fa-brands fa-firefox-browser"></i></td>

@@ -810,30 +810,6 @@ if (isset($_GET['logout'])) {
       </div>
       <hr>
       <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
-        
-      <!-- <div class="col Gadgets_360">
-    <div class="card card-hover mb-3" style="max-width: 540px;" id="cardContainer">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <div class="skeleton-loader"></div>
-                <img src="https://i.gadgets360cdn.com/large/indian_railways_pixabay_1559194239468.jpg" class="img-fluid rounded-start d-none" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title clamp-2 skeleton-loader"></h5>
-                    <p class="card-text clamp-2 skeleton-loader"></p>
-                    <div class="d-flex justify-content-between align-items-end">
-                        <div>
-                            <span class="badge rounded-pill text-bg-primary skeleton-loader"></span>
-                            <span class="badge rounded-pill text-bg-success skeleton-loader"></span>
-                        </div>
-                        <a href="#" class="text-primary link-underline link-underline-opacity-0 skeleton-loader"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
         <!-- Content will be dynamically added here -->
       </div>
     </div>
