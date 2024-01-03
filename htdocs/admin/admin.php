@@ -822,6 +822,32 @@ if (isset($_GET['logout'])) {
         <h6 class="text-uppercase">Notion Dashbord</h6>
         <hr>
 
+        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
+        <!-- Content will be dynamically added here -->
+      
+                <div class="col Gadgets_360">
+                    <div class="card card-hover mb-3" style="max-width: 540px;">
+                        <div class="row  g-0">
+                            <div class="col-md-4">
+                                <img src="https://i.gadgets360cdn.com/large/apple_iphone_15_pro_max_side_cameras_ndtv_1699429121899.jpg" class="img-fluid rounded-start" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title clamp-2 skeleton-loader">Apple Shares Plunge as Barclays Predicts 'Lacklustre' iPhone 16: Report</h5>
+                                    <p class="card-text clamp-2 skeleton-loader">Barclays has also highlighted soft demand for the iPhone 15 series and challenges facing Apple in China such as the resurgence of its rival Huawei.</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                    <div>
+                                     <span class="badge rounded-pill text-bg-primary skeleton-loader">Gadgets 360</span> 
+                                     <span class="badge rounded-pill text-bg-success skeleton-loader">mobiles</span> 
+                                     </div>                                    
+                                    <a href="https://www.gadgets360.com/mobiles/news/iphone-16-lacklustre-prediction-barclays-shares-fall-report-4791361#rss-gadgets-all" class="text-primary link-underline link-underline-opacity-0">Visit</a>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
       </div>
     </div>
 
@@ -867,8 +893,6 @@ if (isset($_GET['logout'])) {
   });
 
   </script>
-  
-  
 
 </body>
 
