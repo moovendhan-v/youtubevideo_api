@@ -2,7 +2,7 @@
   function fetchNotionApi() {
     // Make an AJAX request to fetch data from the endpoint
     $.ajax({
-      url: `${BASE_URI}/test.php`,
+      url: `${BASE_URI}?getnotiondatabase=1&dbid=todo`,
       method: 'GET',
       dataType: 'json',
       success: function(data) {

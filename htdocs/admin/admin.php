@@ -147,7 +147,7 @@ if (isset($_GET['logout'])) {
           <hr>
           <div class="tab"><i class="fa-brands fa-google text-info"></i>Agricreations</div>
           <div class="tab"><i class="fa-solid fa-heart text-success"></i>Client Reviews</div>
-          <div class="tab"><i class="fa-brands fa-youtube text-danger"></i>Youtube</div>2f424
+          <div class="tab"><i class="fa-brands fa-youtube text-danger"></i>Youtube</div>
           <hr>
           <div class="tab"><i class="fa-solid fa-rss text-warning"></i>Rss Feeder</div>
           <hr>
@@ -636,8 +636,11 @@ if (isset($_GET['logout'])) {
       </div>
       <!-- client Review   -->
       <div class="tab-content">
-      <h6 class="text-uppercase">Client Review</h6>
+        <h6 class="text-uppercase">Client Review</h6>
         <hr>
+        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1 row-cols-xl-1" id="clientReview">
+          <!-- Content will be dynamically added here -->
+        </div>
       </div>
       <!-- Youtube -->
       <div class="tab-content">
@@ -853,7 +856,7 @@ if (isset($_GET['logout'])) {
           </div>
 
           <div class="col card-blur p-3 notionHolding">
-            <h6 class="text-uppercase">Holding</h6>
+            <h6 class="text-uppercase">In Progress</h6>
             <!-- content will dynamically added here  -->
           </div>
 
@@ -867,7 +870,7 @@ if (isset($_GET['logout'])) {
       </div>
       <!-- cron jobs -->
       <div class="tab-content">
-      <h6 class="text-uppercase">Cron Jobs</h6>
+        <h6 class="text-uppercase">Cron Jobs</h6>
         <hr>
       </div>
     </div>
