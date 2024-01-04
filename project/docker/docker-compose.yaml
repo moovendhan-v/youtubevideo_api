@@ -32,8 +32,20 @@ services:
       - tools:/usr/local/bin
       - htop_config:/root
 
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: your_mongo_admin_user
+      MONGO_INITDB_ROOT_PASSWORD: your_mongo_admin_password
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+
 volumes:
   apache_data:
   mysql_data:
   tools:
   htop_config:
+  mongo_data:

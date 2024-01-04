@@ -129,7 +129,6 @@ $.ajax({
 
     $.each(data['results'], function(index, items) {
     var clientReviews = $('#clientReview');
-
         var clientText = items['properties']['client_name']['rich_text'][0]['text']['content'];
         var clientReview = items['properties']['client_review']['rich_text'][0]['text']['content'];
         var clientImage = items['properties']['client_image']['files'][0]['name'];
