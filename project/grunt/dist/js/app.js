@@ -109,6 +109,70 @@ $.ajax({
 });
 
 
+  // Function to fetch data from the endpoint and populate content
+  function fetchNotionApiOfClientReview() {
+    // Make an AJAX request to fetch data from the endpoint
+    $.ajax({
+      url: `${BASE_URI}?getnotiondatabase=1&dbid=clientReview`,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        createClientReview(data);
+      },
+      error: function() {
+        console.error('Failed to fetch data from the endpoint.');
+      }
+    });
+  }
+
+  function createClientReview(data){
+
+    $.each(data['results'], function(index, items) {
+    var clientReviews = $('#clientReview');
+
+        var clientText = items['properties']['client_name']['rich_text'][0]['text']['content'];
+        var clientReview = items['properties']['client_review']['rich_text'][0]['text']['content'];
+        var clientImage = items['properties']['client_image']['files'][0]['name'];
+        var notionStatus = items['properties']['Status']['status'].name;
+        if(notionStatus == "Done"){
+            let layout = `
+            <div class="col">
+            <div class="card card-hover mb-3">
+              <div class="row  g-0">
+                <div class="col-md-2">
+                  <img
+                    src="${clientImage}"
+                    class="img-fluid rounded-start" alt="Loading..."
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="col-md-10">
+                  <div class="card-body">
+                    <h5 class="card-title  skeleton-loader">${clientText}</h5>
+                    <p class="card-text  skeleton-loader">${clientReview}</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                      <div>
+                        <span class="badge rounded-pill text-bg-primary skeleton-loader">Video Editing</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            `;
+        clientReviews.append(layout);
+        }else{
+            console.log("Its Not live");
+        }
+       
+
+    });
+
+
+  }
+
+
+  fetchNotionApiOfClientReview();
 var updateAjaxCall = document.querySelector('.updateAjaxCall');
 var updateVideoDetailsAjaxCall = document.querySelector('.updateVideoDetails');
 
@@ -564,11 +628,94 @@ function mapApiResponseToDataObject(apiResponse) {
 // notion api 
 
 // secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY
+function generateHash(input) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+
+  return crypto.subtle.digest('SHA-256', data)
+    .then(hashBuffer => {
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    });
+}
+
+function generateUniqueHash(input) {
+  const uniqueInput = input + Math.random().toString();
+  return generateHash(uniqueInput);
+}
+
+  // Function to fetch data from the endpoint and populate content
+  function fetchNotionApi() {
+    // Make an AJAX request to fetch data from the endpoint
+    $.ajax({
+      url: `${BASE_URI}?getnotiondatabase=1&dbid=todo`,
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        createContent(data);
+      },
+      error: function() {
+        console.error('Failed to fetch data from the endpoint.');
+      }
+    });
+  }
+
+  function createContent(data){
+    var contentContainersOfNotion = $('#notionContainer');
+    const holdingContainers = $('.notionHolding');
+    const processingContainers = $('.notionProcessing');
+    const liveContainers = $('.notionLive');
+
+    $.each(data['results'], function(index, items) {
+        
+        var notionStatus = items['properties']['Status']['status'].name;
+        var notionText = items['properties']['Name']['title'][0]['text']['content'];
+        let layout = `
+        <div class="card card-hover mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col">
+                <div class="card-body">
+                    <h5 class="card-title h6">${notionText}</h5>
+                    <div class="d-flex justify-content-between align-items-end">
+                    <div>
+                        <span class="badge rounded-pill skeleton-loader 
+                        ${(notionStatus === "Done") ? "text-bg-success" :
+                        (notionStatus === "Not started") ? "text-bg-danger" :
+                        (notionStatus === "In progress") ? "text-bg-warning" : "text-bg-danger"}
+                        ">
+                        
+                        <div class="spinner-grow" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+                        ${(notionStatus === "Done") ? "Done" :
+                        (notionStatus === "Not started") ? "Not Processed" :
+                        (notionStatus === "In progress") ? "In Progress" : "Nothing"}</span> 
+                    </div>                                    
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        console.log(`>>> ${notionText}`);
+        if(notionStatus == "Done"){
+            liveContainers.append(layout);
+        }if(notionStatus == "Not started"){
+            processingContainers.append(layout);
+        }if(notionStatus == "In progress"){
+            holdingContainers.append(layout);
+        }
+    });
+
+
+  }
+
+
+  fetchNotionApi();
   // Function to fetch data from the endpoint and populate content
   function fetchDataAndPopulateContent() {
     // Make an AJAX request to fetch data from the endpoint
     $.ajax({
-      url: 'http://localhost/htdocs/?rssfetch',
+      url: `${BASE_URI}?rssfetch`,
       method: 'GET',
       dataType: 'json',
       success: function(data) {
@@ -582,53 +729,81 @@ function mapApiResponseToDataObject(apiResponse) {
 
   // Function to populate content
 function populateContent(data) {
-    // var siteLength = data;
-    // var itemLength = data[1].rss.channel.item.length;
-
-    // alert(`${siteLength} ${itemLength}`);
     var contentContainer = $('#contentContainer');
     var rssTitle = $('#rssTitle');
 
     // alert(data[1].rss.channel.title)
     $.each(data, function(index, items) {
+
         var titleWithUnderscores = items.rss.channel.title.replace(/ /g, "_");
-        var tileHtml = `<button type="button" class="${titleWithUnderscores} card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
-       ${items.rss.channel.title}
-      </button>`;
-        rssTitle.append(tileHtml);
-        $.each(data[index].rss.channel.item, function(index, item) {
-            var cardHtml = `
-                <div class="col ${titleWithUnderscores}">
-                    <div class="card card-hover mb-3" style="max-width: 540px;">
-                        <div class="row  g-0">
-                            <div class="col-md-4">
-                                <img src="${item.og_image}" class="img-fluid rounded-start" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title clamp-2 skeleton-loader">${item.og_title}</h5>
-                                    <p class="card-text clamp-2 skeleton-loader">${item.og_description}</p>
-                                    <div class="d-flex justify-content-between align-items-end">
-                                    <div>
-                                     <span class="badge rounded-pill text-bg-primary skeleton-loader">${items.rss.channel.title}</span> 
-                                     <span class="badge rounded-pill text-bg-success skeleton-loader">${item.category}</span> 
-                                     </div>                                    
-                                    <a href="${item.link}" class="text-primary link-underline link-underline-opacity-0">Visit</a>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            contentContainer.append(cardHtml);
-        });
+
+        const inputData = titleWithUnderscores;
+
+        let uniqueId; // Declare uniqueId outside the promise chain
+
+        generateUniqueHash(inputData)
+          .then(hashValue => {
+            uniqueId = hashValue;
+            console.log(`Unique Hash value for ${inputData}: ${uniqueId}`);
+                    
+        var tileHtml = `<button type="button" id=${uniqueId} class="${titleWithUnderscores} rssbutton card-blur rounded p-1 me-2 mb-3 btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="All Added videos">
+        ${items.rss.channel.title}
+       </button>`;
+         rssTitle.append(tileHtml);
+         $.each(data[index].rss.channel.item, function(index, item) {
+             var cardHtml = `
+                 <div class="col ${titleWithUnderscores}${uniqueId}">
+                     <div class="card card-hover mb-3" style="max-width: 540px;">
+                         <div class="row  g-0">
+                             <div class="col-md-4">
+                                 <img src="${item.og_image}" class="img-fluid rounded-start" alt="Loading..." style="width: 100%; height: 100%; object-fit: cover;">
+                             </div>
+                             <div class="col-md-8">
+                                 <div class="card-body">
+                                     <h5 class="card-title clamp-2 skeleton-loader">${item.og_title}</h5>
+                                     <p class="card-text clamp-2 skeleton-loader">${item.og_description}</p>
+                                     <div class="d-flex justify-content-between align-items-end">
+                                     <div>
+                                      <span class="badge rounded-pill text-bg-primary skeleton-loader">${items.rss.channel.title}</span> 
+                                      <span class="badge rounded-pill text-bg-success skeleton-loader">${item.category}</span> 
+                                      </div>                                    
+                                     <a href="${item.link}" class="text-primary link-underline link-underline-opacity-0">Visit</a>
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             `;
+             contentContainer.append(cardHtml);
+         });
+          })
+          .catch(error => console.error('Error generating hash:', error));
+
     });
-       
+
 }
 
 
-  fetchDataAndPopulateContent();
+
+   
+$(function() {
+  $('.rssbutton').each(function() {
+      var elementId = $(this).attr('id');
+console.log("---------");
+      $(this).on('click', function() {
+          console.log(`ID for clicked element with class 'rssbutton': ${elementId}`);
+      });
+  });
+});
+
+
+
+
+    
+fetchDataAndPopulateContent();
+
+
 $(document).ready(function () {
     // Simulate an API call delay for demonstration purposes
     setTimeout(function () {

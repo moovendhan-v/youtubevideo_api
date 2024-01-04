@@ -71,6 +71,11 @@ if(isset($_SESSION['login']) == "admin"){
             echo youtube::buildJson('agricreations_app');
             return;
         }
+        if(isset($_REQUEST['getnotiondatabase'])){
+            echo notion::getNotionDatabaeDetails();
+            return;
+        }
+
         
 }
 
