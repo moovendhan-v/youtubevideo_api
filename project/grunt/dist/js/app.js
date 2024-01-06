@@ -821,8 +821,10 @@ class RSSItems {
     // alert(objectForRss[0].items[position].description);
     let rsstit = objectForRss[0].items[position].title;
     let rssDes = objectForRss[0].items[position].description;
+    let rssTag = objectForRss[0].items[position].category;
     $('#rssFeedTitle').text(rsstit);
     $('#rssFeedBody').html(rssDes);
+    $('#rssFeedTag').html(`<span class="badge rounded-pill text-bg-primary skeleton-loader">${rssTag}</span>`);
   }
 
 

@@ -123,21 +123,19 @@ if (isset($_GET['logout'])) {
   <!-- Feed reader  -->
   <div class="modal fade bg-image " id="feedReader" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog card-blur rounded">
+    <div class="modal-dialog card-blur rounded m-0">
       <div class="modal-content ">
         <div class="modal-header">
           <h1 class="modal-title fs-5 modalId" id="rssFeedTitle">Sample Text</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body p-2">
-          <div id="rssFeedBody">
-            
+        <div class="modal-body mx-5 p-2 h-100vh">
+          <div id="rssFeedTag">
+
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary updateVideoDetailsByurl" data-bs-dismiss="modal">Save
-            changes</button>
+          <div id="rssFeedBody">
+
+          </div>
         </div>
       </div>
     </div>

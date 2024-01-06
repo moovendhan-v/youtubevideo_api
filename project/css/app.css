@@ -369,3 +369,28 @@ background: #f0f0f014;
   display: block;
   margin-bottom: 10px;
 } */
+#rssFeedTag{
+  padding: 10px 0;
+}
+#rssFeedBody a{
+  color: #ffa700 !important;
+
+}
+#rssFeedBody img{
+  max-width: 50%;
+  height: auto;
+  border: 2px solid white;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+#rssFeedBody{
+  /* height: 100vh;
+  overflow: scroll; */
+}
+.modal-dialog{
+  max-width: 100% !important;
+}
+.h-100vh{
+  height: 85vh !important;
+  overflow: scroll;
+}
