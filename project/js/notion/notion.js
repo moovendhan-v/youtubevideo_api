@@ -19,9 +19,8 @@
     const holdingContainers = $('.notionHolding');
     const processingContainers = $('.notionProcessing');
     const liveContainers = $('.notionLive');
-
     $.each(data['results'], function(index, items) {
-        
+
         var notionStatus = items['properties']['Status']['status'].name;
         var notionText = items['properties']['Name']['title'][0]['text']['content'];
         let layout = `
@@ -50,7 +49,6 @@
             </div>
         </div>
     </div>`;
-        console.log(`>>> ${notionText}`);
         if(notionStatus == "Done"){
             liveContainers.append(layout);
         }if(notionStatus == "Not started"){

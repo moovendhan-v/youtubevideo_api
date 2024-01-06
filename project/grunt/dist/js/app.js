@@ -19,7 +19,6 @@
 
 const admin = "Techey Guys";
 const BASE_URI = "http://localhost/htdocs/";
-const NOTION_API = "secret_Ku8SgGv2Ht4R6SEqUvu9uhvynxtEl1CulivgsoTLDDY";
 var visitorsInfo = `${BASE_URI}?getvisitorsinfo`;
 
 var visitorsInfoArray = [];
@@ -664,9 +663,8 @@ function generateUniqueHash(input) {
     const holdingContainers = $('.notionHolding');
     const processingContainers = $('.notionProcessing');
     const liveContainers = $('.notionLive');
-
     $.each(data['results'], function(index, items) {
-        
+
         var notionStatus = items['properties']['Status']['status'].name;
         var notionText = items['properties']['Name']['title'][0]['text']['content'];
         let layout = `
@@ -695,7 +693,6 @@ function generateUniqueHash(input) {
             </div>
         </div>
     </div>`;
-        console.log(`>>> ${notionText}`);
         if(notionStatus == "Done"){
             liveContainers.append(layout);
         }if(notionStatus == "Not started"){
@@ -710,6 +707,87 @@ function generateUniqueHash(input) {
 
 
   fetchNotionApi();
+class RSSFeed {
+  constructor(data) {
+
+    console.log(`RssFeeder ${data[0].rss.channel.title}`);
+    console.log(data);
+    // datas = data[0];
+    // return;
+
+    this.rss = {
+      // "@attributes": data.rss["@attributes"] || { version: "2.0" },
+      channel: this.parseChannel(data.rss.channel) || null,
+    };
+  }
+
+  parseChannel(channelData) {
+    if (!channelData) return null;
+    return {
+      title: channelData.title || null,
+      link: channelData.link || null,
+      description: channelData.description || null,
+      image: this.parseImage(channelData.image) || null,
+      item: this.parseItem(channelData.item) || null,
+    };
+  }
+
+  parseImage(imageData) {
+    if (!imageData) return null;
+
+    return {
+      title: imageData.title || null,
+      link: imageData.link || null,
+      url: imageData.url || null,
+    };
+  }
+
+  parseItem(itemData) {
+    if (!itemData) return null;
+
+    const parsedItem = [];
+    const propertiesToParse = [
+      'title',
+      'link',
+      'guid',
+      'description',
+      'pubDate',
+      'og_title',
+      'og_description',
+      'og_url',
+      'og_type',
+      'og_image',
+      'twitter_card',
+      'twitter_site',
+      'twitter_title',
+      'twitter_description',
+      'twitter_image',
+      'dc_language',
+      'dc_format',
+      'dc_identifier',
+      'category',
+    ];
+
+    for (const property of propertiesToParse) {
+      parsedItem[property] = itemData[property] || null;
+    }
+
+    return parsedItem;
+  }
+}
+
+class RSSItems {
+  constructor(data) {
+    this.items = [];
+    $.each(data, (ind, ite) => {
+      const items = data[ind].rss.channel.item;
+      $.each(items, (index, item) => {
+        this.items.push(item);
+      });
+    });
+  }
+}
+
   // Function to fetch data from the endpoint and populate content
   function fetchDataAndPopulateContent() {
     // Make an AJAX request to fetch data from the endpoint
@@ -726,19 +804,46 @@ function generateUniqueHash(input) {
     });
   }
 
+
+  const feedReader = $('.feedReader');
+  let objectForRss = [];
+
+  const contentContainerLength = $('#contentContainer').children().length;
+  // let getchildByArray =  $('#contentContainer').children().eq(2);
+  $('#contentContainer').on('click', '.rssCard', function() {
+    var position = $(this).index();
+    console.log('Clicked on child at position:', position);
+    showRssFeeder(position);
+  });
+  
+  function showRssFeeder(position){
+    objectForRss[0].items[position].category;
+    // alert(objectForRss[0].items[position].description);
+    let rsstit = objectForRss[0].items[position].title;
+    let rssDes = objectForRss[0].items[position].description;
+    $('#rssFeedTitle').text(rsstit);
+    $('#rssFeedBody').html(rssDes);
+  }
+
+
   // Function to populate content
 function populateContent(data) {
+
+      let pageInstance = new RSSItems(data);
+      objectForRss.push(pageInstance);
+      console.log(objectForRss);
+
     var contentContainer = $('#contentContainer');
     var rssTitle = $('#rssTitle');
 
     // alert(data[1].rss.channel.title)
     $.each(data, function(index, items) {
 
+    
         var titleWithUnderscores = items.rss.channel.title.replace(/ /g, "_");
-
         const inputData = titleWithUnderscores;
-
         let uniqueId; // Declare uniqueId outside the promise chain
+        let count = 0;
 
         generateUniqueHash(inputData)
           .then(hashValue => {
@@ -751,7 +856,7 @@ function populateContent(data) {
          rssTitle.append(tileHtml);
          $.each(data[index].rss.channel.item, function(index, item) {
              var cardHtml = `
-                 <div class="col ${titleWithUnderscores}${uniqueId}">
+                 <div data-bs-target="#feedReader" data-bs-toggle="modal" class="col rssCard  ${titleWithUnderscores}${uniqueId}" id="${count}">
                      <div class="card card-hover mb-3" style="max-width: 540px;">
                          <div class="row  g-0">
                              <div class="col-md-4">
@@ -775,6 +880,7 @@ function populateContent(data) {
                  </div>
              `;
              contentContainer.append(cardHtml);
+             count ++;
          });
           })
           .catch(error => console.error('Error generating hash:', error));
@@ -782,9 +888,6 @@ function populateContent(data) {
     });
 
 }
-
-
-
    
 $(function() {
   $('.rssbutton').each(function() {
