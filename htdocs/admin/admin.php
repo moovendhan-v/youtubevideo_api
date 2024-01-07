@@ -858,6 +858,65 @@ if (isset($_GET['logout'])) {
             </div>
             <hr>
             <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2" id="contentContainer">
+            
+            <!-- skeloton loader  -->
+            <div class="col rssCard rssSkeletonHide">
+                <div class="card card-hover mb-3 p-2" style="max-width: 540px;">
+                    <div class="row  g-0">
+                        <div class="col-md-4 header">
+                            <img src="" class="img img-fluid rounded-start" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8 description">
+                            <div class="card-body">
+        
+                                <h5 class="card-title clamp-2 skeleton-loader line line-2"></h5>
+                                <h5 class="card-title clamp-2 skeleton-loader line line-1"></h5>
+        
+        
+                                <p class="card-text clamp-2 skeleton-loader line line-3"></p>
+                                <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                <span class="badge rounded-pill text-bg-primary skeleton-loader"></span> 
+                                <span class="badge rounded-pill text-bg-success skeleton-loader"></span> 
+                                </div>                                    
+                                <a href="#" class="text-primary link-underline link-underline-opacity-0"></a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="col rssCard rssSkeletonHide">
+                <div class="card card-hover mb-3 p-2" style="max-width: 540px;">
+                    <div class="row  g-0">
+                        
+                        <div class="col-md-4 header">
+                            <img src="" class="img img-fluid rounded-start" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="col-md-8 description">
+                            <div class="card-body">
+        
+                                <h5 class="card-title clamp-2 skeleton-loader line line-2"></h5>
+                                <h5 class="card-title clamp-2 skeleton-loader line line-1"></h5>
+        
+        
+                                <p class="card-text clamp-2 skeleton-loader line line-3"></p>
+                                <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                <span class="badge rounded-pill text-bg-primary skeleton-loader"></span> 
+                                <span class="badge rounded-pill text-bg-success skeleton-loader"></span> 
+                                </div>                                    
+                                <a href="#" class="text-primary link-underline link-underline-opacity-0"></a>
+                              </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- skeloton loader end   -->
+
               <!-- Content will be dynamically added here -->
             </div>
           </div>

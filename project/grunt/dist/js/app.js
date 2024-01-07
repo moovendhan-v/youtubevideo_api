@@ -797,6 +797,7 @@ class RSSItems {
       dataType: 'json',
       success: function(data) {
         populateContent(data);
+        $('.rssSkeletonHide').css('display', 'none');
       },
       error: function() {
         console.error('Failed to fetch data from the endpoint.');
@@ -841,7 +842,6 @@ function populateContent(data) {
     // alert(data[1].rss.channel.title)
     $.each(data, function(index, items) {
 
-    
         var titleWithUnderscores = items.rss.channel.title.replace(/ /g, "_");
         const inputData = titleWithUnderscores;
         let uniqueId; // Declare uniqueId outside the promise chain
@@ -901,6 +901,11 @@ console.log("---------");
   });
 });
 
+// if (objectForRss.length >= 1) {
+//   alert('loaded');
+// } else {
+//   alert('Not loaded');
+// }
 
 
 
