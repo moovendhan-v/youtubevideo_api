@@ -120,6 +120,27 @@ if (isset($_GET['logout'])) {
     </div>
   </div>
 
+  <!-- Feed reader  -->
+  <div class="modal fade bg-image " id="feedReader" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog card-blur rounded m-0">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 modalId" id="rssFeedTitle">Sample Text</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mx-5 p-2 h-100vh">
+          <div id="rssFeedTag">
+
+          </div>
+          <div id="rssFeedBody">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="mobileNav">
     <div><i class="burgerMenu fa-solid fa-bars"></i></div>
   </div>
@@ -878,8 +899,6 @@ if (isset($_GET['logout'])) {
 
     <!-- jQuery CDN (latest version) -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"></script>

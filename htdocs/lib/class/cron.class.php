@@ -2,7 +2,6 @@
 
 class cron{
     public static function runCron(){
-        $count;
             $conn = db::makeConnection();
             $query = "SELECT COUNT(*) as count FROM `agricreations_visitors`";
             $result = $conn->query($query);

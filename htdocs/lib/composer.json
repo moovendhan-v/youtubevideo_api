@@ -1,0 +1,17 @@
+{
+    "name": "root/lib",
+    "autoload": {
+        "psr-4": {
+            "Root\\Lib\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "agricreations",
+            "email": "moovendhanagriculture@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.6.0"
+    }
+}

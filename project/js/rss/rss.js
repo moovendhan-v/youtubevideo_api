@@ -14,19 +14,48 @@
     });
   }
 
+
+  const feedReader = $('.feedReader');
+  let objectForRss = [];
+
+  const contentContainerLength = $('#contentContainer').children().length;
+  // let getchildByArray =  $('#contentContainer').children().eq(2);
+  $('#contentContainer').on('click', '.rssCard', function() {
+    var position = $(this).index();
+    console.log('Clicked on child at position:', position);
+    showRssFeeder(position);
+  });
+  
+  function showRssFeeder(position){
+    objectForRss[0].items[position].category;
+    // alert(objectForRss[0].items[position].description);
+    let rsstit = objectForRss[0].items[position].title;
+    let rssDes = objectForRss[0].items[position].description;
+    let rssTag = objectForRss[0].items[position].category;
+    $('#rssFeedTitle').text(rsstit);
+    $('#rssFeedBody').html(rssDes);
+    $('#rssFeedTag').html(`<span class="badge rounded-pill text-bg-primary skeleton-loader">${rssTag}</span>`);
+  }
+
+
   // Function to populate content
 function populateContent(data) {
+
+      let pageInstance = new RSSItems(data);
+      objectForRss.push(pageInstance);
+      console.log(objectForRss);
+
     var contentContainer = $('#contentContainer');
     var rssTitle = $('#rssTitle');
 
     // alert(data[1].rss.channel.title)
     $.each(data, function(index, items) {
 
+    
         var titleWithUnderscores = items.rss.channel.title.replace(/ /g, "_");
-
         const inputData = titleWithUnderscores;
-
         let uniqueId; // Declare uniqueId outside the promise chain
+        let count = 0;
 
         generateUniqueHash(inputData)
           .then(hashValue => {
@@ -39,7 +68,7 @@ function populateContent(data) {
          rssTitle.append(tileHtml);
          $.each(data[index].rss.channel.item, function(index, item) {
              var cardHtml = `
-                 <div class="col ${titleWithUnderscores}${uniqueId}">
+                 <div data-bs-target="#feedReader" data-bs-toggle="modal" class="col rssCard  ${titleWithUnderscores}${uniqueId}" id="${count}">
                      <div class="card card-hover mb-3" style="max-width: 540px;">
                          <div class="row  g-0">
                              <div class="col-md-4">
@@ -63,6 +92,7 @@ function populateContent(data) {
                  </div>
              `;
              contentContainer.append(cardHtml);
+             count ++;
          });
           })
           .catch(error => console.error('Error generating hash:', error));
@@ -70,9 +100,6 @@ function populateContent(data) {
     });
 
 }
-
-
-
    
 $(function() {
   $('.rssbutton').each(function() {
