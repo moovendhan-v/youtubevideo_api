@@ -1,4 +1,4 @@
-# Backend API for Flutter App (Youtube vidoe dashbord)
+# Backend API for Flutter App (Youtube video dashboard)
 
 ## Overview
 This PHP backend API is designed to support a Flutter app's admin dashboard for managing and updating videos. It provides endpoints to interact with video details.
@@ -6,9 +6,9 @@ This PHP backend API is designed to support a Flutter app's admin dashboard for 
 I am upgrading this project for the admin dashboard. like the person who manages all the things within this one admin dashboard.
 
 I integrated some things like.
-- Integrated youtube API 
+- Integrated YouTube API 
 - Notion API
-- Full text RSS http://ftr.fivefilters.org/
+- Full-text RSS http://ftr.fivefilters.org/
 
 
 ## Technologies Used
